@@ -1,39 +1,46 @@
 <svg width="620" height="305" viewBox="0 0 620 305" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="arrowBlue" markerWidth="7" markerHeight="7" refX="5.6" refY="3.5" orient="auto" markerUnits="strokeWidth">
-      <path d="M0 0L7 3.5L0 7V0Z" fill="#4E8EF7"/>
+    <marker id="arrowBlue" markerWidth="6" markerHeight="7" refX="5.4" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1L5 3.5L1 6" fill="none" stroke="#4E8EF7" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
-    <marker id="arrowSoft" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0 0L6 3L0 6V0Z" fill="#A8B8D2"/>
+    <marker id="arrowSoft" markerWidth="6" markerHeight="7" refX="5.4" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1L5 3.5L1 6" fill="none" stroke="#A7B7CF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
   </defs>
 
-  <!-- short top-row links -->
-  <path d="M189 46H211" stroke="#B8C5D9" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4"/>
-  <path d="M300 46H322" stroke="#B8C5D9" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4"/>
+  <!-- top-row links -->
+  <path d="M189 46H211" stroke="#B7C4D8" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="3 4"/>
+  <path d="M300 46H322" stroke="#B7C4D8" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="3 4"/>
 
-  <!-- upper shared rail -->
-  <path d="M103 88V84H397V100" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
-  <path d="M109 84V100" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
-  <path d="M250 84V100" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <!-- clean upper shared rail -->
+  <path d="M109 84H389" stroke="#AEBBD0" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="3 4"/>
 
-  <!-- rail back up into GPU / Server / Cloud -->
-  <path d="M145 84V69" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
-  <path d="M255 84V69" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
-  <path d="M366 84V69" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <!-- upper rail -> top infrastructure -->
+  <path d="M145 84V69" stroke="#AEBBD0" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <path d="M255 84V69" stroke="#AEBBD0" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <path d="M366 84V69" stroke="#AEBBD0" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
 
-  <!-- main left-to-right execution path -->
-  <path d="M166 151H185" stroke="#4E8EF7" stroke-width="2" stroke-linecap="round" marker-end="url(#arrowBlue)"/>
-  <path d="M312 151H331" stroke="#4E8EF7" stroke-width="2" stroke-linecap="round" marker-end="url(#arrowBlue)"/>
+  <!-- upper rail -> main capability cards -->
+  <path d="M109 84V100" stroke="#AEBBD0" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <path d="M250 84V100" stroke="#AEBBD0" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <path d="M389 84V100" stroke="#AEBBD0" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
 
-  <!-- Your Apps branches to Website and Agents -->
-  <path d="M444 130H456V99H475" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
-  <path d="M444 193H456V226H475" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <!-- main execution path: subtle blue line with normal chevron arrows -->
+  <path d="M166 155H186" stroke="#4E8EF7" stroke-width="1.55" stroke-linecap="round" marker-end="url(#arrowBlue)"/>
+  <path d="M312 155H332" stroke="#4E8EF7" stroke-width="1.55" stroke-linecap="round" marker-end="url(#arrowBlue)"/>
 
-  <!-- lower shared rail -->
-  <path d="M106 225H395" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4"/>
-  <path d="M106 225V211" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
-  <path d="M250 225V211" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
-  <path d="M395 225V211" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
-  <path d="M250 225V239" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <!-- Your Apps -> Website / Agents -->
+  <path d="M444 130H456V99H477" stroke="#AEBBD0" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <path d="M444 190H456V226H477" stroke="#AEBBD0" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+
+  <!-- clean lower shared rail -->
+  <path d="M109 225H389" stroke="#AEBBD0" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="3 4"/>
+
+  <!-- lower rail -> main cards -->
+  <path d="M109 225V210" stroke="#AEBBD0" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <path d="M250 225V210" stroke="#AEBBD0" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <path d="M389 225V210" stroke="#AEBBD0" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+
+  <!-- lower rail -> Network -->
+  <path d="M253 225V239" stroke="#AEBBD0" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
 </svg>
