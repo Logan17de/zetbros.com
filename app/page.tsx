@@ -56,6 +56,63 @@ const process = [
   ["05", "Support", "We stay with you to support, optimize and improve."],
 ];
 
+const aiSolutions = [
+  {
+    icon: "shield",
+    problem: "Sensitive company information should not be copied into unapproved public AI tools.",
+    name: "Private Company AI",
+    short: "A company-controlled AI workspace with governed access to local and approved cloud models.",
+    detail: "We design an internal AI entry point around your security and deployment requirements. The environment can use local inference, approved cloud models, or both, while keeping authentication, access policy, logging and integrations under company control.",
+    build: ["AI web interface", "Authentication", "AI gateway", "Local model serving", "Access controls", "Monitoring", "Internal APIs"],
+    outcome: "A governed AI workspace employees can use for company work without relying on unmanaged consumer AI accounts.",
+  },
+  {
+    icon: "apps",
+    problem: "Useful answers are buried across manuals, procedures, PDFs, knowledge bases and internal documents.",
+    name: "AI Knowledge Assistant",
+    short: "Ask company knowledge in natural language and return answers with the supporting source material.",
+    detail: "We connect approved knowledge sources to a retrieval system that finds relevant content before the model answers. Where source systems expose permissions, retrieval can be designed to respect those access boundaries rather than treating every document as public to every employee.",
+    build: ["Document ingestion", "Search / retrieval", "RAG pipeline", "Source citations", "Permission-aware retrieval", "Sync jobs", "Feedback loop"],
+    outcome: "A searchable internal assistant that helps people reach the right company information faster while showing where an answer came from.",
+  },
+  {
+    icon: "gpu",
+    problem: "Local AI hardware is expensive, but models may still run slowly, consume too much memory or leave resources underused.",
+    name: "AI Performance Optimization",
+    short: "Benchmark the real workload, tune the inference stack and document the measured trade-offs.",
+    detail: "We start with a reproducible baseline and optimize only where it helps the target workload. Depending on the system, this can include inference-engine selection, quantization, cache tuning, batching, context limits, CPU/GPU offload, model choice and serving configuration.",
+    build: ["Workload benchmark", "Inference engine review", "Quantization", "KV/cache tuning", "Batching", "CPU/GPU offload", "Hardware sizing"],
+    outcome: "A measured before-and-after deployment profile with clearer performance, memory and quality trade-offs instead of guesswork.",
+  },
+  {
+    icon: "flow",
+    problem: "Applications become tightly coupled to one AI provider, making privacy rules, outages, model changes and cost controls harder to manage.",
+    name: "AI Gateway & Routing",
+    short: "Give applications one internal AI endpoint while routing requests according to company policy.",
+    detail: "We place a gateway between company applications and the available model backends. Routing rules can consider data sensitivity, task type, model capability, latency, availability and budget constraints without forcing every application to implement provider-specific logic.",
+    build: ["Unified AI endpoint", "Provider adapters", "Routing policy", "Fallback logic", "Usage logging", "Rate controls", "Application migration"],
+    outcome: "Applications depend on a stable internal interface while the model strategy behind that interface can evolve independently.",
+  },
+  {
+    icon: "bot",
+    problem: "A chatbot can explain work, but many business tasks still require people to move information between email, tickets, databases and internal tools.",
+    name: "AI Agents & Integrations",
+    short: "Give AI controlled tool access so it can complete bounded workflows instead of only generating text.",
+    detail: "We connect the agent to the minimum tools required for the workflow, define what it may do, add approval points for sensitive actions and keep an auditable record of tool use. The goal is controlled execution, not an unrestricted bot with broad company access.",
+    build: ["Tool connectors", "Agent workflow", "Scoped permissions", "Human approvals", "Audit logs", "Error handling", "Operational monitoring"],
+    outcome: "A controlled agent that can perform defined multi-step work while keeping people in the loop where judgement or approval is required.",
+  },
+  {
+    icon: "cloud",
+    problem: "Local AI offers control and privacy, while cloud models may provide capabilities that are not practical to host internally for every workload.",
+    name: "Hybrid Local + Cloud AI",
+    short: "Use local and cloud AI together instead of forcing every request through the same model or environment.",
+    detail: "We design routing boundaries around the company’s actual requirements. Sensitive or predictable workloads can stay local, while approved cloud models can be used for tasks that need different capabilities. Fallback behaviour and data-handling rules are defined explicitly rather than left to individual applications.",
+    build: ["Local inference", "Approved cloud backends", "Data policy", "Routing rules", "Fallback paths", "Gateway controls", "Observability"],
+    outcome: "A flexible AI architecture that can balance privacy, capability, availability and operating constraints across different workloads.",
+  },
+];
+
 type IconName =
   | "ai"
   | "shield"
@@ -188,11 +245,11 @@ export default function Home() {
           <div className="aiCopy">
             <p className="eyebrow">AI</p>
             <RevealBoxText as="h2" text="Private, local and built for your business." />
-            <p>Run capable AI in your environment with full control over data, security and performance. We can help with model deployment, local inference, cloud integrations and the systems that connect AI to real company work.</p>
+            <p>Run capable AI in your environment with control over data handling, deployment and model access. We help with local inference, approved cloud integrations and the infrastructure that connects AI to real company work.</p>
             <ul className="checkList">
               <li>Private and local model deployment</li>
               <li>Hardware-aware model optimization</li>
-              <li>No dependency on a single AI provider</li>
+              <li>Provider-independent application architecture</li>
               <li>Company tool and data integrations</li>
               <li>Hybrid local and cloud architectures</li>
             </ul>
@@ -208,6 +265,43 @@ export default function Home() {
             </div>
             <span className="downArrow">↓</span>
             <FlowCard icon="apps" label="Company Tools" tone="blue" />
+          </div>
+        </div>
+
+        <div className="container aiSolutions">
+          <div className="aiSolutionsHeader">
+            <div>
+              <p className="eyebrow">AI solutions</p>
+              <h3>Start with the problem, not the model.</h3>
+            </div>
+            <p>These are practical project shapes we can design around your environment. The exact architecture, models and integrations depend on your data, security requirements, hardware and existing systems.</p>
+          </div>
+
+          <div className="solutionGrid">
+            {aiSolutions.map((solution) => (
+              <details className="solutionCard" key={solution.name}>
+                <summary>
+                  <span className="solutionIcon"><Icon name={solution.icon as IconName} /></span>
+                  <span>
+                    <span className="solutionProblemLabel">Problem</span>
+                    <span className="solutionProblem">{solution.problem}</span>
+                    <span className="solutionName">{solution.name}</span>
+                    <span className="solutionShort">{solution.short}</span>
+                  </span>
+                  <span className="solutionChevron" aria-hidden="true" />
+                </summary>
+                <div className="solutionDetails">
+                  <p>{solution.detail}</p>
+                  <span className="solutionBuildLabel">What we can build</span>
+                  <ul className="solutionBuildList">
+                    {solution.build.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                  <span className="solutionOutcomeLabel">Practical outcome</span>
+                  <p className="solutionOutcome">{solution.outcome}</p>
+                  <a className="solutionCta" href="#contact">Discuss this solution <span>→</span></a>
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
