@@ -1,0 +1,60 @@
+/* Keep the site on one continuous white canvas.
+   Sections are transparent so ambient light can travel behind them,
+   while cards and panels remain solid and readable. */
+
+html,
+body,
+body > main {
+  background: #ffffff;
+}
+
+.hero,
+.section,
+.servicesSection,
+.productsSection,
+.processSection,
+.contactSection,
+.capabilitySection,
+.capabilitySectionAlt,
+.footer {
+  background: transparent !important;
+}
+
+/* Remove the faint horizontal separators between page sections. */
+.servicesSection,
+.capabilitySection,
+.capabilitySectionAlt,
+.productsSection,
+.processSection,
+.contactSection,
+.footer {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
+/* Ambient color belongs outside the content boxes, not inside them. */
+.serviceCard,
+.productCard,
+.capabilityPanel,
+.capabilityPoint,
+.architecture,
+.flowCard,
+.revealBox-hero,
+.revealBox-section {
+  background-color: #ffffff;
+}
+
+.architecture,
+.flowCard {
+  background: #ffffff !important;
+}
+
+/* Keep the dedicated AI panel as a self-contained surface. */
+.aiPanel {
+  background: linear-gradient(115deg, #f3f7ff 0%, #ffffff 55%, #f5f8ff 100%) !important;
+}
+
+/* The sticky header may keep its own glass surface; it is navigation, not a section divider. */
+.siteHeader {
+  box-shadow: none;
+}
