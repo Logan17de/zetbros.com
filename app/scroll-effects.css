@@ -1,93 +1,162 @@
-/* Header branding + viewport container motion */
+/* Header layout, centered logo stage, and viewport content motion */
 
-.navWrap {
+.navWrap,
+.navWrap.navWithoutLogo {
   position: relative;
-  min-height: 116px;
-  height: auto;
-  padding: 11px 150px 12px;
+  min-height: 76px;
+  height: 76px;
+  padding: 0 150px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
 }
 
-.navWrap nav {
+.navWrap nav,
+.navWithoutLogo nav {
+  display: flex;
   justify-content: center;
   gap: 28px;
 }
 
-.navWrap .navCta {
+.navWrap .navCta,
+.navWithoutLogo .navCta {
   position: absolute;
   right: 0;
-  top: 22px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.brandImageWrap {
+/* The uploaded logo is transparent. Keep the wrapper transparent too. */
+.brandImageWrap,
+.brandImageHeroWrap,
+.brandImageSmallWrap {
   position: relative;
-  z-index: 1;
-  isolation: isolate;
-  width: 218px;
-  height: 60px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
   padding: 0;
   overflow: visible;
   border: 0;
-  border-radius: 14px;
-  background: #020304;
-  box-shadow: 0 10px 26px rgba(15, 23, 42, .14);
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  isolation: isolate;
 }
 
-.brandImageWrap::before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  inset: -6px;
-  border-radius: 19px;
-  background:
-    conic-gradient(
-      from 0deg,
-      rgba(16, 185, 255, .08),
-      rgba(30, 111, 255, .58),
-      rgba(0, 207, 232, .18),
-      rgba(64, 91, 255, .48),
-      rgba(16, 185, 255, .08)
-    );
-  filter: blur(8px);
-  opacity: .72;
-  animation: zetbrosLogoAura 7s linear infinite;
-  pointer-events: none;
-}
-
+.brandImageWrap::before,
 .brandImageWrap::after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  border-radius: inherit;
-  background:
-    radial-gradient(circle at 50% 35%, rgba(0, 146, 204, .10), transparent 58%),
-    #020304;
-  pointer-events: none;
+  content: none !important;
+  display: none !important;
 }
 
 .brandImage {
   position: relative;
   z-index: 2;
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 220px;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
   object-position: center;
-  border-radius: inherit;
+  border-radius: 0;
+  filter:
+    drop-shadow(0 2px 2px rgba(15, 23, 42, .18))
+    drop-shadow(0 12px 26px rgba(37, 99, 235, .12));
+}
+
+.brandImageHero {
+  width: min(460px, 78vw);
 }
 
 .brandImageSmall {
-  width: 182px;
-  height: 52px;
+  width: 168px;
 }
 
-@keyframes zetbrosLogoAura {
-  to { transform: rotate(360deg); }
+/* Main centered brand moment: no black box, only a soft ocean-light animation. */
+.heroLogoStage {
+  position: relative;
+  z-index: 1;
+  width: min(560px, 88vw);
+  min-height: 150px;
+  margin: 0 auto 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.heroLogoStage::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 3%;
+  right: 3%;
+  top: 18%;
+  bottom: 18%;
+  border-radius: 50%;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(30, 64, 175, .08) 0%,
+      rgba(37, 99, 235, .54) 27%,
+      rgba(14, 116, 144, .48) 48%,
+      rgba(29, 78, 216, .56) 70%,
+      rgba(30, 64, 175, .08) 100%
+    );
+  background-size: 230% 100%;
+  filter: blur(24px);
+  opacity: .82;
+  animation: zetbrosWaveGlow 6.8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.heroLogoStage::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 16% 7%;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(
+      ellipse at center,
+      rgba(255,255,255,0) 0 17px,
+      rgba(125, 211, 252, .15) 18px 19px,
+      rgba(255,255,255,0) 20px 34px
+    );
+  opacity: .45;
+  filter: blur(.2px);
+  animation: zetbrosRipple 5.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.heroLogoStage .brandImageWrap {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes zetbrosWaveGlow {
+  0% {
+    background-position: 0% 50%;
+    transform: translateX(-2%) scale(.97);
+  }
+  100% {
+    background-position: 100% 50%;
+    transform: translateX(2%) scale(1.035);
+  }
+}
+
+@keyframes zetbrosRipple {
+  0%, 100% {
+    transform: scale(.96);
+    opacity: .28;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: .56;
+  }
 }
 
 .footerTop {
@@ -95,6 +164,29 @@
   justify-items: center;
   text-align: center;
   gap: 16px;
+}
+
+.footer .brandImageWrap {
+  position: relative;
+  padding: 7px 22px;
+}
+
+.footer .brandImageWrap::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  z-index: 0;
+  inset: 10% 0;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(37, 99, 235, .48), rgba(14, 116, 144, .22) 48%, transparent 76%);
+  filter: blur(13px);
+  opacity: .58;
+  pointer-events: none;
+}
+
+.footer .brandImage {
+  position: relative;
+  z-index: 1;
 }
 
 .footerLinks,
@@ -122,6 +214,14 @@
   filter: blur(0);
 }
 
+.heroLogoStage.scrollRevealItem {
+  transform: translateY(20px) scale(.94);
+}
+
+.heroLogoStage.scrollRevealItem.isRevealed {
+  transform: translateY(0) scale(1);
+}
+
 .serviceCard.scrollRevealItem.isRevealed:hover,
 .productCard.scrollRevealItem.isRevealed:hover {
   transform: translateY(-4px) scale(1);
@@ -144,66 +244,76 @@
 }
 
 @media (max-width: 1080px) {
-  .navWrap {
+  .navWrap,
+  .navWrap.navWithoutLogo {
     padding-left: 125px;
     padding-right: 125px;
   }
 
-  .navWrap nav {
+  .navWrap nav,
+  .navWithoutLogo nav {
     gap: 20px;
   }
 
-  .brandImageWrap {
-    width: 196px;
-    height: 56px;
+  .brandImageHero {
+    width: min(410px, 76vw);
   }
 }
 
 @media (max-width: 900px) {
-  .navWrap {
-    min-height: 78px;
+  .navWrap,
+  .navWrap.navWithoutLogo {
+    min-height: 70px;
+    height: 70px;
     padding: 8px 0;
-    flex-direction: row;
-    justify-content: center;
   }
 
-  .navWrap nav {
+  .navWrap nav,
+  .navWithoutLogo nav {
     display: none;
   }
 
-  .navWrap .navCta {
-    top: 50%;
+  .navWrap .navCta,
+  .navWithoutLogo .navCta {
     right: 0;
-    transform: translateY(-50%);
   }
 
-  .brandImageWrap {
-    width: 164px;
-    height: 48px;
+  .heroLogoStage {
+    min-height: 126px;
+    margin-bottom: 24px;
+  }
+
+  .brandImageHero {
+    width: min(360px, 82vw);
   }
 
   .brandImageSmall {
-    width: 154px;
-    height: 45px;
+    width: 150px;
   }
 }
 
 @media (max-width: 540px) {
-  .navWrap .navCta {
+  .navWrap .navCta,
+  .navWithoutLogo .navCta {
     min-width: auto;
     padding: 0 12px;
     font-size: 12px;
   }
 
-  .brandImageWrap {
-    width: 146px;
-    height: 44px;
+  .heroLogoStage {
+    min-height: 108px;
+    width: 94vw;
+  }
+
+  .brandImageHero {
+    width: min(310px, 86vw);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .brandImageWrap::before {
-    animation: none;
+  .heroLogoStage::before,
+  .heroLogoStage::after {
+    animation: none !important;
   }
 
   .scrollRevealItem,
