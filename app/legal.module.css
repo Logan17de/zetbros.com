@@ -1,0 +1,73 @@
+.page {
+  min-height: 100vh;
+  background: #fff;
+  color: #121827;
+}
+
+.header {
+  border-bottom: 1px solid #edf0f5;
+}
+
+.headerInner,
+.article {
+  width: min(820px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+}
+
+.brand {
+  color: #111827;
+  font-size: 20px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.back {
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.article {
+  padding: 72px 0 96px;
+}
+
+.article h1 {
+  margin: 0 0 12px;
+  font-size: clamp(38px, 6vw, 58px);
+  letter-spacing: -.045em;
+}
+
+.updated {
+  margin: 0 0 46px;
+  color: #7a8496;
+  font-size: 14px;
+}
+
+.article h2 {
+  margin: 36px 0 10px;
+  font-size: 21px;
+  letter-spacing: -.02em;
+}
+
+.article p,
+.article li {
+  color: #536075;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.article ul {
+  padding-left: 22px;
+}
+
+.article a {
+  color: #2563eb;
+}
