@@ -108,8 +108,7 @@ export default function Home() {
       <ScrollRevealMotion />
 
       <header className="siteHeader">
-        <div className="container navWrap">
-          <Logo />
+        <div className="container navWrap navWithoutLogo">
           <nav aria-label="Primary navigation">
             <a href="#services">Services</a>
             <a href="#ai">AI</a>
@@ -123,33 +122,39 @@ export default function Home() {
       </header>
 
       <section className="hero section">
-        <div className="container heroGrid">
-          <div className="heroCopy">
-            <p className="eyebrow">Technology that works for you.</p>
-            <RevealBoxText
-              as="h1"
-              text="Build smarter. Run simpler."
-              variant="hero"
-              delayMs={260}
-              wordGapMs={130}
-            />
-            <p className="lede">Zetbros helps companies build, deploy and maintain AI, software and IT infrastructure — from local AI systems and automation to servers, websites and hands-on technical support.</p>
-            <div className="actions">
-              <a className="button buttonPrimary" href="#services">Explore what we do</a>
-              <a className="button buttonGhost" href="#contact">Talk to us</a>
-            </div>
+        <div className="container">
+          <div className="heroLogoStage" aria-label="Zetbros">
+            <Logo hero />
           </div>
 
-          <div className="heroDiagram" aria-label="Zetbros technology diagram">
-            <FlowCard className="node localAi" icon="ai" label="Local AI" tone="violet" />
-            <FlowCard className="node automation" icon="flow" label="Automation" tone="violet" />
-            <FlowCard className="node appsNode" icon="server" label="Your Apps" tone="violet" />
-            <FlowCard className="node gpuNode" icon="gpu" label="GPU" tone="green" />
-            <FlowCard className="node serverNode" icon="server" label="Server" tone="blue" />
-            <FlowCard className="node networkNode" icon="flow" label="Network" tone="orange" />
-            <FlowCard className="node cloudNode" icon="cloud" label="Cloud" tone="cyan" />
-            <FlowCard className="node agentsNode" icon="bot" label="Agents" tone="cyan" />
-            <FlowCard className="node websiteNode" icon="globe" label="Website" tone="violet" />
+          <div className="heroGrid">
+            <div className="heroCopy">
+              <p className="eyebrow">Technology that works for you.</p>
+              <RevealBoxText
+                as="h1"
+                text="Build smarter. Run simpler."
+                variant="hero"
+                delayMs={260}
+                wordGapMs={130}
+              />
+              <p className="lede">Zetbros helps companies build, deploy and maintain AI, software and IT infrastructure — from local AI systems and automation to servers, websites and hands-on technical support.</p>
+              <div className="actions">
+                <a className="button buttonPrimary" href="#services">Explore what we do</a>
+                <a className="button buttonGhost" href="#contact">Talk to us</a>
+              </div>
+            </div>
+
+            <div className="heroDiagram" aria-label="Zetbros technology diagram">
+              <FlowCard className="node localAi" icon="ai" label="Local AI" tone="violet" />
+              <FlowCard className="node automation" icon="flow" label="Automation" tone="violet" />
+              <FlowCard className="node appsNode" icon="server" label="Your Apps" tone="violet" />
+              <FlowCard className="node gpuNode" icon="gpu" label="GPU" tone="green" />
+              <FlowCard className="node serverNode" icon="server" label="Server" tone="blue" />
+              <FlowCard className="node networkNode" icon="flow" label="Network" tone="orange" />
+              <FlowCard className="node cloudNode" icon="cloud" label="Cloud" tone="cyan" />
+              <FlowCard className="node agentsNode" icon="bot" label="Agents" tone="cyan" />
+              <FlowCard className="node websiteNode" icon="globe" label="Website" tone="violet" />
+            </div>
           </div>
         </div>
       </section>
