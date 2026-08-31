@@ -68,7 +68,7 @@ export default function ContactForm() {
       setState("success");
     } catch (err) {
       console.error("Zetbros contact submission failed", err);
-      setError("We couldn't send that message right now. You can email founder@zetbros.com instead.");
+      setError("We couldn't send that message right now. Please try again in a moment.");
       setState("error");
     }
   }
@@ -83,9 +83,6 @@ export default function ContactForm() {
           needs hands-on support, or an application you want to build — tell us what
           you&apos;re working on.
         </p>
-        <a className={styles.email} href="mailto:founder@zetbros.com">
-          founder@zetbros.com
-        </a>
       </div>
 
       <form className={styles.form} onSubmit={submit}>
