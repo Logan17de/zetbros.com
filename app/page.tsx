@@ -33,7 +33,7 @@ const services = [
     icon: "code",
     tone: "blue",
     title: "Web & Software",
-    text: "Build, integrate, maintain and improve applications and websites.",
+    text: "Build, integrate and maintain websites, extensions and internal software.",
   },
 ];
 
@@ -117,7 +117,7 @@ export default function Home() {
           <nav aria-label="Primary navigation">
             <a href="#services">Services</a>
             <a href="#ai">AI</a>
-            <a href="#infrastructure">Infrastructure</a>
+            <a href="#services">Infrastructure</a>
             <a href="#software">Software</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
@@ -251,7 +251,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="footer" id="infrastructure">
+      <footer className="footer">
         <div className="container footerTop">
           <Logo />
           <div className="footerLinks">
