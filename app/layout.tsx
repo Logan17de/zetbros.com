@@ -9,6 +9,7 @@ import "./anchor-nav.css";
 import "./ambient-background.css";
 import "./page-surface.css";
 import "./availability.css";
+import "./ai-solutions.css";
 
 export const metadata: Metadata = {
   title: "Zetbros — AI, Infrastructure & Software",
