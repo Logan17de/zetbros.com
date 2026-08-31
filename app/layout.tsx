@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AiSolutionJump from "./ai-solution-jump";
 import "./globals.css";
 import "./dynamics.css";
 import "./scroll-effects.css";
@@ -10,6 +11,7 @@ import "./ambient-background.css";
 import "./page-surface.css";
 import "./availability.css";
 import "./ai-solutions.css";
+import "./ai-solution-jump.css";
 
 export const metadata: Metadata = {
   title: "Zetbros — AI, Infrastructure & Software",
@@ -20,7 +22,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <AiSolutionJump />
+      </body>
     </html>
   );
 }
