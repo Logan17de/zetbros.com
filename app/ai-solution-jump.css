@@ -1,0 +1,63 @@
+.aiRealWorldJump {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-top: 24px;
+  padding: 0 17px;
+  border: 1px solid #b9cdf8;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .9);
+  color: #2459c7;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, .08);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.aiRealWorldJump:hover {
+  transform: translateY(-1px);
+  border-color: #8fb0f4;
+  background: #f8fbff;
+  box-shadow: 0 11px 25px rgba(37, 99, 235, .12);
+}
+
+.aiRealWorldJumpArrow {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #edf4ff;
+  color: #2563eb;
+  font-size: 13px;
+  transition: transform .2s ease;
+}
+
+.aiRealWorldJump:hover .aiRealWorldJumpArrow {
+  transform: translateY(2px);
+}
+
+#ai-real-world {
+  scroll-margin-top: 110px;
+}
+
+#ai-real-world .aiSolutionsHeader h3 {
+  max-width: 620px;
+}
+
+@media (max-width: 620px) {
+  .aiRealWorldJump {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aiRealWorldJump,
+  .aiRealWorldJumpArrow {
+    transition: none;
+  }
+}
