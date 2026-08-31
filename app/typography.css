@@ -52,12 +52,19 @@ p,
   line-height: 1.72;
 }
 
+/* Small section labels should feel editorial, not like technical badges. */
 .eyebrow {
   font-family: var(--font-body);
   text-transform: none;
-  letter-spacing: 0.035em;
-  font-size: 13px;
-  font-weight: 650;
+  letter-spacing: 0;
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 500;
+  color: #587091;
+}
+
+.hero .eyebrow {
+  color: #4d678a;
 }
 
 nav {
@@ -105,5 +112,9 @@ nav {
   h1,
   .hero .revealBoxText {
     letter-spacing: -0.03em;
+  }
+
+  .eyebrow {
+    font-size: 13px;
   }
 }
