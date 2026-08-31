@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import styles from "./contact-form.module.css";
 
 const SUPABASE_URL = "https://jxvabaqswqembehxligi.supabase.co";
@@ -23,6 +23,28 @@ type State = "idle" | "sending" | "success" | "error";
 export default function ContactForm() {
   const [state, setState] = useState<State>("idle");
   const [error, setError] = useState("");
+  const [serviceOpen, setServiceOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+  const serviceRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    function closeOnOutsideClick(event: MouseEvent) {
+      if (serviceRef.current && !serviceRef.current.contains(event.target as Node)) {
+        setServiceOpen(false);
+      }
+    }
+
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") setServiceOpen(false);
+    }
+
+    document.addEventListener("mousedown", closeOnOutsideClick);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("mousedown", closeOnOutsideClick);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, []);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -36,6 +58,7 @@ export default function ContactForm() {
     if (String(data.get("website") || "").trim()) {
       setState("success");
       form.reset();
+      setSelectedService("");
       return;
     }
 
@@ -65,6 +88,8 @@ export default function ContactForm() {
       }
 
       form.reset();
+      setSelectedService("");
+      setServiceOpen(false);
       setState("success");
     } catch (err) {
       console.error("Zetbros contact submission failed", err);
@@ -102,13 +127,49 @@ export default function ContactForm() {
             <span>Company <em>optional</em></span>
             <input name="company" autoComplete="organization" maxLength={160} placeholder="Company name" />
           </label>
-          <label>
-            <span>What can we help with?</span>
-            <select name="service" defaultValue="">
-              <option value="">Choose a service</option>
-              {services.map((service) => <option key={service}>{service}</option>)}
-            </select>
-          </label>
+
+          <div className={styles.fieldGroup}>
+            <span className={styles.fieldLabel}>What can we help with?</span>
+            <div className={styles.customSelect} ref={serviceRef}>
+              <input type="hidden" name="service" value={selectedService} />
+              <button
+                className={`${styles.selectTrigger} ${serviceOpen ? styles.selectTriggerOpen : ""}`}
+                type="button"
+                aria-haspopup="listbox"
+                aria-expanded={serviceOpen}
+                aria-controls="service-options"
+                onClick={() => setServiceOpen((open) => !open)}
+              >
+                <span className={selectedService ? styles.selectedValue : styles.placeholderValue}>
+                  {selectedService || "Choose a service"}
+                </span>
+                <span className={`${styles.chevron} ${serviceOpen ? styles.chevronOpen : ""}`} aria-hidden="true">
+                  <svg viewBox="0 0 20 20"><path d="m5.5 7.5 4.5 4.5 4.5-4.5" /></svg>
+                </span>
+              </button>
+
+              {serviceOpen && (
+                <div className={styles.selectMenu} id="service-options" role="listbox" aria-label="Choose a service">
+                  {services.map((service) => (
+                    <button
+                      key={service}
+                      type="button"
+                      role="option"
+                      aria-selected={selectedService === service}
+                      className={`${styles.selectOption} ${selectedService === service ? styles.selectOptionSelected : ""}`}
+                      onClick={() => {
+                        setSelectedService(service);
+                        setServiceOpen(false);
+                      }}
+                    >
+                      <span>{service}</span>
+                      {selectedService === service && <span className={styles.optionCheck} aria-hidden="true">✓</span>}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
 
         <label>
