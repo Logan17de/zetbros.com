@@ -1,7 +1,10 @@
 /* Keep anchored sections/cards visible below the sticky header. */
 #services,
 #ai,
+#infrastructure,
+#automation,
 #software,
+#support,
 #about,
 #contact,
 [id^="service-"] {
