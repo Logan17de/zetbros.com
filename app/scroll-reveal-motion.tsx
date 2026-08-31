@@ -9,6 +9,7 @@ type RevealGroup = {
 };
 
 const groups: RevealGroup[] = [
+  { selector: ".heroLogoStage", base: 20 },
   { selector: ".heroDiagram", base: 120 },
   { selector: ".serviceGrid .serviceCard", step: 85 },
   { selector: "#ai .aiPanel", base: 40 },
