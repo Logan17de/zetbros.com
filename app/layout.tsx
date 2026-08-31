@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./dynamics.css";
 import "./scroll-effects.css";
+import "./hero-flow.css";
 
 export const metadata: Metadata = {
   title: "Zetbros — AI, Infrastructure & Software",
