@@ -1,4 +1,5 @@
 import ContactForm from "./contact-form";
+import RevealText from "./reveal-text";
 
 const services = [
   {
@@ -131,8 +132,8 @@ export default function Home() {
       <section className="hero section">
         <div className="container heroGrid">
           <div className="heroCopy">
-            <p className="eyebrow">Technology that works for you.</p>
-            <h1>Build smarter.<br />Run simpler.</h1>
+            <RevealText as="p" className="eyebrow" text="Technology that works for you." />
+            <RevealText as="h1" text={"Build smarter.\nRun simpler."} />
             <p className="lede">Zetbros helps companies build, deploy and maintain AI, software and IT infrastructure — from local AI systems and automation to servers, websites and hands-on technical support.</p>
             <div className="actions">
               <a className="button buttonPrimary" href="#services">Explore what we do</a>
@@ -141,8 +142,6 @@ export default function Home() {
           </div>
 
           <div className="heroDiagram" aria-label="Zetbros technology diagram">
-            <div className="diagramRail railLeft" />
-            <div className="diagramRail railRight" />
             <FlowCard className="node localAi" icon="ai" label="Local AI" tone="violet" />
             <FlowCard className="node automation" icon="flow" label="Automation" tone="violet" />
             <FlowCard className="node appsNode" icon="server" label="Your Apps" tone="violet" />
@@ -158,8 +157,8 @@ export default function Home() {
 
       <section className="section servicesSection" id="services">
         <div className="container">
-          <p className="eyebrow">What we do</p>
-          <h2>Technology, from the rack to the model.</h2>
+          <RevealText as="p" className="eyebrow" text="What we do" />
+          <RevealText as="h2" text="Technology, from the rack to the model." />
           <div className="serviceGrid">
             {services.map((service) => (
               <article className="serviceCard" key={service.title}>
@@ -177,8 +176,8 @@ export default function Home() {
       <section className="section" id="ai">
         <div className="container aiPanel">
           <div className="aiCopy">
-            <p className="eyebrow">Your AI. Your infrastructure.</p>
-            <h2>Private, local and built<br />for your business.</h2>
+            <RevealText as="p" className="eyebrow" text="Your AI. Your infrastructure." />
+            <RevealText as="h2" text={"Private, local and built\nfor your business."} />
             <p>Run powerful AI in your environment with full control over data, security and performance.</p>
             <ul className="checkList">
               <li>Private</li>
@@ -205,8 +204,8 @@ export default function Home() {
 
       <section className="section productsSection" id="software">
         <div className="container">
-          <p className="eyebrow">What we build</p>
-          <h2>We also build our own tools.</h2>
+          <RevealText as="p" className="eyebrow" text="What we build" />
+          <RevealText as="h2" text="We also build our own tools." />
           <div className="productGrid">
             <article className="productCard productBlue">
               <div className="productBadge">H</div>
@@ -226,8 +225,8 @@ export default function Home() {
 
       <section className="section processSection" id="about">
         <div className="container">
-          <p className="eyebrow">Our process</p>
-          <h2>From idea to running system.</h2>
+          <RevealText as="p" className="eyebrow" text="Our process" />
+          <RevealText as="h2" text="From idea to running system." />
           <div className="processGrid">
             {process.map(([n, title, text]) => (
               <article className="processStep" key={n}>
