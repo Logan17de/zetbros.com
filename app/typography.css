@@ -1,0 +1,109 @@
+/* Softer, more human typography for Zetbros */
+
+:root {
+  --font-body: "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Segoe UI Variable Display", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+.revealBoxText {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+
+h1,
+.hero .revealBoxText {
+  font-weight: 690;
+  letter-spacing: -0.038em;
+  line-height: 1.03;
+}
+
+h2 {
+  font-weight: 650;
+  letter-spacing: -0.024em;
+  line-height: 1.15;
+}
+
+h3 {
+  font-weight: 620;
+  letter-spacing: -0.008em;
+}
+
+p,
+.lede,
+.serviceCard p,
+.productCard p,
+.aiCopy > p,
+.processStep p,
+.contactCopy p {
+  letter-spacing: 0.002em;
+}
+
+.lede {
+  font-weight: 400;
+  line-height: 1.72;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  text-transform: none;
+  letter-spacing: 0.035em;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+nav {
+  font-family: var(--font-body);
+  font-weight: 520;
+  letter-spacing: 0;
+}
+
+.button,
+.productCard a,
+.checkList,
+.footerLinks,
+.legalLinks {
+  font-family: var(--font-body);
+  font-weight: 590;
+  letter-spacing: 0;
+}
+
+.flowCard,
+.flowCard b,
+.heroDiagram .flowCardText b,
+.heroDiagram .featureNode .flowCardText p {
+  font-family: var(--font-body);
+}
+
+.flowCard b,
+.heroDiagram .flowCardText b {
+  font-weight: 590;
+  letter-spacing: -0.005em;
+}
+
+.serviceCard h3,
+.productCard h3,
+.processStep h3 {
+  font-weight: 620;
+}
+
+.stepTop span,
+.productBadge {
+  font-family: var(--font-body);
+  font-weight: 680;
+}
+
+@media (max-width: 760px) {
+  h1,
+  .hero .revealBoxText {
+    letter-spacing: -0.03em;
+  }
+}
