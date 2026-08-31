@@ -1,0 +1,177 @@
+/* Dynamic motion and hero diagram overrides */
+
+.revealText {
+  display: block;
+}
+
+.revealLine {
+  display: inline;
+}
+
+.revealChar {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.7em);
+  filter: blur(4px);
+  transition:
+    opacity 420ms ease,
+    transform 520ms cubic-bezier(.2,.72,.2,1),
+    filter 420ms ease;
+  transition-delay: calc(var(--char-index) * 22ms);
+  will-change: opacity, transform;
+}
+
+.revealText.isVisible .revealChar {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.heroDiagram {
+  position: relative;
+  height: 420px;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(130px, 150px));
+  grid-template-rows: repeat(3, 64px);
+  justify-content: space-between;
+  align-content: center;
+  column-gap: 34px;
+  row-gap: 42px;
+  isolation: isolate;
+}
+
+.heroDiagram::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 80px;
+  bottom: 80px;
+  border-left: 1.5px dashed #cbd5e1;
+  transform: translateX(-50%);
+}
+
+.diagramRail {
+  display: none !important;
+}
+
+.heroDiagram .node {
+  position: relative !important;
+  z-index: 2;
+  inset: auto !important;
+  width: 100%;
+  min-width: 0;
+}
+
+.heroDiagram .localAi { grid-column: 1; grid-row: 1; }
+.heroDiagram .automation { grid-column: 1; grid-row: 2; }
+.heroDiagram .appsNode { grid-column: 1; grid-row: 3; }
+.heroDiagram .gpuNode { grid-column: 2; grid-row: 1; }
+.heroDiagram .serverNode { grid-column: 2; grid-row: 2; }
+.heroDiagram .networkNode { grid-column: 2; grid-row: 3; }
+.heroDiagram .cloudNode { grid-column: 3; grid-row: 1; }
+.heroDiagram .agentsNode { grid-column: 3; grid-row: 2; }
+.heroDiagram .websiteNode { grid-column: 3; grid-row: 3; }
+
+.heroDiagram .node::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 100%;
+  width: 34px;
+  border-top: 1.5px dashed #cbd5e1;
+  transform: translateY(-50%);
+}
+
+.heroDiagram .cloudNode::after,
+.heroDiagram .agentsNode::after,
+.heroDiagram .websiteNode::after {
+  display: none;
+}
+
+.heroDiagram .node::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  right: -3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #7da2ec;
+  transform: translate(50%, -50%);
+}
+
+.heroDiagram .cloudNode::before,
+.heroDiagram .agentsNode::before,
+.heroDiagram .websiteNode::before {
+  right: auto;
+  left: -3px;
+  transform: translate(-50%, -50%);
+}
+
+.serviceCard,
+.productCard,
+.processStep,
+.architecture {
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease,
+    border-color 240ms ease;
+}
+
+.serviceCard:hover,
+.productCard:hover {
+  transform: translateY(-4px);
+}
+
+@media (max-width: 1080px) {
+  .heroDiagram {
+    column-gap: 20px;
+    grid-template-columns: repeat(3, minmax(115px, 1fr));
+  }
+
+  .heroDiagram .node::after {
+    width: 20px;
+  }
+}
+
+@media (max-width: 760px) {
+  .heroDiagram {
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 12px;
+    padding: 10px 0;
+  }
+
+  .heroDiagram::before,
+  .heroDiagram .node::after,
+  .heroDiagram .node::before {
+    display: none;
+  }
+
+  .heroDiagram .localAi,
+  .heroDiagram .automation,
+  .heroDiagram .appsNode,
+  .heroDiagram .gpuNode,
+  .heroDiagram .serverNode,
+  .heroDiagram .networkNode,
+  .heroDiagram .cloudNode,
+  .heroDiagram .agentsNode,
+  .heroDiagram .websiteNode {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revealChar {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
