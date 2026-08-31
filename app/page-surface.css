@@ -1,6 +1,6 @@
 /* Keep the site on one continuous white canvas.
-   Sections are transparent so ambient light can travel behind them,
-   while cards and panels remain solid and readable. */
+   Sections are transparent so ambient light can travel behind them.
+   All content containers stay clean white: ambient color belongs only to the page background. */
 
 html,
 body,
@@ -20,7 +20,7 @@ body > main {
   background: transparent !important;
 }
 
-/* Remove the faint horizontal separators between page sections. */
+/* Remove horizontal separators between page sections. */
 .servicesSection,
 .capabilitySection,
 .capabilitySectionAlt,
@@ -32,7 +32,9 @@ body > main {
   border-bottom: 0 !important;
 }
 
-/* Ambient color belongs outside the content boxes, not inside them. */
+/* Content surfaces are intentionally neutral white.
+   No blue/cyan/violet/mint gradients are allowed inside these boxes. */
+.aiPanel,
 .serviceCard,
 .productCard,
 .capabilityPanel,
@@ -40,21 +42,26 @@ body > main {
 .architecture,
 .flowCard,
 .revealBox-hero,
-.revealBox-section {
-  background-color: #ffffff;
-}
-
-.architecture,
-.flowCard {
+.revealBox-section,
+.revealBox-label {
   background: #ffffff !important;
+  background-image: none !important;
 }
 
-/* Keep the dedicated AI panel as a self-contained surface. */
-.aiPanel {
-  background: linear-gradient(115deg, #f3f7ff 0%, #ffffff 55%, #f5f8ff 100%) !important;
+/* Preserve subtle separation without tinting the surfaces. */
+.aiPanel,
+.capabilityPanel,
+.architecture,
+.serviceCard,
+.productCard,
+.capabilityPoint,
+.flowCard,
+.revealBox-hero,
+.revealBox-section {
+  border-color: #e6ebf3;
 }
 
-/* The sticky header may keep its own glass surface; it is navigation, not a section divider. */
+/* The sticky header may keep its glass surface; it is navigation, not a content box. */
 .siteHeader {
   box-shadow: none;
 }
