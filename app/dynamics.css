@@ -1,30 +1,101 @@
-/* Dynamic motion and hero diagram overrides */
+/* Dynamic motion, image branding and hero diagram overrides */
 
-.revealText {
+.brandImageWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 190px;
+  height: 54px;
+  padding: 5px 10px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #050505;
+  border: 1px solid rgba(255, 255, 255, .06);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .12);
+}
+
+.brandImage {
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-.revealLine {
-  display: inline;
+.brandImageSmall {
+  width: 150px;
+  height: 44px;
+  border-radius: 10px;
 }
 
-.revealChar {
+.revealBox {
   display: inline-block;
+  max-width: 100%;
+  margin-bottom: 24px;
   opacity: 0;
-  transform: translateY(0.7em);
-  filter: blur(4px);
+  transform: translateY(18px) scale(.965);
+  transform-origin: left center;
   transition:
-    opacity 420ms ease,
-    transform 520ms cubic-bezier(.2,.72,.2,1),
-    filter 420ms ease;
-  transition-delay: calc(var(--char-index) * 22ms);
+    opacity 360ms ease,
+    transform 480ms cubic-bezier(.2,.8,.2,1),
+    box-shadow 480ms ease,
+    border-color 480ms ease;
   will-change: opacity, transform;
 }
 
-.revealText.isVisible .revealChar {
+.revealBox.isVisible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.revealBox-hero {
+  padding: 15px 18px 17px;
+  border: 1px solid #e2e9f5;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 12px 30px rgba(31, 72, 132, .07);
+}
+
+.revealBox-section {
+  padding: 11px 14px 12px;
+  border: 1px solid #e8edf5;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(249,251,255,.98));
+  box-shadow: 0 8px 22px rgba(31, 72, 132, .055);
+}
+
+.revealBox-label {
+  padding: 7px 10px;
+  border: 1px solid #dce8ff;
+  border-radius: 999px;
+  background: #f6f9ff;
+}
+
+.revealBoxText {
+  margin: 0 !important;
+}
+
+.revealWord {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(.55em);
+  filter: blur(4px);
+  transition:
+    opacity 360ms ease,
+    transform 430ms cubic-bezier(.2,.72,.2,1),
+    filter 360ms ease;
+}
+
+.revealBox.isVisible .revealWord {
   opacity: 1;
   transform: translateY(0);
   filter: blur(0);
+}
+
+.hero .revealBoxText {
+  font-size: clamp(42px, 4.7vw, 64px);
+  line-height: 1.01;
+  letter-spacing: -.052em;
+  font-weight: 780;
 }
 
 .heroDiagram {
@@ -128,6 +199,10 @@
 }
 
 @media (max-width: 1080px) {
+  .brandImageWrap {
+    width: 164px;
+  }
+
   .heroDiagram {
     column-gap: 20px;
     grid-template-columns: repeat(3, minmax(115px, 1fr));
@@ -138,7 +213,28 @@
   }
 }
 
+@media (max-width: 900px) {
+  .brandImageWrap {
+    width: 148px;
+    height: 46px;
+  }
+
+  .brandImageSmall {
+    width: 132px;
+    height: 40px;
+  }
+}
+
 @media (max-width: 760px) {
+  .revealBox-hero,
+  .revealBox-section {
+    padding: 10px 12px;
+  }
+
+  .hero .revealBoxText {
+    font-size: clamp(38px, 11vw, 52px);
+  }
+
   .heroDiagram {
     height: auto;
     grid-template-columns: 1fr;
@@ -168,10 +264,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .revealChar {
-    opacity: 1;
-    transform: none;
-    filter: none;
-    transition: none;
+  .revealBox,
+  .revealWord {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
   }
 }
