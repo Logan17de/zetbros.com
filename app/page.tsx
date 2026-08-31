@@ -1,3 +1,5 @@
+import ContactForm from "./contact-form";
+
 const services = [
   {
     icon: "ai",
@@ -240,14 +242,7 @@ export default function Home() {
 
       <section className="section contactSection" id="contact">
         <div className="container">
-          <div className="contactPanel">
-            <span className="contactIcon"><Icon name="chat" /></span>
-            <div className="contactCopy">
-              <h2>Have something you want to improve?</h2>
-              <p>Whether it’s an AI deployment, an annoying manual workflow, a server that needs hands-on support, or an application you want to build — talk to us.</p>
-            </div>
-            <a className="button buttonPrimary contactButton" href="mailto:founder@zetbros.com">Talk to Zetbros</a>
-          </div>
+          <ContactForm />
         </div>
       </section>
 
@@ -257,7 +252,7 @@ export default function Home() {
           <div className="footerLinks">
             <a href="#ai">AI</a><a href="#services">Infrastructure</a><a href="#services">Automation</a><a href="#software">Software</a><a href="#services">Support</a><a href="#contact">Contact</a>
           </div>
-          <div className="legalLinks"><a href="#">Privacy</a><a href="#">Terms</a></div>
+          <div className="legalLinks"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
         </div>
         <div className="container copyright">© 2026 Zetbros</div>
       </footer>
