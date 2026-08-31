@@ -1,17 +1,27 @@
-/* Hero technology flow — compact reference-matched layout in the original white theme */
+/* Hero technology flow — reference topology translated into the white Zetbros theme. */
 
 .heroDiagram {
   position: relative;
   width: min(100%, 620px);
-  height: 300px;
+  height: 305px;
   margin: 0 auto;
   min-width: 0;
   display: block;
   isolation: isolate;
 }
 
+/* One SVG connector map keeps all rails, branches and arrows aligned exactly. */
 .heroDiagram::before {
   display: none !important;
+}
+
+.heroDiagram::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: url("/hero-flow-lines.svg") center / 100% 100% no-repeat;
 }
 
 .heroDiagram .node {
@@ -20,29 +30,21 @@
   z-index: 2;
   margin: 0;
   min-width: 0;
-  border: 1px solid #e2e8f2;
-  background: rgba(255, 255, 255, .99);
-  box-shadow: 0 8px 24px rgba(35, 60, 104, .075);
-  color: #172033;
+  overflow: visible;
+  border: 1px solid #dfe7f1;
+  background: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(31, 55, 94, .075);
+  color: #1d2939;
 }
 
-/* Reset connector rules from the older grid version. */
+/* Kill all old per-card connector fragments. The SVG above owns the network. */
 .heroDiagram .node::before,
 .heroDiagram .node::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  display: none;
-  width: 0;
-  height: 0;
-  inset: auto;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  transform: none;
+  display: none !important;
+  content: none !important;
 }
 
-/* Compact infrastructure/output nodes. */
+/* Small infrastructure / output cards. */
 .heroDiagram .gpuNode,
 .heroDiagram .serverNode,
 .heroDiagram .cloudNode,
@@ -51,10 +53,10 @@
 .heroDiagram .networkNode {
   min-height: 46px;
   padding: 10px 12px;
-  border-radius: 9px;
+  border-radius: 8px;
   gap: 9px;
-  font-size: 11px;
   align-items: center;
+  font-size: 11px;
 }
 
 .heroDiagram .gpuNode .miniIcon,
@@ -73,19 +75,42 @@
 .heroDiagram .websiteNode .miniIcon svg,
 .heroDiagram .agentsNode .miniIcon svg,
 .heroDiagram .networkNode .miniIcon svg {
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
+}
+
+.heroDiagram .node b {
+  color: #273244;
+  font-size: 11px;
+  font-weight: 590;
+  letter-spacing: 0;
 }
 
 /* Main capability cards. */
 .heroDiagram .localAi,
 .heroDiagram .automation,
 .heroDiagram .appsNode {
-  min-height: 112px;
-  padding: 16px 14px;
-  border-radius: 12px;
+  min-height: 110px;
+  padding: 15px 13px;
+  border-radius: 8px;
   align-items: flex-start;
-  gap: 10px;
+  gap: 9px;
+  box-shadow: 0 9px 25px rgba(31, 55, 94, .085);
+}
+
+.heroDiagram .localAi .miniIcon,
+.heroDiagram .automation .miniIcon,
+.heroDiagram .appsNode .miniIcon {
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+}
+
+.heroDiagram .localAi .miniIcon svg,
+.heroDiagram .automation .miniIcon svg,
+.heroDiagram .appsNode .miniIcon svg {
+  width: 18px;
+  height: 18px;
 }
 
 .heroDiagram .localAi b,
@@ -93,9 +118,10 @@
 .heroDiagram .appsNode b {
   display: block;
   padding-top: 1px;
-  color: #172033;
-  font-size: 12px;
+  color: #202b3c;
+  font-size: 11px;
   line-height: 1.25;
+  font-weight: 620;
 }
 
 .heroDiagram .localAi b::after,
@@ -103,9 +129,9 @@
 .heroDiagram .appsNode b::after {
   display: block;
   margin-top: 8px;
-  color: #6f7b8f;
+  color: #68758a;
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 430;
   line-height: 1.48;
   letter-spacing: 0;
 }
@@ -115,164 +141,86 @@
 }
 
 .heroDiagram .automation b::after {
-  content: "Agents that work from the right integrations.";
+  content: "Agents and workflows that get things done.";
 }
 
 .heroDiagram .appsNode b::after {
   content: "Integrations and tools your team uses.";
 }
 
-/* Reference-like geometry: small top row, larger middle row, small right outputs and network below. */
+/* Geometry follows the supplied reference image (620 x 305 coordinate space). */
 .heroDiagram .gpuNode {
-  left: 20px !important;
-  top: 10px !important;
-  width: 104px !important;
+  left: 16.45% !important;
+  top: 23px !important;
+  width: 14.03% !important;
 }
 
 .heroDiagram .serverNode {
-  left: 174px !important;
-  top: 10px !important;
-  width: 104px !important;
+  left: 34.03% !important;
+  top: 23px !important;
+  width: 14.35% !important;
 }
 
 .heroDiagram .cloudNode {
-  left: 328px !important;
-  top: 10px !important;
-  width: 104px !important;
-}
-
-.heroDiagram .websiteNode {
-  left: 500px !important;
-  top: 18px !important;
-  width: 112px !important;
+  left: 51.94% !important;
+  top: 23px !important;
+  width: 14.19% !important;
 }
 
 .heroDiagram .localAi {
-  left: 0 !important;
-  top: 88px !important;
-  width: 140px !important;
+  left: 8.39% !important;
+  top: 100px !important;
+  width: 18.39% !important;
 }
 
 .heroDiagram .automation {
-  left: 154px !important;
-  top: 88px !important;
-  width: 140px !important;
+  left: 30.32% !important;
+  top: 100px !important;
+  width: 20% !important;
 }
 
 .heroDiagram .appsNode {
-  left: 308px !important;
-  top: 88px !important;
-  width: 140px !important;
+  left: 53.87% !important;
+  top: 100px !important;
+  width: 17.74% !important;
+}
+
+.heroDiagram .websiteNode {
+  left: 77.10% !important;
+  top: 76px !important;
+  width: 14.68% !important;
 }
 
 .heroDiagram .agentsNode {
-  left: 500px !important;
-  top: 121px !important;
-  width: 112px !important;
+  left: 77.10% !important;
+  top: 203px !important;
+  width: 14.68% !important;
 }
 
 .heroDiagram .networkNode {
-  left: 169px !important;
-  top: 230px !important;
-  width: 110px !important;
+  left: 32.74% !important;
+  top: 239px !important;
+  width: 16.13% !important;
 }
 
-/* GPU -> Local AI, Server -> Automation, Cloud -> Your Apps. */
-.heroDiagram .gpuNode::after,
-.heroDiagram .serverNode::after,
-.heroDiagram .cloudNode::after {
-  display: block;
-  left: 50%;
-  top: 100%;
-  height: 32px;
-  border-left: 1.5px dashed #c8d3e4;
-}
-
-/* Local AI -> Automation -> Your Apps. */
-.heroDiagram .localAi::after,
-.heroDiagram .automation::after {
-  display: block;
-  left: 100%;
-  top: 50%;
-  width: 14px;
-  border-top: 1.5px dashed #c8d3e4;
-}
-
-/* Your Apps -> Agents. */
-.heroDiagram .appsNode::after {
-  display: block;
-  left: 100%;
-  top: 50%;
-  width: 52px;
-  border-top: 1.5px dashed #c8d3e4;
-}
-
-/* Cloud -> Website. */
-.heroDiagram .cloudNode::before {
-  display: block;
-  left: 100%;
-  top: 50%;
-  width: 68px;
-  border-top: 1.5px dashed #c8d3e4;
-}
-
-/* Network -> Automation. */
-.heroDiagram .networkNode::before {
-  display: block;
-  left: 50%;
-  bottom: 100%;
-  height: 30px;
-  border-left: 1.5px dashed #c8d3e4;
-}
-
-/* Small blue connector dots, matching the visual language of the reference. */
-.heroDiagram .gpuNode,
-.heroDiagram .serverNode,
-.heroDiagram .cloudNode,
-.heroDiagram .appsNode,
-.heroDiagram .networkNode {
-  overflow: visible;
-}
-
-.heroDiagram .gpuNode::after,
-.heroDiagram .serverNode::after,
-.heroDiagram .cloudNode::after,
-.heroDiagram .localAi::after,
-.heroDiagram .automation::after,
-.heroDiagram .appsNode::after,
-.heroDiagram .cloudNode::before,
-.heroDiagram .networkNode::before {
-  opacity: .95;
-}
-
-/* Keep the entire architecture tight instead of stretching into a generic grid. */
+/* At narrower desktop widths, keep the reference composition instead of reverting to a generic grid. */
 @media (max-width: 1080px) and (min-width: 761px) {
   .heroDiagram {
-    width: 560px;
-    transform-origin: center center;
+    height: 292px;
   }
 
-  .heroDiagram .gpuNode { left: 12px !important; width: 96px !important; }
-  .heroDiagram .serverNode { left: 150px !important; width: 96px !important; }
-  .heroDiagram .cloudNode { left: 288px !important; width: 96px !important; }
-  .heroDiagram .websiteNode { left: 454px !important; width: 102px !important; }
-  .heroDiagram .localAi { left: 0 !important; width: 126px !important; }
-  .heroDiagram .automation { left: 138px !important; width: 126px !important; }
-  .heroDiagram .appsNode { left: 276px !important; width: 126px !important; }
-  .heroDiagram .agentsNode { left: 454px !important; width: 102px !important; }
-  .heroDiagram .networkNode { left: 146px !important; width: 110px !important; }
-
-  .heroDiagram .localAi::after,
-  .heroDiagram .automation::after {
-    width: 12px;
+  .heroDiagram::after {
+    background-size: 100% 292px;
   }
 
-  .heroDiagram .appsNode::after {
-    width: 52px;
+  .heroDiagram .node b {
+    font-size: 10.5px;
   }
 
-  .heroDiagram .cloudNode::before {
-    width: 70px;
+  .heroDiagram .localAi b::after,
+  .heroDiagram .automation b::after,
+  .heroDiagram .appsNode b::after {
+    font-size: 9.5px;
   }
 }
 
@@ -281,9 +229,13 @@
     width: 100%;
     height: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 10px;
     padding: 8px 0;
+  }
+
+  .heroDiagram::after {
+    display: none;
   }
 
   .heroDiagram .node {
@@ -299,14 +251,9 @@
   .heroDiagram .localAi { grid-column: 1 / -1; grid-row: 2; }
   .heroDiagram .automation { grid-column: 1 / -1; grid-row: 3; }
   .heroDiagram .appsNode { grid-column: 1 / -1; grid-row: 4; }
-  .heroDiagram .networkNode { grid-column: 1 / -1; grid-row: 5; width: 46% !important; justify-self: center; }
+  .heroDiagram .networkNode { grid-column: 1 / -1; grid-row: 5; width: 48% !important; justify-self: center; }
   .heroDiagram .websiteNode { grid-column: 1; grid-row: 6; }
   .heroDiagram .agentsNode { grid-column: 3; grid-row: 6; }
-
-  .heroDiagram .node::before,
-  .heroDiagram .node::after {
-    display: none !important;
-  }
 
   .heroDiagram .localAi,
   .heroDiagram .automation,
