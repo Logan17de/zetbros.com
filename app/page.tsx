@@ -116,11 +116,11 @@ export default function Home() {
       <header className="siteHeader">
         <div className="container navWrap navWithoutLogo">
           <nav aria-label="Primary navigation">
-            <a href="#services">Services</a>
             <a href="#ai">AI</a>
-            <a href="#service-infrastructure">Infrastructure</a>
+            <a href="#infrastructure">Infrastructure</a>
+            <a href="#automation">Automation</a>
             <a href="#software">Software</a>
-            <a href="#about">About</a>
+            <a href="#support">Support</a>
             <a href="#contact">Contact</a>
           </nav>
           <a className="button buttonGhost navCta" href="#contact">Talk to us</a>
@@ -186,15 +186,15 @@ export default function Home() {
       <section className="section" id="ai">
         <div className="container aiPanel">
           <div className="aiCopy">
-            <p className="eyebrow">Your AI. Your infrastructure.</p>
+            <p className="eyebrow">AI</p>
             <RevealBoxText as="h2" text="Private, local and built for your business." />
-            <p>Run powerful AI in your environment with full control over data, security and performance.</p>
+            <p>Run capable AI in your environment with full control over data, security and performance. We can help with model deployment, local inference, cloud integrations and the systems that connect AI to real company work.</p>
             <ul className="checkList">
-              <li>Private</li>
-              <li>Customizable</li>
-              <li>No dependency on one AI provider</li>
-              <li>Optimized for your hardware</li>
-              <li>Integrated with company systems</li>
+              <li>Private and local model deployment</li>
+              <li>Hardware-aware model optimization</li>
+              <li>No dependency on a single AI provider</li>
+              <li>Company tool and data integrations</li>
+              <li>Hybrid local and cloud architectures</li>
             </ul>
           </div>
           <div className="architecture" aria-label="Private AI architecture">
@@ -212,10 +212,43 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section capabilitySection capabilitySectionAlt" id="infrastructure">
+        <div className="container capabilityPanel">
+          <div className="capabilityCopy">
+            <p className="eyebrow">Infrastructure</p>
+            <RevealBoxText as="h2" text="From rack space to a running environment." />
+            <p>We help teams deploy and maintain the physical and network layer behind their systems — especially when a remote engineering team needs reliable hands on-site.</p>
+          </div>
+          <div className="capabilityPoints">
+            <div className="capabilityPoint"><b>Rack & stack</b><p>Server installation, cabling, labeling and basic deployment work.</p></div>
+            <div className="capabilityPoint"><b>Network deployment</b><p>Routers, switches, connectivity checks and infrastructure changes.</p></div>
+            <div className="capabilityPoint"><b>On-site implementation</b><p>Physical installation and verification for equipment and environments.</p></div>
+            <div className="capabilityPoint"><b>Remote-team coordination</b><p>Local execution while your engineering team directs the technical plan.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section capabilitySection" id="automation">
+        <div className="container capabilityPanel">
+          <div className="capabilityCopy">
+            <p className="eyebrow">Automation</p>
+            <RevealBoxText as="h2" text="Make repetitive work happen by itself." />
+            <p>We turn manual steps, disconnected tools and repetitive internal processes into dependable workflows — with conventional automation, AI agents or a combination of both.</p>
+          </div>
+          <div className="capabilityPoints">
+            <div className="capabilityPoint"><b>Workflow automation</b><p>Connect routine tasks into repeatable processes with fewer manual handoffs.</p></div>
+            <div className="capabilityPoint"><b>AI agents</b><p>Build agents that can use the right tools, data and company workflows.</p></div>
+            <div className="capabilityPoint"><b>System integrations</b><p>Connect APIs, internal tools, websites, extensions and business systems.</p></div>
+            <div className="capabilityPoint"><b>Monitoring & handoffs</b><p>Keep automated work observable, recoverable and easy for people to take over.</p></div>
+          </div>
+        </div>
+      </section>
+
       <section className="section productsSection" id="software">
         <div className="container">
-          <p className="eyebrow">What we build</p>
-          <RevealBoxText as="h2" text="We also build our own tools." />
+          <p className="eyebrow">Software</p>
+          <RevealBoxText as="h2" text="Software built around the work you actually do." />
+          <p className="lede">We build and maintain websites, extensions, internal tools and AI-enabled applications — including our own products.</p>
           <div className="productGrid">
             <article className="productCard productBlue">
               <div className="productBadge">H</div>
@@ -229,6 +262,22 @@ export default function Home() {
               <div className="productBadge codeBadge">&lt;/&gt;</div>
               <div><h3>Custom AI Tools</h3><p>Internal tools designed around company workflows.</p><a href="#contact">Learn more <span>→</span></a></div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section capabilitySection capabilitySectionAlt" id="support">
+        <div className="container capabilityPanel">
+          <div className="capabilityCopy">
+            <p className="eyebrow">Support</p>
+            <RevealBoxText as="h2" text="Technical support that can actually touch the hardware." />
+            <p>When remote instructions are not enough, we can act as local technical hands for devices, servers and infrastructure while coordinating with your internal or global support team.</p>
+          </div>
+          <div className="capabilityPoints">
+            <div className="capabilityPoint"><b>IT smart hands</b><p>Hands-on checks, swaps, cabling and guided technical tasks.</p></div>
+            <div className="capabilityPoint"><b>Troubleshooting</b><p>Physical and system-level checks to help isolate issues quickly.</p></div>
+            <div className="capabilityPoint"><b>Moves, adds & changes</b><p>Device replacements, desk-side work and infrastructure changes.</p></div>
+            <div className="capabilityPoint"><b>Remote team extension</b><p>Local execution for teams that need trusted support at the site.</p></div>
           </div>
         </div>
       </section>
@@ -260,10 +309,10 @@ export default function Home() {
           <Logo small />
           <div className="footerLinks">
             <a href="#ai">AI</a>
-            <a href="#service-infrastructure">Infrastructure</a>
-            <a href="#service-automation">Automation</a>
+            <a href="#infrastructure">Infrastructure</a>
+            <a href="#automation">Automation</a>
             <a href="#software">Software</a>
-            <a href="#service-it-smart-hands">Support</a>
+            <a href="#support">Support</a>
             <a href="#contact">Contact</a>
           </div>
           <div className="legalLinks"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
