@@ -1,0 +1,109 @@
+/* Intermittent ambient color passes for the white theme.
+   Intentionally subtle: the page stays white and the lights only visit occasionally. */
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Blue / cyan light that occasionally crosses the upper and middle page. */
+body::before {
+  width: min(52vw, 720px);
+  height: min(52vw, 720px);
+  left: -18vw;
+  top: 7vh;
+  background:
+    radial-gradient(circle at 42% 48%, rgba(96, 165, 250, .115) 0%, rgba(103, 232, 249, .07) 34%, rgba(255,255,255,0) 70%);
+  filter: blur(72px);
+  animation: ambientBluePass 24s cubic-bezier(.45,.05,.25,1) infinite;
+}
+
+/* Violet / mint light arrives later, so the motion never feels continuous. */
+body::after {
+  width: min(48vw, 660px);
+  height: min(48vw, 660px);
+  right: -18vw;
+  top: 38vh;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(167, 139, 250, .085) 0%, rgba(110, 231, 183, .06) 38%, rgba(255,255,255,0) 72%);
+  filter: blur(82px);
+  animation: ambientVioletPass 29s cubic-bezier(.45,.05,.25,1) infinite;
+}
+
+/* Keep all actual site UI above the ambient layer. */
+body > main {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes ambientBluePass {
+  0%, 10% {
+    opacity: 0;
+    transform: translate3d(-7vw, -2vh, 0) scale(.92);
+  }
+  17% {
+    opacity: .58;
+  }
+  31% {
+    opacity: .72;
+    transform: translate3d(48vw, 12vh, 0) scale(1.03);
+  }
+  39% {
+    opacity: 0;
+    transform: translate3d(70vw, 18vh, 0) scale(1.09);
+  }
+  40%, 100% {
+    opacity: 0;
+    transform: translate3d(70vw, 18vh, 0) scale(1.09);
+  }
+}
+
+@keyframes ambientVioletPass {
+  0%, 47% {
+    opacity: 0;
+    transform: translate3d(7vw, 8vh, 0) scale(.94);
+  }
+  54% {
+    opacity: .42;
+  }
+  68% {
+    opacity: .62;
+    transform: translate3d(-42vw, -12vh, 0) scale(1.04);
+  }
+  76% {
+    opacity: 0;
+    transform: translate3d(-64vw, -18vh, 0) scale(1.09);
+  }
+  77%, 100% {
+    opacity: 0;
+    transform: translate3d(-64vw, -18vh, 0) scale(1.09);
+  }
+}
+
+@media (max-width: 760px) {
+  body::before,
+  body::after {
+    width: 90vw;
+    height: 90vw;
+    filter: blur(58px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+}
