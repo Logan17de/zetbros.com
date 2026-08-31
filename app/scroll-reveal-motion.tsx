@@ -13,6 +13,8 @@ const groups: RevealGroup[] = [
   { selector: ".heroDiagram", base: 120 },
   { selector: ".serviceGrid .serviceCard", step: 85 },
   { selector: "#ai .aiPanel", base: 40 },
+  { selector: ".capabilityPanel", base: 40 },
+  { selector: ".capabilityPoints .capabilityPoint", step: 70, base: 90 },
   { selector: ".productGrid .productCard", step: 95 },
   { selector: ".processGrid .processStep", step: 75 },
   { selector: ".contactSection .container > *", base: 40 },
