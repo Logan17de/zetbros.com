@@ -6,6 +6,7 @@ import "./hero-flow.css";
 import "./typography.css";
 import "./capability-sections.css";
 import "./anchor-nav.css";
+import "./ambient-background.css";
 
 export const metadata: Metadata = {
   title: "Zetbros — AI, Infrastructure & Software",
