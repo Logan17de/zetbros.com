@@ -1,0 +1,88 @@
+/* Detailed service sections used by the main navigation and footer anchors. */
+
+.capabilitySection {
+  padding: 58px 0;
+}
+
+.capabilitySectionAlt {
+  background: linear-gradient(180deg, #fbfcff 0%, #ffffff 100%);
+  border-top: 1px solid #f0f3f8;
+  border-bottom: 1px solid #f3f5f9;
+}
+
+.capabilityPanel {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  gap: 52px;
+  align-items: center;
+  padding: 42px;
+  border: 1px solid #e6ebf3;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 14px 38px rgba(31, 55, 94, .055);
+}
+
+.capabilityCopy > p:not(.eyebrow) {
+  max-width: 550px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.capabilityPoints {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.capabilityPoint {
+  min-height: 112px;
+  padding: 19px 20px;
+  border: 1px solid #e8edf5;
+  border-radius: 14px;
+  background: #fbfcff;
+}
+
+.capabilityPoint b {
+  display: block;
+  margin-bottom: 7px;
+  color: #182235;
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 650;
+}
+
+.capabilityPoint p {
+  margin: 0;
+  color: #667286;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .capabilityPanel {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 32px;
+  }
+}
+
+@media (max-width: 620px) {
+  .capabilitySection {
+    padding: 42px 0;
+  }
+
+  .capabilityPanel {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .capabilityPoints {
+    grid-template-columns: 1fr;
+  }
+
+  .capabilityPoint {
+    min-height: auto;
+  }
+}
