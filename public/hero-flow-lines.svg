@@ -1,0 +1,39 @@
+<svg width="620" height="305" viewBox="0 0 620 305" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowBlue" markerWidth="7" markerHeight="7" refX="5.6" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0L7 3.5L0 7V0Z" fill="#4E8EF7"/>
+    </marker>
+    <marker id="arrowSoft" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0L6 3L0 6V0Z" fill="#A8B8D2"/>
+    </marker>
+  </defs>
+
+  <!-- short top-row links -->
+  <path d="M189 46H211" stroke="#B8C5D9" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4"/>
+  <path d="M300 46H322" stroke="#B8C5D9" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4"/>
+
+  <!-- upper shared rail -->
+  <path d="M103 88V84H397V100" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <path d="M109 84V100" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <path d="M250 84V100" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+
+  <!-- rail back up into GPU / Server / Cloud -->
+  <path d="M145 84V69" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <path d="M255 84V69" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <path d="M366 84V69" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+
+  <!-- main left-to-right execution path -->
+  <path d="M166 151H185" stroke="#4E8EF7" stroke-width="2" stroke-linecap="round" marker-end="url(#arrowBlue)"/>
+  <path d="M312 151H331" stroke="#4E8EF7" stroke-width="2" stroke-linecap="round" marker-end="url(#arrowBlue)"/>
+
+  <!-- Your Apps branches to Website and Agents -->
+  <path d="M444 130H456V99H475" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <path d="M444 193H456V226H475" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+
+  <!-- lower shared rail -->
+  <path d="M106 225H395" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4"/>
+  <path d="M106 225V211" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <path d="M250 225V211" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <path d="M395 225V211" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+  <path d="M250 225V239" stroke="#AEBBD0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4" marker-end="url(#arrowSoft)"/>
+</svg>
