@@ -1,6 +1,7 @@
 import ContactForm from "./contact-form";
 import Logo from "./logo";
 import RevealBoxText from "./reveal-box-text";
+import ScrollRevealMotion from "./scroll-reveal-motion";
 
 const services = [
   {
@@ -104,6 +105,8 @@ function FlowCard({ className = "", icon, label, tone = "blue" }: { className?: 
 export default function Home() {
   return (
     <main id="top">
+      <ScrollRevealMotion />
+
       <header className="siteHeader">
         <div className="container navWrap">
           <Logo />
