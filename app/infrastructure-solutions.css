@@ -1,0 +1,161 @@
+/* Real-world infrastructure projects. Physical / on-site work is currently Japan-only. */
+
+.infraRealWorldJump {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-top: 24px;
+  padding: 0 17px;
+  border: 1px solid #c9d5ef;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .92);
+  color: #315da8;
+  box-shadow: 0 8px 20px rgba(48, 79, 132, .07);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.infraRealWorldJump:hover {
+  transform: translateY(-1px);
+  border-color: #9eb6e2;
+  background: #f9fbff;
+  box-shadow: 0 11px 25px rgba(48, 79, 132, .11);
+}
+
+.infraRealWorldJumpArrow {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #f0f4fb;
+  color: #315da8;
+  font-size: 13px;
+  transition: transform .2s ease;
+}
+
+.infraRealWorldJump:hover .infraRealWorldJumpArrow {
+  transform: translateY(2px);
+}
+
+.infraSolutions {
+  margin-top: 46px;
+  padding-top: 8px;
+}
+
+#infrastructure-real-world {
+  scroll-margin-top: 110px;
+}
+
+.infraSolutionsHeader {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  gap: 54px;
+  align-items: end;
+  margin-bottom: 26px;
+}
+
+.infraSolutionsHeader h3 {
+  margin: 0;
+  max-width: 620px;
+  color: #1b2535;
+  font-size: clamp(25px, 2.7vw, 35px);
+  line-height: 1.13;
+  font-weight: 650;
+  letter-spacing: -.03em;
+}
+
+.infraSolutionsHeader > div:last-child > p {
+  margin: 0;
+  max-width: 620px;
+  color: #647084;
+  font-size: 15px;
+  line-height: 1.72;
+}
+
+.infraJapanBadge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  margin-top: 14px;
+  padding: 0 11px;
+  border: 1px solid #d9e4f4;
+  border-radius: 999px;
+  background: #f8fbff;
+  color: #52677f;
+  font-size: 11px;
+  font-weight: 560;
+}
+
+.infraSolutionCard {
+  border-color: #e0e6ee;
+}
+
+.infraSolutionCard:hover {
+  border-color: #c8d5e7;
+}
+
+.infraSolutionCard[open] {
+  border-color: #b9cae2;
+}
+
+.infraSolutionIcon {
+  background: #f7f9fc;
+  color: inherit;
+  font-size: 21px;
+  line-height: 1;
+}
+
+.infraSolutionFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.infraSolutionFooter > span:first-child {
+  color: #738096;
+  font-size: 11px;
+  font-weight: 520;
+}
+
+@media (max-width: 860px) {
+  .infraSolutionsHeader {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 620px) {
+  .infraRealWorldJump {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .infraSolutions {
+    margin-top: 34px;
+  }
+
+  .infraJapanBadge {
+    border-radius: 10px;
+    padding: 7px 10px;
+    line-height: 1.35;
+  }
+
+  .infraSolutionFooter {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .infraRealWorldJump,
+  .infraRealWorldJumpArrow {
+    transition: none;
+  }
+}
