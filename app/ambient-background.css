@@ -1,9 +1,10 @@
 /* Intermittent ambient color passes for the white theme.
-   Intentionally subtle: the page stays white and the lights only visit occasionally. */
+   The light lives behind the entire page canvas, not inside content boxes. */
 
 body {
   position: relative;
   overflow-x: hidden;
+  background: #ffffff;
 }
 
 body::before,
@@ -12,91 +13,100 @@ body::after {
   position: fixed;
   z-index: 0;
   pointer-events: none;
-  border-radius: 50%;
   opacity: 0;
   will-change: transform, opacity;
 }
 
-/* Blue / cyan light that occasionally crosses the upper and middle page. */
+/* Wide blue/cyan/lavender sweep. It crosses the viewport, fades, then stays quiet. */
 body::before {
-  width: min(52vw, 720px);
-  height: min(52vw, 720px);
-  left: -18vw;
-  top: 7vh;
+  width: 118vw;
+  height: 46vh;
+  left: -108vw;
+  top: 8vh;
+  border-radius: 50%;
   background:
-    radial-gradient(circle at 42% 48%, rgba(96, 165, 250, .115) 0%, rgba(103, 232, 249, .07) 34%, rgba(255,255,255,0) 70%);
-  filter: blur(72px);
-  animation: ambientBluePass 24s cubic-bezier(.45,.05,.25,1) infinite;
-}
-
-/* Violet / mint light arrives later, so the motion never feels continuous. */
-body::after {
-  width: min(48vw, 660px);
-  height: min(48vw, 660px);
-  right: -18vw;
-  top: 38vh;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(167, 139, 250, .085) 0%, rgba(110, 231, 183, .06) 38%, rgba(255,255,255,0) 72%);
+    radial-gradient(ellipse at 45% 50%,
+      rgba(96, 165, 250, .13) 0%,
+      rgba(103, 232, 249, .09) 26%,
+      rgba(196, 181, 253, .065) 44%,
+      rgba(255, 255, 255, 0) 73%);
   filter: blur(82px);
-  animation: ambientVioletPass 29s cubic-bezier(.45,.05,.25,1) infinite;
+  animation: ambientWidePassOne 30s cubic-bezier(.45,.05,.25,1) infinite;
 }
 
-/* Keep all actual site UI above the ambient layer. */
+/* A second, softer mint/violet pass arrives later from the opposite side. */
+body::after {
+  width: 108vw;
+  height: 42vh;
+  right: -104vw;
+  top: 49vh;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 52% 50%,
+      rgba(110, 231, 183, .08) 0%,
+      rgba(125, 211, 252, .085) 28%,
+      rgba(167, 139, 250, .07) 46%,
+      rgba(255, 255, 255, 0) 74%);
+  filter: blur(90px);
+  animation: ambientWidePassTwo 34s cubic-bezier(.45,.05,.25,1) infinite;
+}
+
 body > main {
   position: relative;
   z-index: 1;
+  background: transparent;
 }
 
-@keyframes ambientBluePass {
-  0%, 10% {
+@keyframes ambientWidePassOne {
+  0%, 8% {
     opacity: 0;
-    transform: translate3d(-7vw, -2vh, 0) scale(.92);
+    transform: translate3d(0, -2vh, 0) rotate(-5deg) scale(.96);
   }
-  17% {
-    opacity: .58;
+  14% {
+    opacity: .54;
   }
-  31% {
+  27% {
     opacity: .72;
-    transform: translate3d(48vw, 12vh, 0) scale(1.03);
+    transform: translate3d(103vw, 8vh, 0) rotate(-2deg) scale(1.03);
   }
-  39% {
+  36% {
     opacity: 0;
-    transform: translate3d(70vw, 18vh, 0) scale(1.09);
+    transform: translate3d(145vw, 12vh, 0) rotate(1deg) scale(1.07);
   }
-  40%, 100% {
+  37%, 100% {
     opacity: 0;
-    transform: translate3d(70vw, 18vh, 0) scale(1.09);
+    transform: translate3d(145vw, 12vh, 0) rotate(1deg) scale(1.07);
   }
 }
 
-@keyframes ambientVioletPass {
-  0%, 47% {
+@keyframes ambientWidePassTwo {
+  0%, 48% {
     opacity: 0;
-    transform: translate3d(7vw, 8vh, 0) scale(.94);
+    transform: translate3d(0, 6vh, 0) rotate(5deg) scale(.96);
   }
-  54% {
+  55% {
     opacity: .42;
   }
   68% {
     opacity: .62;
-    transform: translate3d(-42vw, -12vh, 0) scale(1.04);
+    transform: translate3d(-98vw, -8vh, 0) rotate(2deg) scale(1.03);
   }
-  76% {
+  77% {
     opacity: 0;
-    transform: translate3d(-64vw, -18vh, 0) scale(1.09);
+    transform: translate3d(-140vw, -13vh, 0) rotate(-1deg) scale(1.07);
   }
-  77%, 100% {
+  78%, 100% {
     opacity: 0;
-    transform: translate3d(-64vw, -18vh, 0) scale(1.09);
+    transform: translate3d(-140vw, -13vh, 0) rotate(-1deg) scale(1.07);
   }
 }
 
 @media (max-width: 760px) {
   body::before,
   body::after {
-    width: 90vw;
-    height: 90vw;
-    filter: blur(58px);
+    width: 150vw;
+    height: 44vh;
+    filter: blur(64px);
   }
 }
 
