@@ -5,36 +5,42 @@ import ScrollRevealMotion from "./scroll-reveal-motion";
 
 const services = [
   {
+    id: "service-ai-infrastructure",
     icon: "ai",
     tone: "blue",
     title: "AI Infrastructure",
     text: "Deploy and optimize AI systems for your own environment.",
   },
   {
+    id: "service-private-ai",
     icon: "shield",
     tone: "cyan",
     title: "Private & Local AI",
     text: "Run capable AI models inside your company’s infrastructure.",
   },
   {
+    id: "service-automation",
     icon: "flow",
     tone: "orange",
     title: "Automation",
     text: "Turn repetitive workflows into reliable automated systems.",
   },
   {
+    id: "service-it-smart-hands",
     icon: "tool",
     tone: "green",
     title: "IT Smart Hands",
     text: "Hands-on technical support for devices, servers and infrastructure.",
   },
   {
+    id: "service-infrastructure",
     icon: "server",
     tone: "violet",
     title: "Infrastructure",
     text: "Rack & stack, networking, deployments and on-site support.",
   },
   {
+    id: "service-web-software",
     icon: "code",
     tone: "blue",
     title: "Web & Software",
@@ -112,7 +118,7 @@ export default function Home() {
           <nav aria-label="Primary navigation">
             <a href="#services">Services</a>
             <a href="#ai">AI</a>
-            <a href="#services">Infrastructure</a>
+            <a href="#service-infrastructure">Infrastructure</a>
             <a href="#software">Software</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
@@ -165,7 +171,7 @@ export default function Home() {
           <RevealBoxText as="h2" text="Technology, from the rack to the model." />
           <div className="serviceGrid">
             {services.map((service) => (
-              <article className="serviceCard" key={service.title}>
+              <article className="serviceCard" id={service.id} key={service.title}>
                 <span className={`serviceIcon ${service.tone}`}><Icon name={service.icon as IconName} /></span>
                 <div>
                   <h3>{service.title}</h3>
@@ -253,7 +259,12 @@ export default function Home() {
         <div className="container footerTop">
           <Logo small />
           <div className="footerLinks">
-            <a href="#ai">AI</a><a href="#services">Infrastructure</a><a href="#services">Automation</a><a href="#software">Software</a><a href="#services">Support</a><a href="#contact">Contact</a>
+            <a href="#ai">AI</a>
+            <a href="#service-infrastructure">Infrastructure</a>
+            <a href="#service-automation">Automation</a>
+            <a href="#software">Software</a>
+            <a href="#service-it-smart-hands">Support</a>
+            <a href="#contact">Contact</a>
           </div>
           <div className="legalLinks"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
         </div>
