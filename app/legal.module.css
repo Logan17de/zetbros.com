@@ -2,6 +2,11 @@
   min-height: 100vh;
   background: #fff;
   color: #121827;
+  font-family: "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .header {
@@ -22,46 +27,68 @@
 }
 
 .brand {
-  color: #111827;
+  color: #172033;
+  font-family: "Segoe UI Variable Display", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 650;
+  letter-spacing: -.018em;
   text-decoration: none;
 }
 
 .back {
-  color: #2563eb;
+  color: #526077;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
+  letter-spacing: 0;
   text-decoration: none;
+  transition: color .18s ease;
+}
+
+.back:hover {
+  color: #2563eb;
 }
 
 .article {
   padding: 72px 0 96px;
 }
 
+.article h1,
+.article h2 {
+  font-family: "Segoe UI Variable Display", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  text-wrap: balance;
+}
+
 .article h1 {
   margin: 0 0 12px;
-  font-size: clamp(38px, 6vw, 58px);
-  letter-spacing: -.045em;
+  font-size: clamp(38px, 6vw, 56px);
+  line-height: 1.04;
+  font-weight: 660;
+  letter-spacing: -.035em;
 }
 
 .updated {
   margin: 0 0 46px;
   color: #7a8496;
   font-size: 14px;
+  font-weight: 400;
 }
 
 .article h2 {
-  margin: 36px 0 10px;
+  margin: 38px 0 11px;
+  color: #1b2535;
   font-size: 21px;
-  letter-spacing: -.02em;
+  line-height: 1.3;
+  font-weight: 610;
+  letter-spacing: -.012em;
 }
 
 .article p,
 .article li {
-  color: #536075;
+  color: #59667a;
   font-size: 16px;
-  line-height: 1.75;
+  font-weight: 400;
+  line-height: 1.78;
+  letter-spacing: 0;
 }
 
 .article ul {
@@ -70,4 +97,17 @@
 
 .article a {
   color: #2563eb;
+  font-weight: 500;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 620px) {
+  .article {
+    padding: 52px 0 72px;
+  }
+
+  .article h1 {
+    letter-spacing: -.028em;
+  }
 }
