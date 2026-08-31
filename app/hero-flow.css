@@ -1,16 +1,12 @@
-/* Hero technology flow — white-theme version of the selected reference */
+/* Hero technology flow — compact reference-matched layout in the original white theme */
 
 .heroDiagram {
   position: relative;
-  width: 100%;
-  height: 350px;
+  width: min(100%, 620px);
+  height: 300px;
+  margin: 0 auto;
   min-width: 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(118px, 1fr)) minmax(105px, .82fr);
-  grid-template-rows: 52px 116px 52px;
-  column-gap: 18px;
-  row-gap: 34px;
-  align-content: center;
+  display: block;
   isolation: isolate;
 }
 
@@ -19,80 +15,46 @@
 }
 
 .heroDiagram .node {
-  position: relative !important;
+  position: absolute !important;
   inset: auto !important;
   z-index: 2;
-  width: 100%;
-  min-width: 0;
   margin: 0;
-  border: 1px solid #e2e7ef;
-  background: rgba(255, 255, 255, .98);
-  box-shadow: 0 8px 24px rgba(35, 60, 104, .07);
+  min-width: 0;
+  border: 1px solid #e2e8f2;
+  background: rgba(255, 255, 255, .99);
+  box-shadow: 0 8px 24px rgba(35, 60, 104, .075);
+  color: #172033;
 }
 
-/* Top infrastructure row */
-.heroDiagram .gpuNode {
-  grid-column: 1;
-  grid-row: 1;
+/* Reset connector rules from the older grid version. */
+.heroDiagram .node::before,
+.heroDiagram .node::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  display: none;
+  width: 0;
+  height: 0;
+  inset: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  transform: none;
 }
 
-.heroDiagram .serverNode {
-  grid-column: 2;
-  grid-row: 1;
-}
-
-.heroDiagram .cloudNode {
-  grid-column: 3;
-  grid-row: 1;
-}
-
-/* Main capability row */
-.heroDiagram .localAi {
-  grid-column: 1;
-  grid-row: 2;
-}
-
-.heroDiagram .automation {
-  grid-column: 2;
-  grid-row: 2;
-}
-
-.heroDiagram .appsNode {
-  grid-column: 3;
-  grid-row: 2;
-}
-
-/* Output column */
-.heroDiagram .websiteNode {
-  grid-column: 4;
-  grid-row: 1;
-  align-self: end;
-}
-
-.heroDiagram .agentsNode {
-  grid-column: 4;
-  grid-row: 2;
-  align-self: center;
-}
-
-/* Network node underneath the flow */
-.heroDiagram .networkNode {
-  grid-column: 2;
-  grid-row: 3;
-}
-
-/* Compact nodes */
+/* Compact infrastructure/output nodes. */
 .heroDiagram .gpuNode,
 .heroDiagram .serverNode,
 .heroDiagram .cloudNode,
 .heroDiagram .websiteNode,
 .heroDiagram .agentsNode,
 .heroDiagram .networkNode {
-  min-height: 48px;
+  min-height: 46px;
   padding: 10px 12px;
   border-radius: 9px;
   gap: 9px;
   font-size: 11px;
+  align-items: center;
 }
 
 .heroDiagram .gpuNode .miniIcon,
@@ -101,8 +63,8 @@
 .heroDiagram .websiteNode .miniIcon,
 .heroDiagram .agentsNode .miniIcon,
 .heroDiagram .networkNode .miniIcon {
-  width: 21px;
-  height: 21px;
+  width: 20px;
+  height: 20px;
 }
 
 .heroDiagram .gpuNode .miniIcon svg,
@@ -111,17 +73,17 @@
 .heroDiagram .websiteNode .miniIcon svg,
 .heroDiagram .agentsNode .miniIcon svg,
 .heroDiagram .networkNode .miniIcon svg {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
 }
 
-/* Larger middle cards */
+/* Main capability cards. */
 .heroDiagram .localAi,
 .heroDiagram .automation,
 .heroDiagram .appsNode {
   min-height: 112px;
-  padding: 17px 15px;
-  border-radius: 11px;
+  padding: 16px 14px;
+  border-radius: 12px;
   align-items: flex-start;
   gap: 10px;
 }
@@ -141,10 +103,10 @@
 .heroDiagram .appsNode b::after {
   display: block;
   margin-top: 8px;
-  color: #707b8e;
+  color: #6f7b8f;
   font-size: 10px;
   font-weight: 500;
-  line-height: 1.45;
+  line-height: 1.48;
   letter-spacing: 0;
 }
 
@@ -160,131 +122,175 @@
   content: "Integrations and tools your team uses.";
 }
 
-/* Reset the previous generic connector treatment. */
-.heroDiagram .node::before,
-.heroDiagram .node::after {
-  width: auto;
-  height: auto;
-  right: auto;
-  left: auto;
-  top: auto;
-  bottom: auto;
-  border: 0;
-  border-radius: 0;
-  background: none;
-  transform: none;
-  display: none;
+/* Reference-like geometry: small top row, larger middle row, small right outputs and network below. */
+.heroDiagram .gpuNode {
+  left: 20px !important;
+  top: 10px !important;
+  width: 104px !important;
 }
 
-/* GPU -> Local AI, Server -> Automation, Cloud -> Your Apps */
+.heroDiagram .serverNode {
+  left: 174px !important;
+  top: 10px !important;
+  width: 104px !important;
+}
+
+.heroDiagram .cloudNode {
+  left: 328px !important;
+  top: 10px !important;
+  width: 104px !important;
+}
+
+.heroDiagram .websiteNode {
+  left: 500px !important;
+  top: 18px !important;
+  width: 112px !important;
+}
+
+.heroDiagram .localAi {
+  left: 0 !important;
+  top: 88px !important;
+  width: 140px !important;
+}
+
+.heroDiagram .automation {
+  left: 154px !important;
+  top: 88px !important;
+  width: 140px !important;
+}
+
+.heroDiagram .appsNode {
+  left: 308px !important;
+  top: 88px !important;
+  width: 140px !important;
+}
+
+.heroDiagram .agentsNode {
+  left: 500px !important;
+  top: 121px !important;
+  width: 112px !important;
+}
+
+.heroDiagram .networkNode {
+  left: 169px !important;
+  top: 230px !important;
+  width: 110px !important;
+}
+
+/* GPU -> Local AI, Server -> Automation, Cloud -> Your Apps. */
 .heroDiagram .gpuNode::after,
 .heroDiagram .serverNode::after,
 .heroDiagram .cloudNode::after {
-  content: "";
   display: block;
-  position: absolute;
-  z-index: -1;
   left: 50%;
   top: 100%;
-  height: 35px;
-  border-left: 1.5px dashed #c8d2e2;
+  height: 32px;
+  border-left: 1.5px dashed #c8d3e4;
 }
 
-/* Main left-to-right workflow */
+/* Local AI -> Automation -> Your Apps. */
 .heroDiagram .localAi::after,
-.heroDiagram .automation::after,
+.heroDiagram .automation::after {
+  display: block;
+  left: 100%;
+  top: 50%;
+  width: 14px;
+  border-top: 1.5px dashed #c8d3e4;
+}
+
+/* Your Apps -> Agents. */
 .heroDiagram .appsNode::after {
-  content: "";
   display: block;
-  position: absolute;
-  z-index: -1;
   left: 100%;
   top: 50%;
-  width: 19px;
-  border-top: 1.5px dashed #c8d2e2;
+  width: 52px;
+  border-top: 1.5px dashed #c8d3e4;
 }
 
-/* Cloud also feeds the website. */
+/* Cloud -> Website. */
 .heroDiagram .cloudNode::before {
-  content: "";
   display: block;
-  position: absolute;
-  z-index: -1;
   left: 100%;
   top: 50%;
-  width: 19px;
-  border-top: 1.5px dashed #c8d2e2;
+  width: 68px;
+  border-top: 1.5px dashed #c8d3e4;
 }
 
-/* Network feeds upward into automation. */
+/* Network -> Automation. */
 .heroDiagram .networkNode::before {
-  content: "";
   display: block;
-  position: absolute;
-  z-index: -1;
   left: 50%;
   bottom: 100%;
-  height: 35px;
-  border-left: 1.5px dashed #c8d2e2;
+  height: 30px;
+  border-left: 1.5px dashed #c8d3e4;
 }
 
-/* Small connection dots make the flow easier to read without dark arrows. */
-.heroDiagram .localAi::before,
-.heroDiagram .automation::before,
-.heroDiagram .appsNode::before,
-.heroDiagram .agentsNode::before,
-.heroDiagram .websiteNode::before {
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: 3;
-  top: 50%;
-  left: -3px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #7ca3ef;
-  transform: translate(-50%, -50%);
+/* Small blue connector dots, matching the visual language of the reference. */
+.heroDiagram .gpuNode,
+.heroDiagram .serverNode,
+.heroDiagram .cloudNode,
+.heroDiagram .appsNode,
+.heroDiagram .networkNode {
+  overflow: visible;
 }
 
-.heroDiagram .localAi::before {
-  top: -3px;
-  left: 50%;
+.heroDiagram .gpuNode::after,
+.heroDiagram .serverNode::after,
+.heroDiagram .cloudNode::after,
+.heroDiagram .localAi::after,
+.heroDiagram .automation::after,
+.heroDiagram .appsNode::after,
+.heroDiagram .cloudNode::before,
+.heroDiagram .networkNode::before {
+  opacity: .95;
 }
 
-.heroDiagram .automation::before,
-.heroDiagram .appsNode::before {
-  top: -3px;
-  left: 50%;
-}
-
-.heroDiagram .agentsNode::before,
-.heroDiagram .websiteNode::before {
-  top: 50%;
-  left: -3px;
-}
-
-@media (max-width: 1080px) {
+/* Keep the entire architecture tight instead of stretching into a generic grid. */
+@media (max-width: 1080px) and (min-width: 761px) {
   .heroDiagram {
-    grid-template-columns: repeat(3, minmax(105px, 1fr)) minmax(94px, .78fr);
-    column-gap: 12px;
+    width: 560px;
+    transform-origin: center center;
   }
 
+  .heroDiagram .gpuNode { left: 12px !important; width: 96px !important; }
+  .heroDiagram .serverNode { left: 150px !important; width: 96px !important; }
+  .heroDiagram .cloudNode { left: 288px !important; width: 96px !important; }
+  .heroDiagram .websiteNode { left: 454px !important; width: 102px !important; }
+  .heroDiagram .localAi { left: 0 !important; width: 126px !important; }
+  .heroDiagram .automation { left: 138px !important; width: 126px !important; }
+  .heroDiagram .appsNode { left: 276px !important; width: 126px !important; }
+  .heroDiagram .agentsNode { left: 454px !important; width: 102px !important; }
+  .heroDiagram .networkNode { left: 146px !important; width: 110px !important; }
+
   .heroDiagram .localAi::after,
-  .heroDiagram .automation::after,
-  .heroDiagram .appsNode::after,
+  .heroDiagram .automation::after {
+    width: 12px;
+  }
+
+  .heroDiagram .appsNode::after {
+    width: 52px;
+  }
+
   .heroDiagram .cloudNode::before {
-    width: 13px;
+    width: 70px;
   }
 }
 
 @media (max-width: 760px) {
   .heroDiagram {
+    width: 100%;
     height: auto;
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
     gap: 10px;
     padding: 8px 0;
+  }
+
+  .heroDiagram .node {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
   }
 
   .heroDiagram .gpuNode { grid-column: 1; grid-row: 1; }
@@ -293,8 +299,8 @@
   .heroDiagram .localAi { grid-column: 1 / -1; grid-row: 2; }
   .heroDiagram .automation { grid-column: 1 / -1; grid-row: 3; }
   .heroDiagram .appsNode { grid-column: 1 / -1; grid-row: 4; }
-  .heroDiagram .networkNode { grid-column: 1 / -1; grid-row: 5; width: 45%; justify-self: center; }
-  .heroDiagram .websiteNode { grid-column: 1 / span 1; grid-row: 6; }
+  .heroDiagram .networkNode { grid-column: 1 / -1; grid-row: 5; width: 46% !important; justify-self: center; }
+  .heroDiagram .websiteNode { grid-column: 1; grid-row: 6; }
   .heroDiagram .agentsNode { grid-column: 3; grid-row: 6; }
 
   .heroDiagram .node::before,
