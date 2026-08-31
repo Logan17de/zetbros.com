@@ -1,0 +1,310 @@
+/* Hero technology flow — white-theme version of the selected reference */
+
+.heroDiagram {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(118px, 1fr)) minmax(105px, .82fr);
+  grid-template-rows: 52px 116px 52px;
+  column-gap: 18px;
+  row-gap: 34px;
+  align-content: center;
+  isolation: isolate;
+}
+
+.heroDiagram::before {
+  display: none !important;
+}
+
+.heroDiagram .node {
+  position: relative !important;
+  inset: auto !important;
+  z-index: 2;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  border: 1px solid #e2e7ef;
+  background: rgba(255, 255, 255, .98);
+  box-shadow: 0 8px 24px rgba(35, 60, 104, .07);
+}
+
+/* Top infrastructure row */
+.heroDiagram .gpuNode {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.heroDiagram .serverNode {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.heroDiagram .cloudNode {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+/* Main capability row */
+.heroDiagram .localAi {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.heroDiagram .automation {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.heroDiagram .appsNode {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+/* Output column */
+.heroDiagram .websiteNode {
+  grid-column: 4;
+  grid-row: 1;
+  align-self: end;
+}
+
+.heroDiagram .agentsNode {
+  grid-column: 4;
+  grid-row: 2;
+  align-self: center;
+}
+
+/* Network node underneath the flow */
+.heroDiagram .networkNode {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* Compact nodes */
+.heroDiagram .gpuNode,
+.heroDiagram .serverNode,
+.heroDiagram .cloudNode,
+.heroDiagram .websiteNode,
+.heroDiagram .agentsNode,
+.heroDiagram .networkNode {
+  min-height: 48px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  gap: 9px;
+  font-size: 11px;
+}
+
+.heroDiagram .gpuNode .miniIcon,
+.heroDiagram .serverNode .miniIcon,
+.heroDiagram .cloudNode .miniIcon,
+.heroDiagram .websiteNode .miniIcon,
+.heroDiagram .agentsNode .miniIcon,
+.heroDiagram .networkNode .miniIcon {
+  width: 21px;
+  height: 21px;
+}
+
+.heroDiagram .gpuNode .miniIcon svg,
+.heroDiagram .serverNode .miniIcon svg,
+.heroDiagram .cloudNode .miniIcon svg,
+.heroDiagram .websiteNode .miniIcon svg,
+.heroDiagram .agentsNode .miniIcon svg,
+.heroDiagram .networkNode .miniIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Larger middle cards */
+.heroDiagram .localAi,
+.heroDiagram .automation,
+.heroDiagram .appsNode {
+  min-height: 112px;
+  padding: 17px 15px;
+  border-radius: 11px;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.heroDiagram .localAi b,
+.heroDiagram .automation b,
+.heroDiagram .appsNode b {
+  display: block;
+  padding-top: 1px;
+  color: #172033;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.heroDiagram .localAi b::after,
+.heroDiagram .automation b::after,
+.heroDiagram .appsNode b::after {
+  display: block;
+  margin-top: 8px;
+  color: #707b8e;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+
+.heroDiagram .localAi b::after {
+  content: "Run models where your data lives.";
+}
+
+.heroDiagram .automation b::after {
+  content: "Agents that work from the right integrations.";
+}
+
+.heroDiagram .appsNode b::after {
+  content: "Integrations and tools your team uses.";
+}
+
+/* Reset the previous generic connector treatment. */
+.heroDiagram .node::before,
+.heroDiagram .node::after {
+  width: auto;
+  height: auto;
+  right: auto;
+  left: auto;
+  top: auto;
+  bottom: auto;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  transform: none;
+  display: none;
+}
+
+/* GPU -> Local AI, Server -> Automation, Cloud -> Your Apps */
+.heroDiagram .gpuNode::after,
+.heroDiagram .serverNode::after,
+.heroDiagram .cloudNode::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 100%;
+  height: 35px;
+  border-left: 1.5px dashed #c8d2e2;
+}
+
+/* Main left-to-right workflow */
+.heroDiagram .localAi::after,
+.heroDiagram .automation::after,
+.heroDiagram .appsNode::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  left: 100%;
+  top: 50%;
+  width: 19px;
+  border-top: 1.5px dashed #c8d2e2;
+}
+
+/* Cloud also feeds the website. */
+.heroDiagram .cloudNode::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  left: 100%;
+  top: 50%;
+  width: 19px;
+  border-top: 1.5px dashed #c8d2e2;
+}
+
+/* Network feeds upward into automation. */
+.heroDiagram .networkNode::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  bottom: 100%;
+  height: 35px;
+  border-left: 1.5px dashed #c8d2e2;
+}
+
+/* Small connection dots make the flow easier to read without dark arrows. */
+.heroDiagram .localAi::before,
+.heroDiagram .automation::before,
+.heroDiagram .appsNode::before,
+.heroDiagram .agentsNode::before,
+.heroDiagram .websiteNode::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: -3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #7ca3ef;
+  transform: translate(-50%, -50%);
+}
+
+.heroDiagram .localAi::before {
+  top: -3px;
+  left: 50%;
+}
+
+.heroDiagram .automation::before,
+.heroDiagram .appsNode::before {
+  top: -3px;
+  left: 50%;
+}
+
+.heroDiagram .agentsNode::before,
+.heroDiagram .websiteNode::before {
+  top: 50%;
+  left: -3px;
+}
+
+@media (max-width: 1080px) {
+  .heroDiagram {
+    grid-template-columns: repeat(3, minmax(105px, 1fr)) minmax(94px, .78fr);
+    column-gap: 12px;
+  }
+
+  .heroDiagram .localAi::after,
+  .heroDiagram .automation::after,
+  .heroDiagram .appsNode::after,
+  .heroDiagram .cloudNode::before {
+    width: 13px;
+  }
+}
+
+@media (max-width: 760px) {
+  .heroDiagram {
+    height: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    padding: 8px 0;
+  }
+
+  .heroDiagram .gpuNode { grid-column: 1; grid-row: 1; }
+  .heroDiagram .serverNode { grid-column: 2; grid-row: 1; }
+  .heroDiagram .cloudNode { grid-column: 3; grid-row: 1; }
+  .heroDiagram .localAi { grid-column: 1 / -1; grid-row: 2; }
+  .heroDiagram .automation { grid-column: 1 / -1; grid-row: 3; }
+  .heroDiagram .appsNode { grid-column: 1 / -1; grid-row: 4; }
+  .heroDiagram .networkNode { grid-column: 1 / -1; grid-row: 5; width: 45%; justify-self: center; }
+  .heroDiagram .websiteNode { grid-column: 1 / span 1; grid-row: 6; }
+  .heroDiagram .agentsNode { grid-column: 3; grid-row: 6; }
+
+  .heroDiagram .node::before,
+  .heroDiagram .node::after {
+    display: none !important;
+  }
+
+  .heroDiagram .localAi,
+  .heroDiagram .automation,
+  .heroDiagram .appsNode {
+    min-height: 88px;
+  }
+}
