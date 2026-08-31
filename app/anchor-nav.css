@@ -1,0 +1,9 @@
+/* Keep anchored sections/cards visible below the sticky header. */
+#services,
+#ai,
+#software,
+#about,
+#contact,
+[id^="service-"] {
+  scroll-margin-top: 104px;
+}
