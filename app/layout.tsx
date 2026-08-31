@@ -3,6 +3,7 @@ import "./globals.css";
 import "./dynamics.css";
 import "./scroll-effects.css";
 import "./hero-flow.css";
+import "./typography.css";
 
 export const metadata: Metadata = {
   title: "Zetbros — AI, Infrastructure & Software",
