@@ -4,6 +4,7 @@ import "./dynamics.css";
 import "./scroll-effects.css";
 import "./hero-flow.css";
 import "./typography.css";
+import "./anchor-nav.css";
 
 export const metadata: Metadata = {
   title: "Zetbros — AI, Infrastructure & Software",
