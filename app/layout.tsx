@@ -21,6 +21,17 @@ export const metadata: Metadata = {
   title: "Zetbros — AI, Infrastructure & Software",
   description:
     "Practical AI, automation, infrastructure, smart hands, web and software support for modern companies.",
+  applicationName: "Zetbros",
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/icon-192.png", type: "image/png" },
+      { url: "/icon-512.png", type: "image/png" },
+    ],
+    shortcut: [{ url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/apple-icon.png", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
