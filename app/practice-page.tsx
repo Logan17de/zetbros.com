@@ -1,4 +1,5 @@
 import Logo from "./logo";
+import ProjectDiscussionModal from "./project-discussion-modal";
 import styles from "./practice-page.module.css";
 
 export type PracticeSolution = {
@@ -147,9 +148,7 @@ export default function PracticePage({
                 <p>{solution.outcome}</p>
               </div>
 
-              <a className={styles.solutionCta} href="/#contact">
-                Discuss this project <span>→</span>
-              </a>
+              <ProjectDiscussionModal category={category} solution={solution.title} />
             </article>
           ))}
         </div>
