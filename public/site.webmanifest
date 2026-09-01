@@ -1,0 +1,22 @@
+{
+  "name": "Zetbros",
+  "short_name": "Zetbros",
+  "description": "AI, automation, infrastructure and software support for modern companies.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
