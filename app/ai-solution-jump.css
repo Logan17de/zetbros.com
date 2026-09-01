@@ -37,15 +37,12 @@
 }
 
 .aiRealWorldJump:hover .aiRealWorldJumpArrow {
-  transform: translateY(2px);
+  transform: translateX(2px);
 }
 
-#ai-real-world {
-  scroll-margin-top: 110px;
-}
-
-#ai-real-world .aiSolutionsHeader h3 {
-  max-width: 620px;
+/* Detailed AI discussions now live on /ai-in-practice. Keep the homepage as an overview. */
+#ai > .aiSolutions {
+  display: none !important;
 }
 
 @media (max-width: 620px) {
