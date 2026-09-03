@@ -93,7 +93,7 @@ export default function HarnessPage() {
           </p>
           <div className={styles.heroActions}>
             <a className={styles.primaryButton} href="#plugins">See what plugins unlock <span>→</span></a>
-            <a className={styles.secondaryButton} href="#download">Download Harness</a>
+            <a className={styles.secondaryButton} href="#download">Harness coming soon</a>
           </div>
           <p className={styles.heroNote}>Built on DeepSeek Harness. Extended and packaged by Zetbros.</p>
         </div>
@@ -292,7 +292,7 @@ export default function HarnessPage() {
           <h2>Don&apos;t wait for your AI application to support the next tool you need.</h2>
           <p className={styles.downloadLine}>Extend it.</p>
           <p>
-            Harness Desktop currently targets Windows x64. The verified installer is not yet published inside the Zetbros website repository, so we are keeping the public download disabled rather than sending you to a dead file.
+            Harness Desktop is being prepared for public download. The Windows x64 installer will be served directly through Zetbros once the release upload is ready.
           </p>
         </div>
         <div className={styles.downloadCard}>
@@ -300,9 +300,9 @@ export default function HarnessPage() {
           <div>
             <span>Windows x64</span>
             <strong>Harness Desktop</strong>
-            <p>Direct installer download will activate here once the release file is uploaded.</p>
+            <p>The direct installer download will appear here as soon as the release is uploaded.</p>
           </div>
-          <span className={styles.disabledDownload} aria-disabled="true">Installer upload pending</span>
+          <span className={styles.disabledDownload} aria-disabled="true">Harness will be uploaded soon</span>
           <Link className={styles.earlyAccess} href="/#contact">Ask about Harness <span>→</span></Link>
         </div>
       </section>
