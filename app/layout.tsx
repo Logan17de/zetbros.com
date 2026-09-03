@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import AiSolutionJump from "./ai-solution-jump";
 import InfrastructureSolutions from "./infrastructure-solutions";
 import AutomationSolutions from "./automation-solutions";
+import HarnessProductLink from "./harness-product-link";
 import "./globals.css";
 import "./dynamics.css";
 import "./scroll-effects.css";
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <AiSolutionJump />
         <InfrastructureSolutions />
         <AutomationSolutions />
+        <HarnessProductLink />
       </body>
     </html>
   );
