@@ -1,283 +1,107 @@
-/* Hero technology flow — reference topology translated into the white Zetbros theme. */
-
-.heroDiagram {
-  position: relative;
-  width: min(100%, 620px);
-  height: 305px;
-  margin: 0 auto;
-  min-width: 0;
+/* One reading path, using the original Zetbros icon artwork and palette. */
+.heroDiagram.productFlow {
+  container-type: inline-size;
   display: block;
-  isolation: isolate;
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 32px;
+  border: 1px solid #e0e7f1;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 16px 48px rgba(31, 55, 94, .06);
 }
-
-/* One SVG connector map keeps all rails, branches and arrows aligned exactly. */
-.heroDiagram::before {
-  display: none !important;
+.heroDiagram.productFlow::before,
+.heroDiagram.productFlow::after { display: none; }
+.productFlowSteps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-
-.heroDiagram::after {
+.productFlowSteps li { position: relative; min-width: 0; }
+.flowStepIcon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 20px;
+  border: 1px solid #e0e7f1;
+  border-radius: 10px;
+  background: #fff;
+}
+.flowStepIcon svg { width: 22px; height: 22px; }
+.productFlowSteps li:not(:last-child)::before {
   content: "";
   position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: url("/hero-flow-lines.svg") center / 100% 100% no-repeat;
+  left: 52px;
+  top: 20px;
+  width: calc(100% - 40px);
+  border-top: 1px solid #aebfd8;
 }
-
-.heroDiagram .node {
-  position: absolute !important;
-  inset: auto !important;
-  z-index: 2;
-  margin: 0;
-  min-width: 0;
-  overflow: visible;
-  border: 1px solid #dfe7f1;
-  background: #ffffff !important;
-  box-shadow: 0 8px 24px rgba(31, 55, 94, .075);
-  color: #1d2939;
-}
-
-/* Kill all old per-card connector fragments. The SVG above owns the network. */
-.heroDiagram .node::before,
-.heroDiagram .node::after {
-  display: none !important;
-  content: none !important;
-}
-
-/* Small infrastructure / output cards. */
-.heroDiagram .gpuNode,
-.heroDiagram .serverNode,
-.heroDiagram .cloudNode,
-.heroDiagram .websiteNode,
-.heroDiagram .agentsNode,
-.heroDiagram .networkNode {
-  min-height: 46px;
-  padding: 10px 12px;
-  border-radius: 8px;
-  gap: 9px;
-  align-items: center;
-  font-size: 11px;
-}
-
-.heroDiagram .gpuNode .miniIcon,
-.heroDiagram .serverNode .miniIcon,
-.heroDiagram .cloudNode .miniIcon,
-.heroDiagram .websiteNode .miniIcon,
-.heroDiagram .agentsNode .miniIcon,
-.heroDiagram .networkNode .miniIcon {
-  width: 20px;
-  height: 20px;
-}
-
-.heroDiagram .gpuNode .miniIcon svg,
-.heroDiagram .serverNode .miniIcon svg,
-.heroDiagram .cloudNode .miniIcon svg,
-.heroDiagram .websiteNode .miniIcon svg,
-.heroDiagram .agentsNode .miniIcon svg,
-.heroDiagram .networkNode .miniIcon svg {
-  width: 16px;
-  height: 16px;
-}
-
-.heroDiagram .node b {
-  color: #273244;
-  font-size: 11px;
-  font-weight: 590;
-  letter-spacing: 0;
-}
-
-/* Replace the old flow-tree glyph with the Wi-Fi/network icon used in the reference. */
-.heroDiagram .networkNode .miniIcon {
-  position: relative;
-  color: #f06a24;
-}
-
-.heroDiagram .networkNode .miniIcon svg {
-  display: none;
-}
-
-.heroDiagram .networkNode .miniIcon::before {
+.productFlowSteps li:not(:last-child)::after {
   content: "";
-  display: block;
-  width: 18px;
-  height: 18px;
-  background: currentColor;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 9.5a11 11 0 0 1 15 0'/%3E%3Cpath d='M7.5 13a6.8 6.8 0 0 1 9 0'/%3E%3Cpath d='M10.5 16.5a2.3 2.3 0 0 1 3 0'/%3E%3Ccircle cx='12' cy='19.5' r='1.25' fill='black' stroke='none'/%3E%3C/svg%3E") center / contain no-repeat;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 9.5a11 11 0 0 1 15 0'/%3E%3Cpath d='M7.5 13a6.8 6.8 0 0 1 9 0'/%3E%3Cpath d='M10.5 16.5a2.3 2.3 0 0 1 3 0'/%3E%3Ccircle cx='12' cy='19.5' r='1.25' fill='black' stroke='none'/%3E%3C/svg%3E") center / contain no-repeat;
+  position: absolute;
+  left: calc(100% + 7px);
+  top: 17px;
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid #aebfd8;
+  border-right: 1px solid #aebfd8;
+  transform: rotate(45deg);
 }
-
-/* Main capability cards. */
-.heroDiagram .localAi,
-.heroDiagram .automation,
-.heroDiagram .appsNode {
-  min-height: 110px;
-  padding: 15px 13px;
-  border-radius: 8px;
-  align-items: flex-start;
-  gap: 9px;
-  box-shadow: 0 9px 25px rgba(31, 55, 94, .085);
-}
-
-.heroDiagram .localAi .miniIcon,
-.heroDiagram .automation .miniIcon,
-.heroDiagram .appsNode .miniIcon {
-  width: 22px;
-  height: 22px;
-  margin-top: 1px;
-}
-
-.heroDiagram .localAi .miniIcon svg,
-.heroDiagram .automation .miniIcon svg,
-.heroDiagram .appsNode .miniIcon svg {
-  width: 18px;
-  height: 18px;
-}
-
-.heroDiagram .localAi b,
-.heroDiagram .automation b,
-.heroDiagram .appsNode b {
-  display: block;
-  padding-top: 1px;
-  color: #202b3c;
-  font-size: 11px;
-  line-height: 1.25;
+.productFlowSteps h3 {
+  margin: 0 0 8px;
+  color: #273244;
+  font-size: 16px;
   font-weight: 620;
+  line-height: 1.35;
+  letter-spacing: -.015em;
+  text-wrap: balance;
 }
-
-.heroDiagram .localAi b::after,
-.heroDiagram .automation b::after,
-.heroDiagram .appsNode b::after {
-  display: block;
-  margin-top: 8px;
-  color: #68758a;
-  font-size: 10px;
-  font-weight: 430;
-  line-height: 1.48;
-  letter-spacing: 0;
+.productFlowSteps p { margin: 0; color: #627086; font-size: 13px; line-height: 1.6; text-wrap: pretty; }
+.flowProducts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e5ebf3;
 }
-
-.heroDiagram .localAi b::after {
-  content: "Learn a little more, every day.";
+.flowProduct {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) 16px;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  color: #273244;
+  text-decoration: none;
+  border-radius: 4px;
 }
-
-.heroDiagram .automation b::after {
-  content: "Every useful product starts somewhere.";
+.flowProduct .miniIcon { width: 24px; height: 24px; }
+.flowProduct b { display: block; font-size: 15px; font-weight: 620; }
+.flowProduct small { display: block; margin-top: 4px; color: #627086; font-size: 12px; line-height: 1.5; }
+.flowProductArrow { width: 16px; height: 16px; color: #7d8da5; transition: transform .2s ease, color .2s ease; }
+.flowProduct:hover b { color: var(--blue); }
+.flowProduct:hover .flowProductArrow { color: var(--blue); transform: translateX(3px); }
+.flowProduct:focus-visible { outline: 2px solid var(--blue); outline-offset: 6px; }
+@container (max-width: 390px) {
+  .productFlowSteps { grid-template-columns: 1fr; gap: 28px; }
+  .productFlowSteps li { display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 20px; }
+  .flowStepIcon { grid-column: 1; grid-row: 1 / 3; margin-bottom: 0; }
+  .productFlowSteps h3 { grid-column: 2; margin-bottom: 4px; }
+  .productFlowSteps p { grid-column: 2; }
+  .productFlowSteps li:not(:last-child)::before { left: 20px; top: 50px; width: 0; height: calc(100% - 32px); border-top: 0; border-left: 1px solid #aebfd8; }
+  .productFlowSteps li:not(:last-child)::after { left: 17px; top: calc(100% + 12px); transform: rotate(135deg); }
+  .flowProducts { grid-template-columns: 1fr; gap: 16px; }
 }
-
-.heroDiagram .appsNode b::after {
-  content: "Built for people and everyday life.";
+@media (max-width: 480px) {
+  .heroDiagram.productFlow { padding: 24px; }
 }
-
-/* Geometry follows the supplied reference image (620 x 305 coordinate space). */
-.heroDiagram .gpuNode {
-  left: 16.45% !important;
-  top: 23px !important;
-  width: 14.03% !important;
-}
-
-.heroDiagram .serverNode {
-  left: 34.03% !important;
-  top: 23px !important;
-  width: 14.35% !important;
-}
-
-.heroDiagram .cloudNode {
-  left: 51.94% !important;
-  top: 23px !important;
-  width: 14.19% !important;
-}
-
-.heroDiagram .localAi {
-  left: 8.39% !important;
-  top: 100px !important;
-  width: 18.39% !important;
-}
-
-.heroDiagram .automation {
-  left: 30.32% !important;
-  top: 100px !important;
-  width: 20% !important;
-}
-
-.heroDiagram .appsNode {
-  left: 53.87% !important;
-  top: 100px !important;
-  width: 17.74% !important;
-}
-
-.heroDiagram .websiteNode {
-  left: 77.10% !important;
-  top: 76px !important;
-  width: 14.68% !important;
-}
-
-.heroDiagram .agentsNode {
-  left: 77.10% !important;
-  top: 203px !important;
-  width: 14.68% !important;
-}
-
-.heroDiagram .networkNode {
-  left: 32.74% !important;
-  top: 239px !important;
-  width: 16.13% !important;
-}
-
-/* At narrower desktop widths, keep the reference composition instead of reverting to a generic grid. */
-@media (max-width: 1080px) and (min-width: 761px) {
-  .heroDiagram {
-    height: 292px;
-  }
-
-  .heroDiagram::after {
-    background-size: 100% 292px;
-  }
-
-  .heroDiagram .node b {
-    font-size: 10.5px;
-  }
-
-  .heroDiagram .localAi b::after,
-  .heroDiagram .automation b::after,
-  .heroDiagram .appsNode b::after {
-    font-size: 9.5px;
-  }
-}
-
-@media (max-width: 760px) {
-  .heroDiagram {
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
-    padding: 8px 0;
-  }
-
-  .heroDiagram::after {
-    display: none;
-  }
-
-  .heroDiagram .node {
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    width: 100% !important;
-  }
-
-  .heroDiagram .gpuNode { grid-column: 1; grid-row: 1; }
-  .heroDiagram .serverNode { grid-column: 2; grid-row: 1; }
-  .heroDiagram .cloudNode { grid-column: 3; grid-row: 1; }
-  .heroDiagram .localAi { grid-column: 1 / -1; grid-row: 2; }
-  .heroDiagram .automation { grid-column: 1 / -1; grid-row: 3; }
-  .heroDiagram .appsNode { grid-column: 1 / -1; grid-row: 4; }
-  .heroDiagram .networkNode { grid-column: 1 / -1; grid-row: 5; width: 48% !important; justify-self: center; }
-  .heroDiagram .websiteNode { grid-column: 1; grid-row: 6; }
-  .heroDiagram .agentsNode { grid-column: 3; grid-row: 6; }
-
-  .heroDiagram .localAi,
-  .heroDiagram .automation,
-  .heroDiagram .appsNode {
-    min-height: 88px;
-  }
+@media (prefers-reduced-motion: reduce) {
+  .flowProductArrow { transition: none; }
 }

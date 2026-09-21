@@ -2,7 +2,7 @@
 
 The website runs on the `zetbros` Cloudflare Worker with static assets built by Next.js. Contact submissions are stored in Cloudflare D1 (`zetbros-contact`). This website no longer requires Vercel or Supabase at runtime.
 
-The homepage retains the original logo, SVG icon artwork, styling, layout components, and `RevealBoxText` / `ScrollRevealMotion` animations. Its content describes products for people and society, links to AIKO, and marks Harness as production in progress.
+The homepage retains the original logo, SVG icon artwork, page layout, and `RevealBoxText` / `ScrollRevealMotion` animations. Its content describes products for people and society, links to AIKO, and marks Harness as production in progress. The hero diagram now has one clear path from ideas to building to people, with the two products grouped underneath. Harness uses the same responsive heading scale as the homepage.
 
 ## Develop and verify
 
@@ -40,4 +40,4 @@ AIKO is a separate application at `aiko.zetbros.com`. Its hosting, database, aut
 
 ## Validation
 
-The production build, five Worker API tests, public homepage / Harness / privacy checks, canonical-domain redirect, write-only contact endpoint, and original logo hash comparison passed. The legacy Harness stylesheet has an existing Autoprefixer warning about `align-items: end`. The Next.js dependency tree also reports build-time PostCSS advisories; this deployment serves static output and does not run the Next.js server or accept user CSS.
+The production build, five Worker API tests, public homepage / Harness / privacy checks, canonical-domain redirect, write-only contact endpoint, and original logo hash comparison passed. The original desktop and mobile layout and scrolling transitions were checked in the browser before the diagram and typography refinement. That refinement passed the production build and static layout scan; a fresh visual browser check was blocked by the browser tool connection failure. The Next.js dependency tree reports build-time PostCSS advisories; this deployment serves static output and does not run the Next.js server or accept user CSS.
