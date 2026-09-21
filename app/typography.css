@@ -1,6 +1,9 @@
 /* Softer, more human typography for Zetbros */
 
 :root {
+  --type-hero: clamp(42px, 4.7vw, 64px);
+  --type-section: clamp(28px, 3vw, 38px);
+  --type-lead: 17px;
   --font-body: "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --font-display: "Segoe UI Variable Display", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
@@ -26,7 +29,10 @@ h1,
   line-height: 1.03;
 }
 
+.hero .revealBoxText { font-size: var(--type-hero); }
+
 h2 {
+  font-size: var(--type-section);
   font-weight: 650;
   letter-spacing: -0.024em;
   line-height: 1.15;
@@ -109,6 +115,7 @@ nav {
 }
 
 @media (max-width: 760px) {
+  :root { --type-hero: clamp(38px, 11vw, 52px); --type-lead: 16px; }
   h1,
   .hero .revealBoxText {
     letter-spacing: -0.03em;
