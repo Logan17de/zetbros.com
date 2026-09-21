@@ -8,7 +8,7 @@ type RevealGroup = {
   base?: number;
 };
 
-const groups: RevealGroup[] = [
+const homeGroups: RevealGroup[] = [
   { selector: ".heroLogoStage", base: 20 },
   { selector: ".heroDiagram", base: 120 },
   { selector: ".serviceGrid .serviceCard", step: 85 },
@@ -23,10 +23,25 @@ const groups: RevealGroup[] = [
   { selector: ".footerTop", base: 20 },
 ];
 
-export default function ScrollRevealMotion() {
+const harnessGroups: RevealGroup[] = [
+  { selector: '[data-harness-reveal="map"]', base: 120 },
+  { selector: '[data-harness-reveal="benefit"]', step: 85 },
+  { selector: '[data-harness-reveal="plugin"]', step: 50 },
+  { selector: '[data-harness-reveal="use-cases"]', base: 40 },
+  { selector: '[data-harness-reveal="stage"]', step: 75 },
+  { selector: '[data-harness-reveal="recovery"]', base: 40 },
+  { selector: '[data-harness-reveal="detail"]', step: 85 },
+  { selector: '[data-harness-reveal="availability"]', base: 40 },
+];
+
+export default function ScrollRevealMotion({ variant = "home" }: { variant?: "home" | "harness" }) {
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const targets: HTMLElement[] = [];
+    const groups = variant === "harness" ? harnessGroups : homeGroups;
+
+    // Leave server-rendered content visible when observation is unavailable.
+    if (!("IntersectionObserver" in window)) return;
 
     groups.forEach(({ selector, step = 0, base = 0 }) => {
       document.querySelectorAll<HTMLElement>(selector).forEach((element, index) => {
@@ -56,12 +71,15 @@ export default function ScrollRevealMotion() {
       },
     );
 
-    requestAnimationFrame(() => {
+    const frame = requestAnimationFrame(() => {
       targets.forEach((element) => observer.observe(element));
     });
 
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
+  }, [variant]);
 
   return null;
 }
