@@ -381,3 +381,8 @@
     transition: none;
   }
 }
+.form select { width: 100%; min-height: 44px; padding: 12px; border: 1px solid #c6d1e1; border-radius: 8px; background: #fff; color: #172033; font: inherit; }
+.form input, .form textarea, .form select { caret-color: #2563eb; }
+.form :is(input, textarea, select, button):focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+.privacyNote { margin: 0; color: #526077; font-size: 13px; line-height: 1.6; }
+.privacyNote a, .intro a { color: #1e4fae; text-decoration: underline; text-underline-offset: 3px; }

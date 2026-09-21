@@ -1,0 +1,47 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "zetbros",
+  "main": "cloudflare/worker.mjs",
+  "compatibility_date": "2026-09-21",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "account_id": "4fe0072b63110cab54ee416787679d8e",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./out",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "zetbros-contact",
+      "database_id": "57b414ea-8df5-4ea6-81b8-204ef6d6a4e3",
+      "migrations_dir": "cloudflare/migrations"
+    }
+  ],
+  "ratelimits": [
+    {
+      "name": "CONTACT_RATE_LIMIT",
+      "namespace_id": "1001",
+      "simple": {
+        "limit": 5,
+        "period": 60
+      }
+    }
+  ],
+  "observability": {
+    "enabled": true
+  },
+  "routes": [
+    {
+      "custom_domain": true,
+      "pattern": "zetbros.com"
+    },
+    {
+      "custom_domain": true,
+      "pattern": "www.zetbros.com"
+    }
+  ]
+}
