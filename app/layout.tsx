@@ -1,8 +1,4 @@
 import type { Metadata } from "next";
-import AiSolutionJump from "./ai-solution-jump";
-import InfrastructureSolutions from "./infrastructure-solutions";
-import AutomationSolutions from "./automation-solutions";
-import HarnessProductLink from "./harness-product-link";
 import "./globals.css";
 import "./dynamics.css";
 import "./scroll-effects.css";
@@ -12,16 +8,15 @@ import "./capability-sections.css";
 import "./anchor-nav.css";
 import "./ambient-background.css";
 import "./page-surface.css";
-import "./availability.css";
 import "./ai-solutions.css";
 import "./ai-solution-jump.css";
 import "./infrastructure-solutions.css";
 import "./automation-solutions.css";
 
 export const metadata: Metadata = {
-  title: "Zetbros — AI, Infrastructure & Software",
+  title: "Zetbros — Products for people and society",
   description:
-    "Practical AI, automation, infrastructure, smart hands, web and software support for modern companies.",
+    "We build useful products for people and society. Explore AIKO, meet Harness, and share an idea or a problem with Zetbros.",
   applicationName: "Zetbros",
   manifest: "/site.webmanifest",
   icons: {
@@ -40,10 +35,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body>
         {children}
-        <AiSolutionJump />
-        <InfrastructureSolutions />
-        <AutomationSolutions />
-        <HarnessProductLink />
       </body>
     </html>
   );

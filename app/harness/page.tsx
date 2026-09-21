@@ -93,7 +93,7 @@ export default function HarnessPage() {
           </p>
           <div className={styles.heroActions}>
             <a className={styles.primaryButton} href="#plugins">See what plugins unlock <span>→</span></a>
-            <a className={styles.secondaryButton} href="#download">Harness coming soon</a>
+            <a className={styles.secondaryButton} href="#download">Production in progress</a>
           </div>
           <p className={styles.heroNote}>Built on DeepSeek Harness. Extended and packaged by Zetbros.</p>
         </div>
@@ -302,7 +302,7 @@ export default function HarnessPage() {
             <strong>Harness Desktop</strong>
             <p>The direct installer download will appear here as soon as the release is uploaded.</p>
           </div>
-          <span className={styles.disabledDownload} aria-disabled="true">Harness will be uploaded soon</span>
+          <span className={styles.disabledDownload} aria-disabled="true">Production in progress</span>
           <Link className={styles.earlyAccess} href="/#contact">Ask about Harness <span>→</span></Link>
         </div>
       </section>

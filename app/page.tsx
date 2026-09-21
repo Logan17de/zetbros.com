@@ -4,115 +4,20 @@ import RevealBoxText from "./reveal-box-text";
 import ScrollRevealMotion from "./scroll-reveal-motion";
 
 const services = [
-  {
-    id: "service-ai-infrastructure",
-    icon: "ai",
-    tone: "blue",
-    title: "AI Infrastructure",
-    text: "Deploy and optimize AI systems for your own environment.",
-  },
-  {
-    id: "service-private-ai",
-    icon: "shield",
-    tone: "cyan",
-    title: "Private & Local AI",
-    text: "Run capable AI models inside your company’s infrastructure.",
-  },
-  {
-    id: "service-automation",
-    icon: "flow",
-    tone: "orange",
-    title: "Automation",
-    text: "Turn repetitive workflows into reliable automated systems.",
-  },
-  {
-    id: "service-it-smart-hands",
-    icon: "tool",
-    tone: "green",
-    title: "IT Smart Hands",
-    text: "Hands-on technical support for devices, servers and infrastructure.",
-  },
-  {
-    id: "service-infrastructure",
-    icon: "server",
-    tone: "violet",
-    title: "Infrastructure",
-    text: "Rack & stack, networking, deployments and on-site support.",
-  },
-  {
-    id: "service-web-software",
-    icon: "code",
-    tone: "blue",
-    title: "Web & Software",
-    text: "Build, integrate and maintain websites, extensions and internal software.",
-  },
+ {id:"purpose-learning",icon:"ai",tone:"blue",title:"Help people learn",text:"Build tools that make learning part of everyday life."},
+ {id:"purpose-everyday",icon:"apps",tone:"cyan",title:"Solve everyday problems",text:"Start with the things people wish worked better."},
+ {id:"purpose-create",icon:"code",tone:"orange",title:"Make room for ideas",text:"Turn a useful idea into something people can try."},
+ {id:"purpose-people",icon:"company",tone:"green",title:"Build with people",text:"Let real needs and honest feedback guide the work."},
+ {id:"purpose-tools",icon:"tool",tone:"violet",title:"Make technology useful",text:"Give people practical ways to learn, create and get things done."},
+ {id:"purpose-society",icon:"globe",tone:"blue",title:"Contribute to society",text:"Put what we build into the world with a useful purpose."},
 ];
-
 const process = [
-  ["01", "Understand", "We learn your goals, challenges and environment."],
-  ["02", "Design", "We design the right architecture and approach."],
-  ["03", "Build", "We build, test and refine with quality and care."],
-  ["04", "Deploy", "We deploy smoothly into your environment with confidence."],
-  ["05", "Support", "We stay with you to support, optimize and improve."],
+ ["01","Listen","Understand the idea, the problem and the people it affects."],
+ ["02","Explore","Find a practical way to make things better."],
+ ["03","Build","Turn the idea into a product people can use."],
+ ["04","Share","Put useful work into the hands of people."],
+ ["05","Improve","Learn from feedback and keep making it better."],
 ];
-
-const aiSolutions = [
-  {
-    icon: "shield",
-    problem: "Sensitive company information should not be copied into unapproved public AI tools.",
-    name: "Private Company AI",
-    short: "A company-controlled AI workspace with governed access to local and approved cloud models.",
-    detail: "We design an internal AI entry point around your security and deployment requirements. The environment can use local inference, approved cloud models, or both, while keeping authentication, access policy, logging and integrations under company control.",
-    build: ["AI web interface", "Authentication", "AI gateway", "Local model serving", "Access controls", "Monitoring", "Internal APIs"],
-    outcome: "A governed AI workspace employees can use for company work without relying on unmanaged consumer AI accounts.",
-  },
-  {
-    icon: "apps",
-    problem: "Useful answers are buried across manuals, procedures, PDFs, knowledge bases and internal documents.",
-    name: "AI Knowledge Assistant",
-    short: "Ask company knowledge in natural language and return answers with the supporting source material.",
-    detail: "We connect approved knowledge sources to a retrieval system that finds relevant content before the model answers. Where source systems expose permissions, retrieval can be designed to respect those access boundaries rather than treating every document as public to every employee.",
-    build: ["Document ingestion", "Search / retrieval", "RAG pipeline", "Source citations", "Permission-aware retrieval", "Sync jobs", "Feedback loop"],
-    outcome: "A searchable internal assistant that helps people reach the right company information faster while showing where an answer came from.",
-  },
-  {
-    icon: "gpu",
-    problem: "Local AI hardware is expensive, but models may still run slowly, consume too much memory or leave resources underused.",
-    name: "AI Performance Optimization",
-    short: "Benchmark the real workload, tune the inference stack and document the measured trade-offs.",
-    detail: "We start with a reproducible baseline and optimize only where it helps the target workload. Depending on the system, this can include inference-engine selection, quantization, cache tuning, batching, context limits, CPU/GPU offload, model choice and serving configuration.",
-    build: ["Workload benchmark", "Inference engine review", "Quantization", "KV/cache tuning", "Batching", "CPU/GPU offload", "Hardware sizing"],
-    outcome: "A measured before-and-after deployment profile with clearer performance, memory and quality trade-offs instead of guesswork.",
-  },
-  {
-    icon: "flow",
-    problem: "Applications become tightly coupled to one AI provider, making privacy rules, outages, model changes and cost controls harder to manage.",
-    name: "AI Gateway & Routing",
-    short: "Give applications one internal AI endpoint while routing requests according to company policy.",
-    detail: "We place a gateway between company applications and the available model backends. Routing rules can consider data sensitivity, task type, model capability, latency, availability and budget constraints without forcing every application to implement provider-specific logic.",
-    build: ["Unified AI endpoint", "Provider adapters", "Routing policy", "Fallback logic", "Usage logging", "Rate controls", "Application migration"],
-    outcome: "Applications depend on a stable internal interface while the model strategy behind that interface can evolve independently.",
-  },
-  {
-    icon: "bot",
-    problem: "A chatbot can explain work, but many business tasks still require people to move information between email, tickets, databases and internal tools.",
-    name: "AI Agents & Integrations",
-    short: "Give AI controlled tool access so it can complete bounded workflows instead of only generating text.",
-    detail: "We connect the agent to the minimum tools required for the workflow, define what it may do, add approval points for sensitive actions and keep an auditable record of tool use. The goal is controlled execution, not an unrestricted bot with broad company access.",
-    build: ["Tool connectors", "Agent workflow", "Scoped permissions", "Human approvals", "Audit logs", "Error handling", "Operational monitoring"],
-    outcome: "A controlled agent that can perform defined multi-step work while keeping people in the loop where judgement or approval is required.",
-  },
-  {
-    icon: "cloud",
-    problem: "Local AI offers control and privacy, while cloud models may provide capabilities that are not practical to host internally for every workload.",
-    name: "Hybrid Local + Cloud AI",
-    short: "Use local and cloud AI together instead of forcing every request through the same model or environment.",
-    detail: "We design routing boundaries around the company’s actual requirements. Sensitive or predictable workloads can stay local, while approved cloud models can be used for tasks that need different capabilities. Fallback behaviour and data-handling rules are defined explicitly rather than left to individual applications.",
-    build: ["Local inference", "Approved cloud backends", "Data policy", "Routing rules", "Fallback paths", "Gateway controls", "Observability"],
-    outcome: "A flexible AI architecture that can balance privacy, capability, availability and operating constraints across different workloads.",
-  },
-];
-
 type IconName =
   | "ai"
   | "shield"
@@ -165,254 +70,69 @@ function FlowCard({ className = "", icon, label, tone = "blue" }: { className?: 
   );
 }
 
+
 export default function Home() {
-  return (
-    <main id="top">
-      <ScrollRevealMotion />
-
-      <header className="siteHeader">
-        <div className="container navWrap navWithoutLogo">
-          <nav aria-label="Primary navigation">
-            <a href="#ai">AI</a>
-            <a href="#infrastructure">Infrastructure</a>
-            <a href="#automation">Automation</a>
-            <a href="#software">Software</a>
-            <a href="#support">Support</a>
-            <a href="#contact">Contact</a>
-          </nav>
-          <a className="button buttonGhost navCta" href="#contact">Talk to us</a>
-        </div>
-      </header>
-
-      <section className="hero section">
-        <div className="container">
-          <div className="heroLogoStage" aria-label="Zetbros">
-            <Logo hero />
-          </div>
-
-          <div className="heroGrid">
-            <div className="heroCopy">
-              <p className="eyebrow">Technology that works for you.</p>
-              <RevealBoxText
-                as="h1"
-                text="Build smarter. Run simpler."
-                variant="hero"
-                delayMs={260}
-                wordGapMs={130}
-              />
-              <p className="lede">Zetbros helps companies build, deploy and maintain AI, software and IT infrastructure — from local AI systems and automation to servers, websites and hands-on technical support.</p>
-              <div className="actions">
-                <a className="button buttonPrimary" href="#services">Explore what we do</a>
-                <a className="button buttonGhost" href="#contact">Talk to us</a>
-              </div>
-            </div>
-
-            <div className="heroDiagram" aria-label="Zetbros technology diagram">
-              <FlowCard className="node localAi" icon="ai" label="Local AI" tone="violet" />
-              <FlowCard className="node automation" icon="flow" label="Automation" tone="violet" />
-              <FlowCard className="node appsNode" icon="server" label="Your Apps" tone="violet" />
-              <FlowCard className="node gpuNode" icon="gpu" label="GPU" tone="green" />
-              <FlowCard className="node serverNode" icon="server" label="Server" tone="blue" />
-              <FlowCard className="node networkNode" icon="flow" label="Network" tone="orange" />
-              <FlowCard className="node cloudNode" icon="cloud" label="Cloud" tone="cyan" />
-              <FlowCard className="node agentsNode" icon="bot" label="Agents" tone="cyan" />
-              <FlowCard className="node websiteNode" icon="globe" label="Website" tone="violet" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section servicesSection" id="services">
-        <div className="container">
-          <p className="eyebrow">What we do</p>
-          <RevealBoxText as="h2" text="Technology, from the rack to the model." />
-          <div className="serviceGrid">
-            {services.map((service) => (
-              <article className="serviceCard" id={service.id} key={service.title}>
-                <span className={`serviceIcon ${service.tone}`}><Icon name={service.icon as IconName} /></span>
-                <div>
-                  <h3>{service.title}</h3>
-                  <p>{service.text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section" id="ai">
-        <div className="container aiPanel">
-          <div className="aiCopy">
-            <p className="eyebrow">AI</p>
-            <RevealBoxText as="h2" text="Private, local and built for your business." />
-            <p>Run capable AI in your environment with control over data handling, deployment and model access. We help with local inference, approved cloud integrations and the infrastructure that connects AI to real company work.</p>
-            <ul className="checkList">
-              <li>Private and local model deployment</li>
-              <li>Hardware-aware model optimization</li>
-              <li>Provider-independent application architecture</li>
-              <li>Company tool and data integrations</li>
-              <li>Hybrid local and cloud architectures</li>
-            </ul>
-          </div>
-          <div className="architecture" aria-label="Private AI architecture">
-            <FlowCard icon="company" label="Company" tone="blue" />
-            <span className="downArrow">↓</span>
-            <FlowCard icon="lock" label="AI Gateway" tone="green" />
-            <span className="downArrow">↓</span>
-            <div className="archSplit">
-              <FlowCard icon="gpu" label="Local Models" tone="green" />
-              <FlowCard icon="cloud" label="Cloud Models" tone="cyan" />
-            </div>
-            <span className="downArrow">↓</span>
-            <FlowCard icon="apps" label="Company Tools" tone="blue" />
-          </div>
-        </div>
-
-        <div className="container aiSolutions">
-          <div className="aiSolutionsHeader">
-            <div>
-              <p className="eyebrow">AI solutions</p>
-              <h3>Start with the problem, not the model.</h3>
-            </div>
-            <p>These are practical project shapes we can design around your environment. The exact architecture, models and integrations depend on your data, security requirements, hardware and existing systems.</p>
-          </div>
-
-          <div className="solutionGrid">
-            {aiSolutions.map((solution) => (
-              <details className="solutionCard" key={solution.name}>
-                <summary>
-                  <span className="solutionIcon"><Icon name={solution.icon as IconName} /></span>
-                  <span>
-                    <span className="solutionProblemLabel">Problem</span>
-                    <span className="solutionProblem">{solution.problem}</span>
-                    <span className="solutionName">{solution.name}</span>
-                    <span className="solutionShort">{solution.short}</span>
-                  </span>
-                  <span className="solutionChevron" aria-hidden="true" />
-                </summary>
-                <div className="solutionDetails">
-                  <p>{solution.detail}</p>
-                  <span className="solutionBuildLabel">What we can build</span>
-                  <ul className="solutionBuildList">
-                    {solution.build.map((item) => <li key={item}>{item}</li>)}
-                  </ul>
-                  <span className="solutionOutcomeLabel">Practical outcome</span>
-                  <p className="solutionOutcome">{solution.outcome}</p>
-                  <a className="solutionCta" href="#contact">Discuss this solution <span>→</span></a>
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section capabilitySection capabilitySectionAlt" id="infrastructure">
-        <div className="container capabilityPanel">
-          <div className="capabilityCopy">
-            <p className="eyebrow">Infrastructure</p>
-            <RevealBoxText as="h2" text="From rack space to a running environment." />
-            <p>We help teams deploy and maintain the physical and network layer behind their systems — especially when a remote engineering team needs reliable hands on-site.</p>
-          </div>
-          <div className="capabilityPoints">
-            <div className="capabilityPoint"><b>Rack & stack</b><p>Server installation, cabling, labeling and basic deployment work.</p></div>
-            <div className="capabilityPoint"><b>Network deployment</b><p>Routers, switches, connectivity checks and infrastructure changes.</p></div>
-            <div className="capabilityPoint"><b>On-site implementation</b><p>Physical installation and verification for equipment and environments.</p></div>
-            <div className="capabilityPoint"><b>Remote-team coordination</b><p>Local execution while your engineering team directs the technical plan.</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section capabilitySection" id="automation">
-        <div className="container capabilityPanel">
-          <div className="capabilityCopy">
-            <p className="eyebrow">Automation</p>
-            <RevealBoxText as="h2" text="Make repetitive work happen by itself." />
-            <p>We turn manual steps, disconnected tools and repetitive internal processes into dependable workflows — with conventional automation, AI agents or a combination of both.</p>
-          </div>
-          <div className="capabilityPoints">
-            <div className="capabilityPoint"><b>Workflow automation</b><p>Connect routine tasks into repeatable processes with fewer manual handoffs.</p></div>
-            <div className="capabilityPoint"><b>AI agents</b><p>Build agents that can use the right tools, data and company workflows.</p></div>
-            <div className="capabilityPoint"><b>System integrations</b><p>Connect APIs, internal tools, websites, extensions and business systems.</p></div>
-            <div className="capabilityPoint"><b>Monitoring & handoffs</b><p>Keep automated work observable, recoverable and easy for people to take over.</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section productsSection" id="software">
-        <div className="container">
-          <p className="eyebrow">Software</p>
-          <RevealBoxText as="h2" text="Software built around the work you actually do." />
-          <p className="lede">We build and maintain websites, extensions, internal tools and AI-enabled applications — including our own products.</p>
-          <div className="productGrid">
-            <article className="productCard productBlue">
-              <div className="productBadge">H</div>
-              <div><h3>Harness</h3><p>AI optimization and orchestration tools.</p><a href="#contact">Learn more <span>→</span></a></div>
-            </article>
-            <article className="productCard productGreen">
-              <div className="productBadge">A</div>
-              <div><h3>AIKO</h3><p>Adaptive language learning powered by AI.</p><a href="https://aiko.zetbros.com">Learn more <span>→</span></a></div>
-            </article>
-            <article className="productCard productOrange">
-              <div className="productBadge codeBadge">&lt;/&gt;</div>
-              <div><h3>Custom AI Tools</h3><p>Internal tools designed around company workflows.</p><a href="#contact">Learn more <span>→</span></a></div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="section capabilitySection capabilitySectionAlt" id="support">
-        <div className="container capabilityPanel">
-          <div className="capabilityCopy">
-            <p className="eyebrow">Support</p>
-            <RevealBoxText as="h2" text="Technical support that can actually touch the hardware." />
-            <p>When remote instructions are not enough, we can act as local technical hands for devices, servers and infrastructure while coordinating with your internal or global support team.</p>
-          </div>
-          <div className="capabilityPoints">
-            <div className="capabilityPoint"><b>IT smart hands</b><p>Hands-on checks, swaps, cabling and guided technical tasks.</p></div>
-            <div className="capabilityPoint"><b>Troubleshooting</b><p>Physical and system-level checks to help isolate issues quickly.</p></div>
-            <div className="capabilityPoint"><b>Moves, adds & changes</b><p>Device replacements, desk-side work and infrastructure changes.</p></div>
-            <div className="capabilityPoint"><b>Remote team extension</b><p>Local execution for teams that need trusted support at the site.</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section processSection" id="about">
-        <div className="container">
-          <p className="eyebrow">Our process</p>
-          <RevealBoxText as="h2" text="From idea to running system." />
-          <div className="processGrid">
-            {process.map(([n, title, text]) => (
-              <article className="processStep" key={n}>
-                <div className="stepTop"><span>{n}</span></div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section contactSection" id="contact">
-        <div className="container">
-          <ContactForm />
-        </div>
-      </section>
-
-      <footer className="footer">
-        <div className="container footerTop">
-          <Logo small />
-          <div className="footerLinks">
-            <a href="#ai">AI</a>
-            <a href="#infrastructure">Infrastructure</a>
-            <a href="#automation">Automation</a>
-            <a href="#software">Software</a>
-            <a href="#support">Support</a>
-            <a href="#contact">Contact</a>
-          </div>
-          <div className="legalLinks"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
-        </div>
-        <div className="container copyright">© 2026 Zetbros</div>
-      </footer>
-    </main>
-  );
+ return (
+  <main id="top">
+   <ScrollRevealMotion />
+   <header className="siteHeader"><div className="container navWrap navWithoutLogo">
+    <nav aria-label="Primary navigation"><a href="#ai">Our purpose</a><a href="#infrastructure">For society</a><a href="#automation">Ideas</a><a href="#software">Products</a><a href="#support">Feedback</a><a href="#contact">Contact</a></nav>
+    <a className="button buttonGhost navCta" href="#contact">Share an idea</a>
+   </div></header>
+   <section className="hero section"><div className="container">
+    <div className="heroLogoStage" aria-label="Zetbros"><Logo hero /></div>
+    <div className="heroGrid"><div className="heroCopy">
+     <p className="eyebrow">Useful products. A shared purpose.</p>
+     <RevealBoxText as="h1" text="Built for people. Shared with society." variant="hero" delayMs={260} wordGapMs={130} />
+     <p className="lede">Zetbros builds products that help people learn, create and get things done. We turn ideas and everyday problems into useful technology, and put it into the world for people to use.</p>
+     <div className="actions"><a className="button buttonPrimary" href="#software">Explore our products</a><a className="button buttonGhost" href="#contact">Share an idea or problem</a></div>
+    </div><div className="heroDiagram" aria-label="Ideas and people connected through Zetbros products">
+     <FlowCard className="node localAi" icon="ai" label="Learning" tone="violet" />
+     <FlowCard className="node automation" icon="flow" label="Ideas" tone="violet" />
+     <FlowCard className="node appsNode" icon="server" label="Products" tone="violet" />
+     <FlowCard className="node gpuNode" icon="gpu" label="AIKO" tone="green" />
+     <FlowCard className="node serverNode" icon="server" label="Harness" tone="blue" />
+     <FlowCard className="node networkNode" icon="flow" label="People" tone="orange" />
+     <FlowCard className="node cloudNode" icon="cloud" label="Society" tone="cyan" />
+     <FlowCard className="node agentsNode" icon="bot" label="Build" tone="cyan" />
+     <FlowCard className="node websiteNode" icon="globe" label="Share" tone="violet" />
+    </div></div>
+   </div></section>
+   <section className="section servicesSection" id="services"><div className="container">
+    <p className="eyebrow">What we do</p><RevealBoxText as="h2" text="Build useful things. Make a difference." />
+    <div className="serviceGrid">{services.map(service=><article className="serviceCard" id={service.id} key={service.title}><span className={`serviceIcon ${service.tone}`}><Icon name={service.icon as IconName} /></span><div><h3>{service.title}</h3><p>{service.text}</p></div></article>)}</div>
+   </div></section>
+   <section className="section" id="ai"><div className="container aiPanel"><div className="aiCopy">
+    <p className="eyebrow">Our purpose</p><RevealBoxText as="h2" text="Technology that gives something back." />
+    <p>We believe the things we build should contribute something useful to society. A product can help someone learn, make a difficult task easier, or give an idea a place to begin.</p>
+    <ul className="checkList"><li>Real needs before features</li><li>Products people can understand and use</li><li>Ideas welcomed from everyone</li><li>Learning from everyday problems</li><li>Improvement shaped by feedback</li></ul>
+   </div><div className="architecture" aria-label="How an idea becomes a useful product">
+    <FlowCard icon="flow" label="People" tone="blue" /><span className="downArrow" aria-hidden="true">↓</span><FlowCard icon="ai" label="Ideas & problems" tone="green" /><span className="downArrow" aria-hidden="true">↓</span>
+    <div className="archSplit"><FlowCard icon="bot" label="Build" tone="green" /><FlowCard icon="tool" label="Improve" tone="cyan" /></div><span className="downArrow" aria-hidden="true">↓</span><FlowCard icon="globe" label="Useful products" tone="blue" />
+   </div></div></section>
+   <section className="section capabilitySection capabilitySectionAlt" id="infrastructure"><div className="container capabilityPanel">
+    <div className="capabilityCopy"><p className="eyebrow">For society</p><RevealBoxText as="h2" text="Small problems can inspire meaningful products." /><p>We look for opportunities to make everyday life a little better. The starting point can be a frustrating task, a learning challenge, or something you wish existed.</p></div>
+    <div className="capabilityPoints"><div className="capabilityPoint"><b>Learning</b><p>Help people build knowledge and confidence, one step at a time.</p></div><div className="capabilityPoint"><b>Everyday work</b><p>Make useful tools easier to reach and everyday tasks easier to do.</p></div><div className="capabilityPoint"><b>Creativity</b><p>Give people space to explore and turn their ideas into something real.</p></div><div className="capabilityPoint"><b>Shared progress</b><p>Build with a purpose that reaches beyond the product itself.</p></div></div>
+   </div></section>
+   <section className="section capabilitySection" id="automation"><div className="container capabilityPanel">
+    <div className="capabilityCopy"><p className="eyebrow">Ideas welcome</p><RevealBoxText as="h2" text="You bring the problem. We listen." /><p>You don’t need a finished pitch or a technical background. Tell us what could be better, who it would help, or what you wish someone would build.</p></div>
+    <div className="capabilityPoints"><div className="capabilityPoint"><b>An idea</b><p>Something new that you think could help people.</p></div><div className="capabilityPoint"><b>A problem</b><p>A frustration you keep running into in everyday life.</p></div><div className="capabilityPoint"><b>A different perspective</b><p>A need that current tools don’t seem to understand.</p></div><div className="capabilityPoint"><b>A conversation</b><p>Share what you’re thinking, even if it isn’t fully formed yet.</p></div></div>
+   </div></section>
+   <section className="section productsSection" id="software"><div className="container">
+    <p className="eyebrow">Our products</p><RevealBoxText as="h2" text="Two products. One useful purpose." /><p className="lede">Meet AIKO and Harness, the products we’re building at Zetbros.</p>
+    <div className="productGrid">
+     <article className="productCard productGreen"><div className="productBadge">A</div><div><h3>AIKO</h3><p>Japanese learning with lessons, practice and progress in one place.</p><a href="https://aiko.zetbros.com">Visit AIKO <span aria-hidden="true">→</span></a></div></article>
+     <article className="productCard productBlue"><div className="productBadge">H</div><div><h3>Harness</h3><p>An AI workspace built around tools, plugins and workflows. <strong>Production in progress.</strong></p><a href="/harness">Meet Harness <span aria-hidden="true">→</span></a></div></article>
+     <article className="productCard productOrange"><div className="productBadge codeBadge">&lt;/&gt;</div><div><h3>What should we build next?</h3><p>Your idea or everyday problem could inspire what comes next.</p><a href="#contact">Share with us <span aria-hidden="true">→</span></a></div></article>
+    </div>
+   </div></section>
+   <section className="section capabilitySection capabilitySectionAlt" id="support"><div className="container capabilityPanel">
+    <div className="capabilityCopy"><p className="eyebrow">Your voice matters</p><RevealBoxText as="h2" text="Better products begin with listening." /><p>Our products should grow around the people who use them. Tell us what works, what feels difficult and what would make them more useful to you.</p></div>
+    <div className="capabilityPoints"><div className="capabilityPoint"><b>AIKO feedback</b><p>Tell us about your experience learning with AIKO.</p></div><div className="capabilityPoint"><b>Harness ideas</b><p>Share the tools or workflows you would like an AI workspace to help with.</p></div><div className="capabilityPoint"><b>Something that isn’t working</b><p>Help us understand where a product gets in your way.</p></div><div className="capabilityPoint"><b>A useful improvement</b><p>Small changes can make a meaningful difference.</p></div></div>
+   </div></section>
+   <section className="section processSection" id="about"><div className="container"><p className="eyebrow">How we build</p><RevealBoxText as="h2" text="From an everyday idea to a useful product." /><div className="processGrid">{process.map(([n,title,text])=><article className="processStep" key={n}><div className="stepTop"><span>{n}</span></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+   <section className="section contactSection" id="contact"><div className="container"><ContactForm /></div></section>
+   <footer className="footer"><div className="container footerTop"><Logo small /><div className="footerLinks"><a href="#ai">Our purpose</a><a href="#software">Products</a><a href="#automation">Ideas</a><a href="#support">Feedback</a><a href="#contact">Contact</a></div><div className="legalLinks"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div><div className="container copyright">© 2026 Zetbros · Building useful things, together.</div></footer>
+  </main>
+ );
 }

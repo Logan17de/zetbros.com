@@ -157,15 +157,15 @@
 }
 
 .heroDiagram .localAi b::after {
-  content: "Run models where your data lives.";
+  content: "Learn a little more, every day.";
 }
 
 .heroDiagram .automation b::after {
-  content: "Agents and workflows that get things done.";
+  content: "Every useful product starts somewhere.";
 }
 
 .heroDiagram .appsNode b::after {
-  content: "Integrations and tools your team uses.";
+  content: "Built for people and everyday life.";
 }
 
 /* Geometry follows the supplied reference image (620 x 305 coordinate space). */
