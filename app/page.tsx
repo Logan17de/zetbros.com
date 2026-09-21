@@ -86,16 +86,16 @@ export default function Home() {
      <RevealBoxText as="h1" text="Built for people. Shared with society." variant="hero" delayMs={260} wordGapMs={130} />
      <p className="lede">Zetbros builds products that help people learn, create and get things done. We turn ideas and everyday problems into useful technology, and put it into the world for people to use.</p>
      <div className="actions"><a className="button buttonPrimary" href="#software">Explore our products</a><a className="button buttonGhost" href="#contact">Share an idea or problem</a></div>
-    </div><div className="heroDiagram" aria-label="Ideas and people connected through Zetbros products">
-     <FlowCard className="node localAi" icon="ai" label="Learning" tone="violet" />
-     <FlowCard className="node automation" icon="flow" label="Ideas" tone="violet" />
-     <FlowCard className="node appsNode" icon="server" label="Products" tone="violet" />
-     <FlowCard className="node gpuNode" icon="gpu" label="AIKO" tone="green" />
-     <FlowCard className="node serverNode" icon="server" label="Harness" tone="blue" />
-     <FlowCard className="node networkNode" icon="flow" label="People" tone="orange" />
-     <FlowCard className="node cloudNode" icon="cloud" label="Society" tone="cyan" />
-     <FlowCard className="node agentsNode" icon="bot" label="Build" tone="cyan" />
-     <FlowCard className="node websiteNode" icon="globe" label="Share" tone="violet" />
+    </div><div className="heroDiagram productFlow" aria-label="From your ideas to products that help people">
+     <ol className="productFlowSteps">
+      <li><span className="flowStepIcon violet"><Icon name="flow" /></span><h3>Your ideas</h3><p>A problem worth solving.</p></li>
+      <li><span className="flowStepIcon blue"><Icon name="code" /></span><h3>We build</h3><p>Thoughtful, useful products.</p></li>
+      <li><span className="flowStepIcon green"><Icon name="globe" /></span><h3>People benefit</h3><p>Made for everyday life.</p></li>
+     </ol>
+     <div className="flowProducts">
+      <a className="flowProduct" href="https://aiko.zetbros.com"><span className="miniIcon green"><Icon name="gpu" /></span><span><b>AIKO</b><small>Japanese learning</small></span><svg className="flowProductArrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" /></svg></a>
+      <a className="flowProduct" href="/harness"><span className="miniIcon blue"><Icon name="server" /></span><span><b>Harness</b><small>Production in progress</small></span><svg className="flowProductArrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" /></svg></a>
+     </div>
     </div></div>
    </div></section>
    <section className="section servicesSection" id="services"><div className="container">
