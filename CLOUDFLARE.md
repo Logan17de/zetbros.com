@@ -2,7 +2,7 @@
 
 The website runs on the `zetbros` Cloudflare Worker with static assets built by Next.js. Contact submissions are stored in Cloudflare D1 (`zetbros-contact`). This website no longer requires Vercel or Supabase at runtime.
 
-The homepage retains the original logo, SVG icon artwork, page layout, and `RevealBoxText` / `ScrollRevealMotion` animations. Its content describes products for people and society, links to AIKO, and marks Harness as production in progress. The hero diagram now has one clear path from ideas to building to people, with the two products grouped underneath. Harness uses the same responsive heading scale as the homepage.
+The homepage retains the original logo, SVG icon artwork, page layout, and `RevealBoxText` / `ScrollRevealMotion` animations. Its content describes products for people and society, links to AIKO, and marks Harness as production in progress. The hero diagram now has one clear path from ideas to building to people, with the two products grouped underneath. Harness is a compact infographic guide with humanist sans-serif typography, line icons in place of emoji, and the same box and text scroll reveals as the homepage. Its typography is intentionally smaller; the shared reduced-motion setting keeps content visible without spatial motion.
 
 ## Develop and verify
 
