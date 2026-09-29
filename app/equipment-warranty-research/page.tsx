@@ -88,8 +88,7 @@ export default function EquipmentWarrantyResearchPage() {
       </section>
 
       <footer className={styles.footer}>
-        <span>© 2026 Zetbros</span>
-        <div><a href="/">Home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
+        <div><a href="/">Zetbros</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
       </footer>
     </main>
   );

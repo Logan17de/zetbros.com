@@ -97,8 +97,7 @@ export default function PracticePage({ category, title, lead, availability, solu
       </section>
       <footer className={styles.footer}>
         <div className={`${styles.container} ${styles.footerInner}`}>
-          <span>© 2026 Zetbros</span>
-          <div className={styles.footerLinks}><a href="/privacy">Privacy</a><a href="/terms">Terms</a><ContactTrigger>Contact</ContactTrigger></div>
+          <div className={styles.footerLinks}><a href="/">Zetbros</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
         </div>
       </footer>
     </main>
