@@ -1,5 +1,5 @@
 "use client";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import styles from "./contact-form.module.css";
 
 type ContactFormProps = { variant?: "general" | "research"; defaultSubject?: string };
@@ -8,6 +8,10 @@ export default function ContactForm({ variant = "general", defaultSubject }: Con
   const research = variant === "research";
   const [state, setState] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [error, setError] = useState("");
+  const feedbackRef = useRef<HTMLParagraphElement>(null);
+  useEffect(() => {
+    if (state === "error" || state === "success") feedbackRef.current?.scrollIntoView({ block: "nearest" });
+  }, [state]);
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (state === "sending") return;
@@ -31,14 +35,14 @@ export default function ContactForm({ variant = "general", defaultSubject }: Con
         <h2>{research ? "Contact us about the research pilot." : "Contact Zetbros."}</h2>
         <p>{research ? "Tell us about your equipment warranty workflow. A short introduction is enough; no documents or preparation are needed." : "Share an idea, ask about a business project, or tell us what could work better. Your message goes to our support inbox."}</p>
       </div>
-      <form className={styles.form} onSubmit={submit}>
+      <form className={styles.form} onSubmit={submit} aria-busy={state === "sending"}>
         <label><span>Your email</span><input name="email" type="email" autoComplete="email" maxLength={320} required placeholder="you@example.com" /></label>
         <label><span>Subject</span><input name="subject" maxLength={240} required defaultValue={defaultSubject || (research ? "Equipment warranty research" : "")} placeholder="What is your message about?" /></label>
         <label><span>Message</span><textarea name="message" required minLength={10} maxLength={5000} rows={research ? 4 : 6} placeholder={research ? "Tell us a little about your warranty workflow." : "Tell us what you have in mind."} /></label>
         <label className={styles.honeypot} aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
         <p className={styles.privacyNote}>Please do not include customer records, confidential documents or credentials. We’ll use your details to understand and respond to your enquiry. <a href="/privacy">Privacy information</a></p>
         <div className={styles.submitRow}><button type="submit" disabled={state === "sending"}>{state === "sending" ? "Sending…" : "Send message"}</button></div>
-        <p className={state === "success" ? styles.success : styles.feedback} role="status" aria-live="polite">{state === "success" ? "Thank you. Your message was sent to support@zetbros.com." : state === "error" ? error : ""}</p>
+        <p ref={feedbackRef} className={state === "success" ? styles.success : styles.feedback} role={state === "error" ? "alert" : "status"} aria-live={state === "error" ? "assertive" : "polite"}>{state === "success" ? "Thank you. Your message was sent to support@zetbros.com." : state === "error" ? error : ""}</p>
       </form>
     </div>
   );
