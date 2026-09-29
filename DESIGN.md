@@ -1,5 +1,7 @@
 # Zetbros design preferences
 
+The Zetbros brand theme is “We build from 0.” Show the path from a first idea or real problem to something useful for people, society, or businesses. Keep the claim grounded in actual work; do not imply that every business engagement discards the systems a company already uses.
+
 Preserve the original Zetbros logo, favicon assets, homepage layout and scrolling letter transitions. The homepage's SVG icon artwork is the reference for the icon style.
 
 Use a readable, humanist sans-serif family. The current Segoe UI family is the shared reference. Do not introduce monospace, robotic display type, or emoji artwork into product pages.

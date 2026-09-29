@@ -61,6 +61,7 @@ test("homepage exposes business, research and founder identity without dropping 
   assert.ok(html.includes('aria-haspopup="dialog"'));
   assert.doesNotMatch(html, /id="contact"/);
   assert.ok(html.includes("For people, society and business."));
+  assert.ok(html.includes("We build from 0."));
   assert.ok(html.includes("Founder"));
   assert.ok(html.includes("Production in progress"));
 });

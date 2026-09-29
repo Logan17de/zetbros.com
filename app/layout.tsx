@@ -15,7 +15,7 @@ import "./infrastructure-solutions.css";
 import "./automation-solutions.css";
 
 export const metadata: Metadata = {
-  ...pageMetadata("/", "Zetbros — Technology for society and business", "Zetbros builds useful products for people and practical AI, automation and infrastructure systems for businesses."),
+  ...pageMetadata("/", "Zetbros — We build from 0", "Zetbros takes ideas and real problems from zero to useful products for people and practical systems for businesses."),
   metadataBase: new URL(SITE_URL),
   applicationName: "Zetbros",
   manifest: "/site.webmanifest",
