@@ -76,16 +76,16 @@ export default function Home() {
   <main id="top">
    <ScrollRevealMotion />
    <header className="siteHeader"><div className="container navWrap navWithoutLogo">
-    <nav aria-label="Primary navigation"><a href="#ai">Our purpose</a><a href="#infrastructure">For society</a><a href="#automation">Ideas</a><a href="#software">Products</a><a href="#support">Feedback</a><a href="#contact">Contact</a></nav>
-    <a className="button buttonGhost navCta" href="#contact">Share an idea</a>
+    <nav aria-label="Primary navigation"><a href="#software">Products</a><a href="#business">Business</a><a href="#research">Research</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <a className="button buttonGhost navCta" href="#contact">Talk to us</a>
    </div></header>
    <section className="hero section"><div className="container">
     <div className="heroLogoStage" aria-label="Zetbros"><Logo hero /></div>
     <div className="heroGrid"><div className="heroCopy">
-     <p className="eyebrow">Useful products. A shared purpose.</p>
-     <RevealBoxText as="h1" text="Built for people. Shared with society." variant="hero" delayMs={260} wordGapMs={130} />
-     <p className="lede">Zetbros builds products that help people learn, create and get things done. We turn ideas and everyday problems into useful technology, and put it into the world for people to use.</p>
-     <div className="actions"><a className="button buttonPrimary" href="#software">Explore our products</a><a className="button buttonGhost" href="#contact">Share an idea or problem</a></div>
+     <p className="eyebrow">Products & practical technology.</p>
+     <RevealBoxText as="h1" text="Useful technology for people and businesses." variant="hero" delayMs={260} wordGapMs={130} />
+     <p className="lede">Zetbros builds useful products and practical systems for people and businesses. We turn real problems into software, AI and automation that people can actually use.</p>
+     <div className="actions"><a className="button buttonPrimary" href="#software">Explore our products</a><a className="button buttonGhost" href="#business">Business solutions</a></div>
     </div><div className="heroDiagram productFlow" aria-label="From your ideas to products that help people">
      <ol className="productFlowSteps">
       <li><span className="flowStepIcon violet"><Icon name="flow" /></span><h3>Your ideas</h3><p>A problem worth solving.</p></li>
@@ -110,6 +110,14 @@ export default function Home() {
     <FlowCard icon="flow" label="People" tone="blue" /><span className="downArrow" aria-hidden="true">↓</span><FlowCard icon="ai" label="Ideas & problems" tone="green" /><span className="downArrow" aria-hidden="true">↓</span>
     <div className="archSplit"><FlowCard icon="bot" label="Build" tone="green" /><FlowCard icon="tool" label="Improve" tone="cyan" /></div><span className="downArrow" aria-hidden="true">↓</span><FlowCard icon="globe" label="Useful products" tone="blue" />
    </div></div></section>
+   <section className="section productsSection" id="business"><div className="container">
+    <p className="eyebrow">For businesses</p><RevealBoxText as="h2" text="Practical systems built around real work." /><p className="lede">We help companies solve operational problems with AI, automation and infrastructure—starting from the systems, constraints and people already in place.</p>
+    <div className="productGrid">
+     <article className="productCard productBlue"><div className="productBadge">AI</div><div><h3>AI systems</h3><p>Private AI, knowledge assistants, model gateways and controlled agent workflows designed around company data and policy.</p><a href="/ai-in-practice">AI project patterns <span aria-hidden="true">→</span></a></div></article>
+     <article className="productCard productGreen"><div className="productBadge">↻</div><div><h3>Automation</h3><p>Connect the tools a company already uses and automate repeatable work without hiding exceptions or approval points.</p><a href="/automation-in-practice">Automation project patterns <span aria-hidden="true">→</span></a></div></article>
+     <article className="productCard productOrange"><div className="productBadge">IT</div><div><h3>Infrastructure</h3><p>On-site implementation, audit, migration and incident support for teams that need a local technical extension in Japan.</p><a href="/infrastructure-in-practice">Infrastructure project patterns <span aria-hidden="true">→</span></a></div></article>
+    </div>
+   </div></section>
    <section className="section capabilitySection capabilitySectionAlt" id="infrastructure"><div className="container capabilityPanel">
     <div className="capabilityCopy"><p className="eyebrow">For society</p><RevealBoxText as="h2" text="Small problems can inspire meaningful products." /><p>We look for opportunities to make everyday life a little better. The starting point can be a frustrating task, a learning challenge, or something you wish existed.</p></div>
     <div className="capabilityPoints"><div className="capabilityPoint"><b>Learning</b><p>Help people build knowledge and confidence, one step at a time.</p></div><div className="capabilityPoint"><b>Everyday work</b><p>Make useful tools easier to reach and everyday tasks easier to do.</p></div><div className="capabilityPoint"><b>Creativity</b><p>Give people space to explore and turn their ideas into something real.</p></div><div className="capabilityPoint"><b>Shared progress</b><p>Build with a purpose that reaches beyond the product itself.</p></div></div>
@@ -126,13 +134,26 @@ export default function Home() {
      <article className="productCard productOrange"><div className="productBadge codeBadge">&lt;/&gt;</div><div><h3>What should we build next?</h3><p>Your idea or everyday problem could inspire what comes next.</p><a href="#contact">Share with us <span aria-hidden="true">→</span></a></div></article>
     </div>
    </div></section>
+   <section className="section" id="research"><div className="container aiPanel"><div className="aiCopy">
+    <p className="eyebrow">Current research</p><RevealBoxText as="h2" text="Equipment warranty recovery." />
+    <p>We are validating whether agriculture and construction equipment dealers can reduce warranty-claim rework and recover value from returned or short-paid manufacturer claims through a dealer-controlled review process.</p>
+    <div className="actions"><a className="button buttonPrimary" href="/equipment-warranty-research">See the research pilot</a><a className="button buttonGhost" href="mailto:logan@zetbros.com?subject=Equipment%20warranty%20research">Email Logan</a></div>
+   </div><div className="architecture" aria-label="Equipment warranty research validation flow">
+    <FlowCard icon="company" label="Dealer workflow interview" tone="blue" /><span className="downArrow" aria-hidden="true">↓</span>
+    <FlowCard icon="shield" label="Optional historical claim review" tone="green" /><span className="downArrow" aria-hidden="true">↓</span>
+    <FlowCard icon="tool" label="Build only if the evidence supports it" tone="orange" />
+   </div></div></section>
    <section className="section capabilitySection capabilitySectionAlt" id="support"><div className="container capabilityPanel">
     <div className="capabilityCopy"><p className="eyebrow">Your voice matters</p><RevealBoxText as="h2" text="Better products begin with listening." /><p>Our products should grow around the people who use them. Tell us what works, what feels difficult and what would make them more useful to you.</p></div>
     <div className="capabilityPoints"><div className="capabilityPoint"><b>AIKO feedback</b><p>Tell us about your experience learning with AIKO.</p></div><div className="capabilityPoint"><b>Harness ideas</b><p>Share the tools or workflows you would like an AI workspace to help with.</p></div><div className="capabilityPoint"><b>Something that isn’t working</b><p>Help us understand where a product gets in your way.</p></div><div className="capabilityPoint"><b>A useful improvement</b><p>Small changes can make a meaningful difference.</p></div></div>
    </div></section>
-   <section className="section processSection" id="about"><div className="container"><p className="eyebrow">How we build</p><RevealBoxText as="h2" text="From an everyday idea to a useful product." /><div className="processGrid">{process.map(([n,title,text])=><article className="processStep" key={n}><div className="stepTop"><span>{n}</span></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+   <section className="section processSection" id="how-we-build"><div className="container"><p className="eyebrow">How we build</p><RevealBoxText as="h2" text="From an everyday idea to a useful product." /><div className="processGrid">{process.map(([n,title,text])=><article className="processStep" key={n}><div className="stepTop"><span>{n}</span></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+   <section className="section capabilitySection capabilitySectionAlt" id="about"><div className="container capabilityPanel">
+    <div className="capabilityCopy"><p className="eyebrow">About Zetbros</p><RevealBoxText as="h2" text="A founder-led technology and product studio." /><p>Zetbros builds its own products and investigates practical operational problems that could benefit from better software, AI and automation. We prefer to validate a real need before turning it into a product.</p></div>
+    <div className="capabilityPoints"><div className="capabilityPoint"><b>Founder</b><p>Logan leads product and AI engineering at Zetbros.</p></div><div className="capabilityPoint"><b>Business & research</b><p><a href="mailto:logan@zetbros.com">logan@zetbros.com</a></p></div><div className="capabilityPoint"><b>General support</b><p><a href="mailto:support@zetbros.com">support@zetbros.com</a></p></div><div className="capabilityPoint"><b>Open work</b><p><a href="https://github.com/Logan17de">GitHub →</a></p></div></div>
+   </div></section>
    <section className="section contactSection" id="contact"><div className="container"><ContactForm /></div></section>
-   <footer className="footer"><div className="container footerTop"><Logo small /><div className="footerLinks"><a href="#ai">Our purpose</a><a href="#software">Products</a><a href="#automation">Ideas</a><a href="#support">Feedback</a><a href="#contact">Contact</a></div><div className="legalLinks"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div><div className="container copyright">© 2026 Zetbros · Building useful things, together.</div></footer>
+   <footer className="footer"><div className="container footerTop"><Logo small /><div className="footerLinks"><a href="#software">Products</a><a href="#business">Business</a><a href="#research">Research</a><a href="#about">About</a><a href="#contact">Contact</a></div><div className="legalLinks"><a href="mailto:logan@zetbros.com">logan@zetbros.com</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div><div className="container copyright">© 2026 Zetbros · Building useful things, together.</div></footer>
   </main>
  );
 }
