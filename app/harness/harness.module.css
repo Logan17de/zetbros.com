@@ -29,7 +29,7 @@
 .heroStatement { margin: 12px 0 16px; font-size: clamp(20px,2.5vw,27px); line-height: 1.4; letter-spacing: -.02em; color: var(--harness-ink) !important; }
 .heroLead { max-width: 46ch; margin: 0; font-size: 16px; line-height: 1.7; }
 .heroActions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; margin-top: 28px; }
-.primaryButton { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 44px; padding: 10px 16px; border-radius: 8px; background: #2563eb; color: #fff; font-size: 14px; font-weight: 500; line-height: 1.5; transition: background .2s ease; }
+.primaryButton { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 44px; padding: 10px 16px; border: 0; border-radius: 8px; background: #2563eb; color: #fff; font-size: 14px; font-weight: 500; line-height: 1.5; transition: background .2s ease; }
 .primaryButton svg { width: 18px; height: 18px; }
 .primaryButton:hover { background: #1d4ed8; }
 .status { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: #596b80; }

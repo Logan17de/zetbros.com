@@ -56,8 +56,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .brandMark::after { content: ""; position: absolute; left: 10px; top: 9px; width: 14px; height: 12px; background: #fff; transform: skewX(-35deg) rotate(-39deg); border-radius: 2px; }
 
 nav { display: flex; justify-content: center; gap: 34px; font-size: 14px; font-weight: 600; color: #263042; }
-nav a, .footerLinks a, .legalLinks a { transition: color .2s ease; }
-nav a:hover, .footerLinks a:hover, .legalLinks a:hover { color: var(--blue); }
+nav :is(a, button), .footerLinks :is(a, button), .legalLinks :is(a, button) { transition: color .2s ease; }
+nav :is(a, button):hover, .footerLinks :is(a, button):hover, .legalLinks :is(a, button):hover { color: var(--blue); }
 
 .button {
   min-height: 44px;
@@ -174,14 +174,14 @@ h3 { font-size: 17px; line-height: 1.25; letter-spacing: -0.015em; }
 .productCard { min-height: 146px; padding: 24px; display: grid; grid-template-columns: auto 1fr; gap: 20px; border-radius: 12px; background: #fff; }
 .productCard h3 { margin: 2px 0 8px; }
 .productCard p { min-height: 40px; margin-bottom: 13px; color: var(--muted); font-size: 14px; line-height: 1.5; }
-.productCard a { font-size: 13px; font-weight: 700; }
-.productCard a span { margin-left: 4px; }
+.productCard :is(a, button) { font-size: 13px; font-weight: 700; }
+.productCard :is(a, button) span { margin-left: 4px; }
 .productBlue { border: 1px solid #7ba6ff; }
 .productGreen { border: 1px solid #7bd2ab; }
 .productOrange { border: 1px solid #ffab7e; }
 .productBlue a { color: var(--blue); }
 .productGreen a { color: var(--green); }
-.productOrange a { color: var(--orange); }
+.productOrange :is(a, button) { color: var(--orange); }
 .productBadge { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 8px; color: #fff; background: linear-gradient(145deg, #3d7cf2, #2559d2); box-shadow: 0 8px 18px rgba(37,99,235,.18); font-size: 26px; font-weight: 800; }
 .productGreen .productBadge { background: linear-gradient(145deg, #19b27b, #0b8d60); box-shadow: 0 8px 18px rgba(19,163,109,.16); }
 .productOrange .productBadge { background: linear-gradient(145deg, #ff7b36, #e65616); box-shadow: 0 8px 18px rgba(240,106,36,.18); }

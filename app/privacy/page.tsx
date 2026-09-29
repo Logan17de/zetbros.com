@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ContactTrigger } from "../contact-dialog";
 import styles from "../legal.module.css";
 
 export const metadata: Metadata = {
@@ -40,7 +41,7 @@ export default function PrivacyPage() {
         <p>We use reasonable technical controls to limit access to submitted information. No internet service can guarantee absolute security.</p>
 
         <h2>Your requests</h2>
-        <p>For questions about your information, correction requests, or deletion requests, contact <a href="mailto:support@zetbros.com">support@zetbros.com</a>.</p>
+        <p>For questions about your information, correction requests, or deletion requests, <ContactTrigger>contact Zetbros</ContactTrigger>.</p>
       </article>
     </main>
   );

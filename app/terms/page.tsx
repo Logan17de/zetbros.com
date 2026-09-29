@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ContactTrigger } from "../contact-dialog";
 import styles from "../legal.module.css";
 
 export const metadata: Metadata = {
@@ -37,7 +38,7 @@ export default function TermsPage() {
         <p>The website may use or link to third-party platforms and products. Their services are governed by their own terms and policies.</p>
 
         <h2>Contact</h2>
-        <p>Questions about these website terms can be sent to <a href="mailto:support@zetbros.com">support@zetbros.com</a>.</p>
+        <p>Questions about these website terms can be sent through the <ContactTrigger>contact form</ContactTrigger>.</p>
       </article>
     </main>
   );

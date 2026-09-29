@@ -55,10 +55,11 @@ test("all internal page links and fragments resolve in exported HTML", () => {
 
 test("homepage exposes business, research and founder identity without dropping products", () => {
   const html = visibleHtml(page("/"));
-  for (const id of ["business", "research", "about", "software", "contact", "how-we-build"]) assert.equal([...html.matchAll(new RegExp(`id="${id}"`, "g"))].length, 1, id);
+  for (const id of ["business", "research", "about", "software", "how-we-build"]) assert.equal([...html.matchAll(new RegExp(`id="${id}"`, "g"))].length, 1, id);
   for (const route of ["/ai-in-practice", "/automation-in-practice", "/infrastructure-in-practice", "/equipment-warranty-research", "/harness"]) assert.ok(html.includes(`href="${route}"`));
   assert.ok(html.includes('href="https://aiko.zetbros.com"'));
-  assert.ok(html.includes('href="mailto:support@zetbros.com"'));
+  assert.ok(html.includes('aria-haspopup="dialog"'));
+  assert.doesNotMatch(html, /id="contact"/);
   assert.ok(html.includes("For people, society and business."));
   assert.ok(html.includes("Founder"));
   assert.ok(html.includes("Production in progress"));
@@ -68,17 +69,13 @@ test("research is an enquiry, not a live claim portal", () => {
   const html = visibleHtml(page("/equipment-warranty-research"));
   assert.ok(html.includes("Research validation"));
   assert.ok(html.includes("not a released product"));
-  assert.ok(html.includes("does not accept claim uploads"));
   assert.ok(html.includes("No OEM portal passwords"));
   assert.ok(html.includes("No autonomous claim submission"));
   assert.ok(html.includes("No recovery guarantee"));
-  assert.ok(html.includes('id="data-handling"'));
-  assert.ok(html.includes('id="conversation"'));
-  assert.ok(html.includes('name="email"'));
-  assert.ok(html.includes('name="subject"'));
-  assert.ok(html.includes('name="message"'));
-  assert.ok(html.includes('value="Equipment warranty research"'));
-  assert.doesNotMatch(html, /<select\b/i);
+  assert.doesNotMatch(html, /id="data-handling"/);
+  assert.doesNotMatch(html, /id="conversation"/);
+  assert.ok(html.includes('aria-haspopup="dialog"'));
+  assert.doesNotMatch(html, /<form\b/i);
   assert.doesNotMatch(html, /<input\b[^>]*type="file"/i);
 });
 

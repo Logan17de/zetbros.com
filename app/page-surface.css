@@ -75,3 +75,34 @@ body > main {
   background: transparent !important;
   box-shadow: none !important;
 }
+
+#top .heroLogoStage::before,
+#top .heroLogoStage::after {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  #top .navWrap.navWithoutLogo {
+    display: block;
+    min-height: 0;
+    height: auto;
+    padding: 14px 0;
+  }
+
+  #top .navWrap.navWithoutLogo nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  #top .navWrap.navWithoutLogo nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  #top .navWrap.navWithoutLogo .navCta {
+    display: none;
+  }
+}
