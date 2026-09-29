@@ -22,7 +22,7 @@ export default function Logo({ small = false, hero = false }: LogoProps) {
 
   return (
     <a className={wrapClass} href="/#top" aria-label="Zetbros home">
-      <img className={imageClass} src="/zetbros-logo.png" alt="Zetbros" />
+      <img className={imageClass} src="/zetbros-logo.png" alt="Zetbros" width={2172} height={724} />
     </a>
   );
 }

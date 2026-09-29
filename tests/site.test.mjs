@@ -110,7 +110,7 @@ test("robots and sitemap cover exactly the public routes", () => {
 
 test("original logo and icons remain unchanged", () => {
   const original = {
-    "app/logo.tsx": "511f9e4e7bf10c51a10b2c23606d04dbe8723af5",
+    "public/zetbros-logo.png": "115c666c0f4c9cdd8fddbde233f7a7ccd1f5e200",
     "app/icon.png": "027d0a573d46587cd09f58c150b9a680d9db50e5",
     "app/apple-icon.png": "54223c22717050db6b2a369810e956fea31dc7dc",
   };

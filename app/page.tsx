@@ -79,12 +79,12 @@ export default function Home() {
     <nav aria-label="Primary navigation"><a href="#software">Products</a><a href="#business">Business</a><a href="#research">Research</a><a href="#about">About</a><ContactTrigger>Contact</ContactTrigger></nav>
    </div></header>
    <section className="hero section"><div className="container">
-    <div className="heroLogoStage" aria-label="Zetbros"><Logo hero /><h1 className="brandTagline">From zero to something real</h1></div>
-    <div className="heroGrid"><div className="heroCopy">
+    <div className="heroIntro"><div className="heroLogoStage" aria-label="Zetbros"><Logo hero /><h1 className="brandTagline">From zero to something real</h1></div>
+    <div className="heroCopy">
      <p className="eyebrow">For people, society and business.</p>
      <p className="lede">Every useful thing starts somewhere. Zetbros takes an idea or a real problem from zero to something people can use—products for everyday life and practical systems for businesses.</p>
      <div className="actions"><a className="button buttonPrimary" href="#services">People &amp; society</a><a className="button buttonGhost" href="#business">Business solutions</a></div>
-    </div><div className="heroDiagram productFlow" aria-label="From your ideas to products that help people">
+    </div></div><div className="heroDiagram productFlow" aria-label="From your ideas to products that help people">
      <ol className="productFlowSteps">
       <li><span className="flowStepIcon violet"><Icon name="flow" /></span><h3>Your ideas</h3><p>A problem worth solving.</p></li>
       <li><span className="flowStepIcon blue"><Icon name="code" /></span><h3>We build</h3><p>Thoughtful, useful products.</p></li>
@@ -94,7 +94,7 @@ export default function Home() {
       <a className="flowProduct" href="https://aiko.zetbros.com"><span className="miniIcon green"><Icon name="gpu" /></span><span><b>AIKO</b><small>Japanese learning</small></span><svg className="flowProductArrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" /></svg></a>
       <a className="flowProduct" href="/harness"><span className="miniIcon blue"><Icon name="server" /></span><span><b>Harness</b><small>Production in progress</small></span><svg className="flowProductArrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" /></svg></a>
      </div>
-    </div></div>
+    </div>
    </div></section>
    <section className="section servicesSection" id="services"><div className="container">
     <p className="eyebrow">What we do</p><RevealBoxText as="h2" text="Build useful things. Make a difference." />

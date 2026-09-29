@@ -1,61 +1,12 @@
-.dialog {
-  width: min(900px, calc(100% - 32px));
-  max-height: min(90dvh, 900px);
-  margin: auto;
-  padding: 44px;
-  overflow-y: auto;
-  border: 1px solid #dfe6ef;
-  border-radius: 20px;
-  background: #fff;
-  color: #172033;
-  box-shadow: 0 30px 90px rgba(15, 23, 42, .2);
-}
-
-.dialog::backdrop {
-  background: rgba(15, 23, 42, .32);
-  backdrop-filter: blur(10px);
-}
-
-.close {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  border: 1px solid #dfe6ef;
-  border-radius: 50%;
-  background: #fff;
-  color: #526077;
-  font: inherit;
-  font-size: 24px;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.close:hover { color: #172033; }
-.close:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
-
+.dialog { width: min(960px,calc(100% - 48px)); max-height: calc(100dvh - 64px); margin: auto; padding: 64px 48px 48px; overflow-y: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--text); box-shadow: 0 24px 80px #172f3429; }
+.dialog[open] { animation: contact-enter 180ms var(--ease); }
+.dialog::backdrop { background: #172f3455; backdrop-filter: blur(8px); }
+.close { position: absolute; top: 12px; right: 12px; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 4px; background: #fff; color: var(--text); font: inherit; font-size: 28px; line-height: 1; cursor: pointer; }
+.close:hover { color: var(--blue); }
+.close:focus-visible, .textTrigger:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 .styledTrigger { font-family: inherit; cursor: pointer; }
-.textTrigger {
-  padding: 0;
-  border: 0;
-  background: none;
-  color: inherit;
-  font: inherit;
-  text-align: inherit;
-  cursor: pointer;
-}
-.textTrigger:hover { color: #2563eb; }
-.textTrigger:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
-
-@media (max-width: 720px) {
-  .dialog {
-    width: calc(100% - 24px);
-    max-height: calc(100dvh - 24px);
-    padding: 56px 20px 24px;
-    border-radius: 16px;
-  }
-}
+.textTrigger { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: inherit; cursor: pointer; }
+.textTrigger:hover { color: var(--blue); }
+@keyframes contact-enter { from { transform: translateY(8px); opacity: .7; } to { transform: none; opacity: 1; } }
+@media (max-width: 760px) { .dialog { width: calc(100% - 24px); max-height: calc(100dvh - 24px); padding: 60px 24px 28px; } }
+@media (prefers-reduced-motion: reduce) { .dialog[open] { animation: none; } }
