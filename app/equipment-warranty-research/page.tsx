@@ -1,111 +1,119 @@
 import ContactForm from "../contact-form";
 import Logo from "../logo";
 import { pageMetadata } from "../site-metadata";
-import styles from "../prospect.module.css";
+import styles from "./research.module.css";
 
 export const metadata = pageMetadata(
   "/equipment-warranty-research",
-  "Equipment Warranty Research | Zetbros",
-  "An exploratory study of dealer-controlled reviews for returned or short-paid equipment warranty claims. Start with a conversation, not a document upload."
+  "Equipment Warranty Recovery Research | Zetbros",
+  "A Zetbros research pilot exploring dealer-controlled review of returned, denied and short-paid equipment warranty claims. Start with a conversation, not a document upload."
 );
 
+const tests = [
+  "Returned, denied, or short-paid historical manufacturer warranty claims",
+  "Missing or inconsistent documentation visible in the supplied claim packet",
+  "Relevant rule references from dealer-provided OEM warranty material",
+  "Evidence needed for a possible correction or resubmission",
+  "Reconciliation of claimed, approved, and paid amounts",
+];
+
+const boundaries = [
+  "No OEM portal passwords or dealer-system credentials",
+  "No autonomous claim submission or resubmission",
+  "No independent warranty-coverage or eligibility decision",
+  "No replacement of the dealer's DMS or existing warranty process",
+  "No recovery guarantee and no fraud accusation",
+];
+
 export default function EquipmentWarrantyResearchPage() {
-  return <main className={styles.page}>
-    <header className={styles.header}>
-      <div className={`container ${styles.headerInner}`}>
+  return (
+    <main className={styles.page}>
+      <header className={styles.header}>
         <Logo small />
-        <nav className={styles.pageNav} aria-label="Primary navigation">
-          <a href="/#software">Products</a><a href="/#business">Business solutions</a><a href="/#research">Research</a><a href="/#about">About</a><a href="#conversation">Contact</a>
-        </nav>
-      </div>
-    </header>
-    <section className={styles.hero}>
-      <div className="container">
-        <p className={styles.breadcrumb}><a href="/">Zetbros</a> / Research</p>
-        <span className={styles.status}>Research / validation</span>
-        <h1>Equipment warranty recovery.</h1>
-        <p className={styles.heroLead}>We are researching whether a dealer-controlled review of returned, denied or short-paid manufacturer warranty claims can uncover useful next steps beyond what existing staff and software already catch.</p>
-        <p className={styles.intro}>We would like to learn from service and warranty teams at regional agriculture and construction equipment dealerships, initially focusing on North America.</p>
-        <div className={styles.actions}>
-          <a className="button buttonPrimary" href="#conversation">Request a 20-minute conversation</a>
-          <a className={styles.textLink} href="mailto:logan@zetbros.com?subject=Equipment%20warranty%20research">Email Logan</a>
+        <nav aria-label="Research navigation"><a href="/#business">Business</a><a href="/#about">About</a><a href="#conversation">Contact</a></nav>
+      </header>
+
+      <section className={styles.hero}>
+        <div className={styles.heroCopy}>
+          <span className={styles.status}>Research validation · not a released product</span>
+          <p className={styles.eyebrow}>Equipment dealer research</p>
+          <h1>Equipment warranty recovery — research pilot.</h1>
+          <p className={styles.lead}>Zetbros is validating whether agriculture and construction equipment dealers can reduce warranty-claim rework and recover value from returned or short-paid manufacturer claims through a dealer-controlled review process.</p>
+          <div className={styles.actions}>
+            <a className={styles.primary} href="#conversation">Request a 20-minute conversation</a>
+            <a className={styles.secondary} href="/#about">About Zetbros</a>
+          </div>
         </div>
-        <p className={styles.small}>No preparation, customer documents or system access needed for the first discussion. This is an independent research initiative, not a launched product or a promise of recovery.</p>
-      </div>
-    </section>
-    <section className={styles.section} aria-label="Research participation">
-      <div className={`container ${styles.twoColumns}`}>
-        <article className={styles.panel}>
-          <p className="eyebrow">First, understand the work</p>
-          <h2>A conversation before any software.</h2>
-          <p>Walk us through one recent returned or short-paid claim, without sharing identifying customer details. Who gathered the evidence? What did the existing tools check? What happened next?</p>
-          <p>We also want to hear when the process already works well. Reasons a separate review would be unnecessary are as useful as problems worth investigating.</p>
-        </article>
-        <article className={styles.panel}>
-          <p className="eyebrow">Only by separate agreement</p>
-          <h2>A possible later claim review.</h2>
-          <p>After a useful conversation, we may agree a small review of redacted historical claims using records and applicable manufacturer rules the dealer is authorized to share.</p>
-          <p>The proposed output is a short, source-linked finding report for a dealer reviewer, not an automatically submitted claim. Participation, scope and any commercial terms would be agreed separately.</p>
-        </article>
-      </div>
-    </section>
-    <section className={styles.section} aria-labelledby="review-scope">
-      <div className={`container ${styles.twoColumns}`}>
+        <aside className={styles.summary}>
+          <span>Current test</span>
+          <strong>Start with the workflow, then review up to five historical claims only if the dealer wants to continue.</strong>
+          <p>The dealer keeps final authority over every finding and any action that follows.</p>
+        </aside>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionHeading}><p>01 · What we're testing</p><h2>A narrow recovery-first question.</h2></div>
+        <div className={styles.grid}>{tests.map((item) => <div className={styles.card} key={item}><span>✓</span><p>{item}</p></div>)}</div>
+      </section>
+
+      <section className={styles.section + " " + styles.soft}>
+        <div className={styles.sectionHeading}><p>02 · Boundaries</p><h2>Dealer-controlled by design.</h2></div>
+        <div className={styles.grid}>{boundaries.map((item) => <div className={styles.card} key={item}><span>—</span><p>{item}</p></div>)}</div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionHeading}><p>03 · How a pilot would work</p><h2>Prove usefulness before building software.</h2></div>
+        <ol className={styles.steps}>
+          <li><b>20-minute workflow conversation</b><span>No preparation or customer documents are needed. We learn how claims move today and what existing systems already do well.</span></li>
+          <li><b>Optional historical review</b><span>If there is a useful question to test, the dealer may choose to provide up to five historical returned, denied, or short-paid claims after the permitted records and data-handling arrangements have been agreed.</span></li>
+          <li><b>Rule-backed findings</b><span>Potential documentation gaps or inconsistencies are linked to the applicable rule material the dealer is authorized to provide.</span></li>
+          <li><b>Dealer review</b><span>The dealer confirms or rejects each finding and decides whether any correction or resubmission is appropriate.</span></li>
+          <li><b>Measure incremental value</b><span>We compare findings against what the existing team and tools already knew. A finding is not useful merely because an AI can describe it.</span></li>
+        </ol>
+        <p>A document absent from our review packet is not automatically absent from the original claim. A payment received after a review is not automatically money recovered because of that review.</p>
+      </section>
+
+      <section className={styles.section + " " + styles.dataSection} id="data-handling">
         <div>
-          <h2 id="review-scope">What we would examine.</h2>
-          <ul className={styles.list}>
-            <li>Missing or inconsistent supporting documents and repair-order details.</li>
-            <li>Denial or short-payment reasons and the evidence behind them.</li>
-            <li>Applicable rule passages, versions and dates supplied by the dealer.</li>
-            <li>Evidence that might support a correction or resubmission.</li>
-            <li>Differences between claimed, approved and paid amounts.</li>
-          </ul>
+          <p className={styles.eyebrow}>Data handling</p>
+          <h2>Do not send claim files or credentials during initial contact.</h2>
+          <p>This public website does not accept claim uploads. The first conversation requires no confidential material. Before any pilot transfer, we would agree which records the dealer is authorized to share, required redactions, the transfer method, who may access the material, processing tools including any AI providers, and the retention and deletion arrangements.</p>
         </div>
-        <div>
-          <h2>What stays under your control.</h2>
-          <ul className={styles.list}>
-            <li>No OEM portal passwords or credentials.</li>
-            <li>No automatic submissions or changes to dealer systems.</li>
-            <li>No replacement of your dealer-management system.</li>
-            <li>No guarantee of eligibility, approval or payment; the manufacturer makes its own decisions.</li>
-            <li>Your team verifies findings and decides whether to take action.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <section className={styles.section} id="data-handling" aria-labelledby="handling-title">
-      <div className="container">
         <div className={styles.notice}>
-          <h2 id="handling-title">Please do not send claim files yet.</h2>
-          <p><strong>This public website does not accept claim uploads.</strong> Please keep initial messages free of customer records, confidential manufacturer documents, machine identifiers and credentials.</p>
-          <p>Before any later transfer, we would agree the permitted records, redaction, transfer method, authorized reviewers, processing tools including any AI providers, retention and deletion arrangements. Nothing on this page is a claim that a secure document portal or a certified processing service is already available.</p>
-          <a className={styles.textLink} href="/privacy">Read the website privacy information</a>
+          <b>Please do not email:</b>
+          <ul>
+            <li>OEM portal passwords or authentication secrets</li>
+            <li>Customer payment or banking information</li>
+            <li>Employee private identifiers</li>
+            <li>Claim packets until a transfer method has been agreed</li>
+          </ul>
+          <p>This page does not promise a particular storage, certification, or retention system before one has been implemented and agreed for the pilot.</p>
+          <a href="/privacy">Website privacy information →</a>
         </div>
-      </div>
-    </section>
-    <section className={styles.section} aria-label="Research approach and contact">
-      <div className={`container ${styles.twoColumns}`}>
+      </section>
+
+      <section className={styles.section + " " + styles.current}>
         <div>
-          <h2>Useful means more than plausible.</h2>
-          <p>A finding must be accurate, traceable to the supplied evidence and actionable for a dealer reviewer. We would distinguish new information from issues your team already knew about.</p>
-          <p>Something missing from our review packet is not automatically missing from the original submission. A payment received after a review is not automatically money recovered because of that review.</p>
+          <p className={styles.eyebrow}>Current status</p>
+          <h2>Research first. Product second.</h2>
+          <p>We are testing the problem before committing to a product. Evidence that a dealer's existing process already handles this well is useful too—it tells us not to add another tool where one is not needed.</p>
+          <p>This is an independent Zetbros initiative, not an OEM-endorsed program or a claim of a proven warranty-recovery track record. Participation and any later commercial terms would be agreed separately.</p>
         </div>
-        <div>
-          <h2>Led by Logan at Zetbros.</h2>
-          <p>Zetbros is an independent, founder-led technology and product studio. Logan leads product and AI engineering. We are learning this workflow with dealers, not claiming an established warranty-recovery track record.</p>
-          <p>We are not affiliated with or endorsed by an equipment manufacturer. Our other products are AIKO and Harness; this research is a separate initiative.</p>
-          <a className={styles.textLink} href="/#about">About Zetbros and Logan <span aria-hidden="true">→</span></a>
+        <div className={styles.contact}>
+          <span>Research contact</span>
+          <strong>Logan · Zetbros</strong>
+          <a href="mailto:logan@zetbros.com">logan@zetbros.com</a>
         </div>
-      </div>
-    </section>
-    <section className={styles.section} id="conversation" aria-label="Request a research conversation">
-      <div className="container"><ContactForm variant="research" /></div>
-    </section>
-    <footer className={styles.footer}>
-      <div className={`container ${styles.footerInner}`}>
-        <span>Equipment warranty research by Zetbros</span>
-        <div className={styles.footerLinks}><a href="/">Home</a><a href="mailto:logan@zetbros.com">logan@zetbros.com</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
-      </div>
-    </footer>
-  </main>;
+      </section>
+
+      <section className={styles.section} id="conversation" aria-label="Request a research conversation">
+        <ContactForm variant="research" />
+      </section>
+
+      <footer className={styles.footer}>
+        <span>© 2026 Zetbros</span>
+        <div><a href="/">Home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
+      </footer>
+    </main>
+  );
 }

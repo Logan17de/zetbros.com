@@ -3,7 +3,7 @@ import PracticePage, { type PracticeSolution } from "../practice-page";
 
 export const metadata: Metadata = {
   title: "Infrastructure in Practice — Zetbros",
-  description: "Detailed real-world infrastructure problems and the on-site solutions Zetbros can provide in Japan.",
+  description: "Common infrastructure project patterns for on-site implementation, audit, migration and incident support in Japan.",
 };
 
 const solutions: PracticeSolution[] = [

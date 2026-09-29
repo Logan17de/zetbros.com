@@ -3,7 +3,7 @@ import PracticePage, { type PracticeSolution } from "../practice-page";
 
 export const metadata: Metadata = {
   title: "AI in Practice — Zetbros",
-  description: "Detailed real-world AI problems and the systems Zetbros can design to solve them.",
+  description: "Common AI business problems and project patterns Zetbros can design around company data, security and operating constraints.",
 };
 
 const solutions: PracticeSolution[] = [

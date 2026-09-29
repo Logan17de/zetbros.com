@@ -27,8 +27,7 @@ for (const route of routes) {
     const html = visibleHtml(page(route));
     const canonical = [...html.matchAll(/<link\b[^>]*rel="canonical"[^>]*>/g)];
     assert.equal(canonical.length, 1);
-    // URL parsing treats the origin with/without its final slash equivalently,
-    // while still checking the exact page, protocol, host, query and fragment.
+    // Parse URLs to normalize only the origin's optional final slash.
     const expected = new URL(route, origin).href;
     assert.equal(new URL(attribute(canonical[0][0], "href")).href, expected);
     const og = html.match(/<meta\b[^>]*property="og:url"[^>]*>/)?.[0];
@@ -65,12 +64,14 @@ test("homepage exposes business, research and founder identity without dropping 
 
 test("research is an enquiry, not a live claim portal", () => {
   const html = visibleHtml(page("/equipment-warranty-research"));
-  assert.ok(html.includes("Research / validation"));
+  assert.ok(html.includes("Research validation"));
+  assert.ok(html.includes("not a released product"));
   assert.ok(html.includes("does not accept claim uploads"));
-  assert.ok(html.includes("No OEM portal passwords or credentials"));
-  assert.ok(html.includes("No automatic submissions"));
-  assert.ok(html.includes("No guarantee of eligibility"));
+  assert.ok(html.includes("No OEM portal passwords"));
+  assert.ok(html.includes("No autonomous claim submission"));
+  assert.ok(html.includes("No recovery guarantee"));
   assert.ok(html.includes('id="data-handling"'));
+  assert.ok(html.includes('id="conversation"'));
   assert.ok(html.includes('name="company"'));
   assert.match(html, /<option[^>]*selected[^>]*>Equipment warranty research<\/option>/);
   assert.doesNotMatch(html, /<input\b[^>]*type="file"/i);
@@ -87,15 +88,17 @@ test("project patterns are not presented as customer case studies", () => {
 
 test("robots and sitemap cover exactly the public routes", () => {
   const sitemap = readFileSync("out/sitemap.xml", "utf8");
-  const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(match => match[1]).sort();
-  assert.deepEqual(urls, routes.map(route => `${origin}${route}`).sort());
+  const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(match => new URL(match[1]).href).sort();
+  assert.deepEqual(urls, routes.map(route => new URL(route, origin).href).sort());
   const robots = readFileSync("out/robots.txt", "utf8");
   assert.ok(robots.includes(`Sitemap: ${origin}/sitemap.xml`));
   assert.ok(robots.includes("Disallow: /api/"));
   assert.ok(existsSync("out/icon-512.png"));
+  assert.equal(existsSync("public/robots.txt"), false, "Do not duplicate the App Router metadata route");
+  assert.equal(existsSync("public/sitemap.xml"), false, "Do not duplicate the App Router metadata route");
 });
 
-test("original logo, icons and email-independent infrastructure remain unchanged", () => {
+test("original logo, icons and website infrastructure remain unchanged", () => {
   const original = {
     "app/logo.tsx": "511f9e4e7bf10c51a10b2c23606d04dbe8723af5",
     "app/icon.png": "027d0a573d46587cd09f58c150b9a680d9db50e5",
