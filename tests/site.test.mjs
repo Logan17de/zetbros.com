@@ -61,7 +61,7 @@ test("homepage exposes business and research without personal identity", () => {
   assert.ok(html.includes('aria-haspopup="dialog"'));
   assert.doesNotMatch(html, /id="contact"/);
   assert.ok(html.includes("For people, society and business."));
-  assert.ok(html.includes("We build from 0."));
+  assert.ok(html.includes("From zero to something real"));
   assert.doesNotMatch(html, /Logan|founder|GitHub|Talk to us/i);
   const footer = html.match(/<footer\b[^>]*>[\s\S]*?<\/footer>/)?.[0];
   assert.ok(footer);

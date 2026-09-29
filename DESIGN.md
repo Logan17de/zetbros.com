@@ -1,6 +1,6 @@
 # Zetbros design preferences
 
-The Zetbros brand theme is “We build from 0.” Show the path from a first idea or real problem to something useful for people, society, or businesses. Keep the claim grounded in actual work; do not imply that every business engagement discards the systems a company already uses.
+The Zetbros brand theme is building from zero, expressed as “From zero to something real” directly beneath the homepage logo. Treat it as a quiet, centered tagline with no terminal punctuation, content box, border, or background. Show the path from a first idea or real problem to something useful for people, society, or businesses. Keep the claim grounded in actual work; do not imply that every business engagement discards the systems a company already uses.
 
 Preserve the original Zetbros logo, favicon assets, homepage layout and scrolling letter transitions. The homepage's SVG icon artwork is the reference for the icon style.
 
