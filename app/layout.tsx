@@ -14,10 +14,24 @@ import "./infrastructure-solutions.css";
 import "./automation-solutions.css";
 
 export const metadata: Metadata = {
-  title: "Zetbros — Products for people and society",
+  metadataBase: new URL("https://zetbros.com"),
+  title: "Zetbros — Products, AI and practical technology",
   description:
-    "We build useful products for people and society. Explore AIKO, meet Harness, and share an idea or a problem with Zetbros.",
+    "Zetbros builds useful products and practical systems for people and businesses, including AI, automation and infrastructure project work.",
   applicationName: "Zetbros",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "https://zetbros.com",
+    siteName: "Zetbros",
+    title: "Zetbros — Products, AI and practical technology",
+    description: "Useful products and practical systems for people and businesses.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Zetbros — Products, AI and practical technology",
+    description: "Useful products and practical systems for people and businesses.",
+  },
   manifest: "/site.webmanifest",
   icons: {
     icon: [
