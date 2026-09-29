@@ -65,3 +65,13 @@ body > main {
 .siteHeader {
   box-shadow: none;
 }
+
+/* Headings are typography, not cards. Keep their word reveal without a frame. */
+#top .revealBox-hero,
+#top .revealBox-section {
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+}

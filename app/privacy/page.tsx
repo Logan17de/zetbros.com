@@ -22,13 +22,13 @@ export default function PrivacyPage() {
         <p>This page explains the basic information handling for the Zetbros website. As the website and services develop, this policy may be updated to reflect new features or legal requirements.</p>
 
         <h2>Information you send us</h2>
-        <p>If you use a contact form, we receive your name, email address, selected topic, and message. Some forms also accept an optional company name.</p>
+        <p>If you use a contact form, we receive your email address, subject, and message. Some project enquiry forms also accept your name and company.</p>
 
         <h2>How we use it</h2>
         <p>Contact information is used to understand your request, respond to you, discuss possible work, and maintain a record of business enquiries. We do not use contact-form submissions to sell personal data.</p>
 
         <h2>Where it is stored</h2>
-        <p>This website and its enquiry database are hosted on Cloudflare. Cloudflare may process technical information, including IP addresses, to deliver the website and limit abusive submissions. This page describes zetbros.com; individual products may have their own privacy information.</p>
+        <p>This website and its enquiry database are hosted on Cloudflare. Contact messages are sent to our support inbox through SpaceMail, and an enquiry copy is stored in Cloudflare D1. Cloudflare may process technical information, including IP addresses, to deliver the website and limit abusive submissions. This page describes zetbros.com; individual products may have their own privacy information.</p>
 
         <h2>Retention</h2>
         <p>We keep business enquiries for as long as reasonably useful for responding, maintaining business records, resolving disputes, or meeting applicable legal obligations. You can ask us to delete information where applicable.</p>
