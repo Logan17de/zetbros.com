@@ -2,6 +2,10 @@ import ContactForm from "./contact-form";
 import Logo from "./logo";
 import RevealBoxText from "./reveal-box-text";
 import ScrollRevealMotion from "./scroll-reveal-motion";
+import { BusinessSolutions, ResearchSummary, AboutZetbros } from "./business-sections";
+import { pageMetadata } from "./site-metadata";
+
+export const metadata = pageMetadata("/", "Zetbros — Products for people and businesses", "Useful products and practical technology for people and businesses. Explore AIKO, Harness, business solutions and current research at Zetbros.");
 
 const services = [
  {id:"purpose-learning",icon:"ai",tone:"blue",title:"Help people learn",text:"Build tools that make learning part of everyday life."},
@@ -18,20 +22,7 @@ const process = [
  ["04","Share","Put useful work into the hands of people."],
  ["05","Improve","Learn from feedback and keep making it better."],
 ];
-type IconName =
-  | "ai"
-  | "shield"
-  | "flow"
-  | "tool"
-  | "server"
-  | "code"
-  | "cloud"
-  | "bot"
-  | "globe"
-  | "gpu"
-  | "company"
-  | "lock"
-  | "apps";
+type IconName = "ai" | "shield" | "flow" | "tool" | "server" | "code" | "cloud" | "bot" | "globe" | "gpu" | "company" | "lock" | "apps";
 
 function Icon({ name }: { name: IconName }) {
   const common = {
@@ -41,7 +32,6 @@ function Icon({ name }: { name: IconName }) {
     strokeLinecap: "round" as const,
     strokeLinejoin: "round" as const,
   };
-
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...common}>
       {name === "ai" && <><path d="M9 5a3 3 0 0 0-5 2.2A3.4 3.4 0 0 0 4.6 14 3 3 0 0 0 9 18.6V5Z"/><path d="M15 5a3 3 0 0 1 5 2.2 3.4 3.4 0 0 1-.6 6.8 3 3 0 0 1-4.4 4.6V5Z"/><path d="M9 8H7m2 4H6.5M9 16H7m8-8h2m-2 4h2.5M15 16h2"/></>}
@@ -62,30 +52,24 @@ function Icon({ name }: { name: IconName }) {
 }
 
 function FlowCard({ className = "", icon, label, tone = "blue" }: { className?: string; icon: IconName; label: string; tone?: string }) {
-  return (
-    <div className={`flowCard ${className}`}>
-      <span className={`miniIcon ${tone}`}><Icon name={icon} /></span>
-      <b>{label}</b>
-    </div>
-  );
+  return <div className={`flowCard ${className}`}><span className={`miniIcon ${tone}`}><Icon name={icon} /></span><b>{label}</b></div>;
 }
-
 
 export default function Home() {
  return (
   <main id="top">
    <ScrollRevealMotion />
    <header className="siteHeader"><div className="container navWrap navWithoutLogo">
-    <nav aria-label="Primary navigation"><a href="#ai">Our purpose</a><a href="#infrastructure">For society</a><a href="#automation">Ideas</a><a href="#software">Products</a><a href="#support">Feedback</a><a href="#contact">Contact</a></nav>
-    <a className="button buttonGhost navCta" href="#contact">Share an idea</a>
+    <nav aria-label="Primary navigation"><a href="#software">Products</a><a href="#business">Business solutions</a><a href="#research">Research</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <a className="button buttonGhost navCta" href="#contact">Let’s talk</a>
    </div></header>
    <section className="hero section"><div className="container">
     <div className="heroLogoStage" aria-label="Zetbros"><Logo hero /></div>
     <div className="heroGrid"><div className="heroCopy">
-     <p className="eyebrow">Useful products. A shared purpose.</p>
+     <p className="eyebrow">Useful products. Practical technology.</p>
      <RevealBoxText as="h1" text="Built for people. Shared with society." variant="hero" delayMs={260} wordGapMs={130} />
-     <p className="lede">Zetbros builds products that help people learn, create and get things done. We turn ideas and everyday problems into useful technology, and put it into the world for people to use.</p>
-     <div className="actions"><a className="button buttonPrimary" href="#software">Explore our products</a><a className="button buttonGhost" href="#contact">Share an idea or problem</a></div>
+     <p className="lede">Zetbros builds useful products and practical technology for people and businesses. We turn real problems into software, AI and automation systems people can understand and use.</p>
+     <div className="actions"><a className="button buttonPrimary" href="#software">Explore our products</a><a className="button buttonGhost" href="#business">For businesses</a></div>
     </div><div className="heroDiagram productFlow" aria-label="From your ideas to products that help people">
      <ol className="productFlowSteps">
       <li><span className="flowStepIcon violet"><Icon name="flow" /></span><h3>Your ideas</h3><p>A problem worth solving.</p></li>
@@ -98,6 +82,7 @@ export default function Home() {
      </div>
     </div></div>
    </div></section>
+   <BusinessSolutions />
    <section className="section servicesSection" id="services"><div className="container">
     <p className="eyebrow">What we do</p><RevealBoxText as="h2" text="Build useful things. Make a difference." />
     <div className="serviceGrid">{services.map(service=><article className="serviceCard" id={service.id} key={service.title}><span className={`serviceIcon ${service.tone}`}><Icon name={service.icon as IconName} /></span><div><h3>{service.title}</h3><p>{service.text}</p></div></article>)}</div>
@@ -126,13 +111,15 @@ export default function Home() {
      <article className="productCard productOrange"><div className="productBadge codeBadge">&lt;/&gt;</div><div><h3>What should we build next?</h3><p>Your idea or everyday problem could inspire what comes next.</p><a href="#contact">Share with us <span aria-hidden="true">→</span></a></div></article>
     </div>
    </div></section>
+   <ResearchSummary />
    <section className="section capabilitySection capabilitySectionAlt" id="support"><div className="container capabilityPanel">
     <div className="capabilityCopy"><p className="eyebrow">Your voice matters</p><RevealBoxText as="h2" text="Better products begin with listening." /><p>Our products should grow around the people who use them. Tell us what works, what feels difficult and what would make them more useful to you.</p></div>
     <div className="capabilityPoints"><div className="capabilityPoint"><b>AIKO feedback</b><p>Tell us about your experience learning with AIKO.</p></div><div className="capabilityPoint"><b>Harness ideas</b><p>Share the tools or workflows you would like an AI workspace to help with.</p></div><div className="capabilityPoint"><b>Something that isn’t working</b><p>Help us understand where a product gets in your way.</p></div><div className="capabilityPoint"><b>A useful improvement</b><p>Small changes can make a meaningful difference.</p></div></div>
    </div></section>
-   <section className="section processSection" id="about"><div className="container"><p className="eyebrow">How we build</p><RevealBoxText as="h2" text="From an everyday idea to a useful product." /><div className="processGrid">{process.map(([n,title,text])=><article className="processStep" key={n}><div className="stepTop"><span>{n}</span></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+   <AboutZetbros />
+   <section className="section processSection" id="how-we-build"><div className="container"><p className="eyebrow">How we build</p><RevealBoxText as="h2" text="From an everyday idea to a useful product." /><div className="processGrid">{process.map(([n,title,text])=><article className="processStep" key={n}><div className="stepTop"><span>{n}</span></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
    <section className="section contactSection" id="contact"><div className="container"><ContactForm /></div></section>
-   <footer className="footer"><div className="container footerTop"><Logo small /><div className="footerLinks"><a href="#ai">Our purpose</a><a href="#software">Products</a><a href="#automation">Ideas</a><a href="#support">Feedback</a><a href="#contact">Contact</a></div><div className="legalLinks"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div><div className="container copyright">© 2026 Zetbros · Building useful things, together.</div></footer>
+   <footer className="footer"><div className="container footerTop"><Logo small /><div className="footerLinks"><a href="#software">Products</a><a href="#business">Business solutions</a><a href="#research">Research</a><a href="#about">About</a><a href="#contact">Contact</a></div><div className="legalLinks"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div><div className="container copyright">Business &amp; research: <a href="mailto:logan@zetbros.com">logan@zetbros.com</a> · Product support: <a href="mailto:support@zetbros.com">support@zetbros.com</a></div><div className="container copyright">© 2026 Zetbros · Building useful things, together.</div></footer>
   </main>
  );
 }

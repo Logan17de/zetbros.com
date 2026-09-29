@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "./site-metadata";
 import "./globals.css";
 import "./dynamics.css";
 import "./scroll-effects.css";
@@ -14,9 +15,9 @@ import "./infrastructure-solutions.css";
 import "./automation-solutions.css";
 
 export const metadata: Metadata = {
-  title: "Zetbros — Products for people and society",
-  description:
-    "We build useful products for people and society. Explore AIKO, meet Harness, and share an idea or a problem with Zetbros.",
+  metadataBase: new URL(SITE_URL),
+  title: "Zetbros — Products for people and businesses",
+  description: "Useful products and practical technology for people and businesses. Explore AIKO, Harness, business solutions and current research at Zetbros.",
   applicationName: "Zetbros",
   manifest: "/site.webmanifest",
   icons: {
@@ -33,9 +34,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

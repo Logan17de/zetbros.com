@@ -5,20 +5,34 @@ on:
     branches: [main, staging]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-
-      - name: Install dependencies
-        run: npm install
-
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
       - name: Build
         run: npm run build
+      - name: Typecheck
+        run: npm run lint
+      - name: Worker tests
+        run: npm test
+      - name: Static site acceptance checks
+        run: node --test tests/site.test.mjs
+      - name: Save static preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-preview-${{ github.sha }}
+          path: out/
+          retention-days: 3
+          if-no-files-found: error
