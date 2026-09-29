@@ -12,6 +12,11 @@ function page(path) {
   return readFileSync(file, "utf8");
 }
 function visibleHtml(html) { return html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ""); }
+function attribute(tag, name) {
+  const value = tag?.match(new RegExp(`\\b${name}="([^"]*)"`))?.[1];
+  assert.ok(value, `Missing ${name} attribute in ${tag}`);
+  return value;
+}
 function blobSha(path) {
   const bytes = readFileSync(path);
   return createHash("sha1").update(`blob ${bytes.length}\0`).update(bytes).digest("hex");
@@ -22,8 +27,12 @@ for (const route of routes) {
     const html = visibleHtml(page(route));
     const canonical = [...html.matchAll(/<link\b[^>]*rel="canonical"[^>]*>/g)];
     assert.equal(canonical.length, 1);
-    assert.ok(canonical[0][0].includes(`href="${origin}${route}"`));
-    assert.ok(html.includes(`property="og:url" content="${origin}${route}"`));
+    // URL parsing treats the origin with/without its final slash equivalently,
+    // while still checking the exact page, protocol, host, query and fragment.
+    const expected = new URL(route, origin).href;
+    assert.equal(new URL(attribute(canonical[0][0], "href")).href, expected);
+    const og = html.match(/<meta\b[^>]*property="og:url"[^>]*>/)?.[0];
+    assert.equal(new URL(attribute(og, "content")).href, expected);
     assert.ok(html.includes('name="twitter:card" content="summary"'));
     assert.ok(html.includes(`${origin}/icon-512.png`));
     assert.doesNotMatch(html, /<a\b[^>]*>\s*<a\b/i, "Logo must not be wrapped in another link");

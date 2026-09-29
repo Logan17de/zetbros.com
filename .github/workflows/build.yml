@@ -17,11 +17,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
       - name: Install locked dependencies
         run: npm ci
       - name: Build
+        id: build
         run: npm run build
       - name: Typecheck
         run: npm run lint
@@ -30,6 +31,7 @@ jobs:
       - name: Static site acceptance checks
         run: node --test tests/site.test.mjs
       - name: Save static preview
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: site-preview-${{ github.sha }}
