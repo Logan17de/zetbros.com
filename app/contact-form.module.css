@@ -2,15 +2,11 @@
   display: grid;
   grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
   gap: 56px;
-  padding: 42px;
-  border: 1px solid #e1e7f0;
-  border-radius: 22px;
-  background: #ffffff;
-  box-shadow: 0 14px 45px rgba(35, 86, 170, .06);
+  align-items: start;
 }
 
 .intro {
-  align-self: center;
+  align-self: start;
   max-width: 470px;
 }
 
@@ -42,11 +38,6 @@
 .form {
   display: grid;
   gap: 16px;
-  padding: 24px;
-  border: 1px solid rgba(206, 219, 240, .85);
-  border-radius: 18px;
-  background: #ffffff;
-  box-shadow: 0 10px 34px rgba(25, 55, 108, .06);
 }
 
 .twoColumns {
@@ -321,7 +312,6 @@
   .panel {
     grid-template-columns: 1fr;
     gap: 28px;
-    padding: 30px;
   }
 
   .intro {
@@ -330,15 +320,6 @@
 }
 
 @media (max-width: 620px) {
-  .panel {
-    padding: 20px;
-    border-radius: 17px;
-  }
-
-  .form {
-    padding: 18px;
-  }
-
   .twoColumns {
     grid-template-columns: 1fr;
   }

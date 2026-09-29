@@ -9,6 +9,7 @@ yarn-error.log*
 pnpm-debug.log*
 .env*
 !.env.example
+.dev.vars*
 .vercel
 *.tsbuildinfo
 next-env.d.ts

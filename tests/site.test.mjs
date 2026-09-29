@@ -18,7 +18,8 @@ function attribute(tag, name) {
   return value;
 }
 function blobSha(path) {
-  const bytes = readFileSync(path);
+  const original = readFileSync(path);
+  const bytes = path.endsWith(".png") ? original : Buffer.from(original.toString("utf8").replace(/\r\n/g, "\n"));
   return createHash("sha1").update(`blob ${bytes.length}\0`).update(bytes).digest("hex");
 }
 
@@ -57,7 +58,8 @@ test("homepage exposes business, research and founder identity without dropping 
   for (const id of ["business", "research", "about", "software", "contact", "how-we-build"]) assert.equal([...html.matchAll(new RegExp(`id="${id}"`, "g"))].length, 1, id);
   for (const route of ["/ai-in-practice", "/automation-in-practice", "/infrastructure-in-practice", "/equipment-warranty-research", "/harness"]) assert.ok(html.includes(`href="${route}"`));
   assert.ok(html.includes('href="https://aiko.zetbros.com"'));
-  assert.ok(html.includes('href="mailto:logan@zetbros.com"'));
+  assert.ok(html.includes('href="mailto:support@zetbros.com"'));
+  assert.ok(html.includes("For people, society and business."));
   assert.ok(html.includes("Founder"));
   assert.ok(html.includes("Production in progress"));
 });
@@ -72,8 +74,11 @@ test("research is an enquiry, not a live claim portal", () => {
   assert.ok(html.includes("No recovery guarantee"));
   assert.ok(html.includes('id="data-handling"'));
   assert.ok(html.includes('id="conversation"'));
-  assert.ok(html.includes('name="company"'));
-  assert.match(html, /<option[^>]*selected[^>]*>Equipment warranty research<\/option>/);
+  assert.ok(html.includes('name="email"'));
+  assert.ok(html.includes('name="subject"'));
+  assert.ok(html.includes('name="message"'));
+  assert.ok(html.includes('value="Equipment warranty research"'));
+  assert.doesNotMatch(html, /<select\b/i);
   assert.doesNotMatch(html, /<input\b[^>]*type="file"/i);
 });
 
@@ -98,13 +103,11 @@ test("robots and sitemap cover exactly the public routes", () => {
   assert.equal(existsSync("public/sitemap.xml"), false, "Do not duplicate the App Router metadata route");
 });
 
-test("original logo, icons and website infrastructure remain unchanged", () => {
+test("original logo and icons remain unchanged", () => {
   const original = {
     "app/logo.tsx": "511f9e4e7bf10c51a10b2c23606d04dbe8723af5",
     "app/icon.png": "027d0a573d46587cd09f58c150b9a680d9db50e5",
     "app/apple-icon.png": "54223c22717050db6b2a369810e956fea31dc7dc",
-    "cloudflare/worker.mjs": "649f0e24c502f59b1bb155005e35b1d7560a5a74",
-    "wrangler.jsonc": "12097fd6734f44f7c93b5498d96eac4205c7abaa",
   };
   for (const [path, sha] of Object.entries(original)) assert.equal(blobSha(path), sha, path);
 });

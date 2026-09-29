@@ -101,8 +101,8 @@ export default function EquipmentWarrantyResearchPage() {
         </div>
         <div className={styles.contact}>
           <span>Research contact</span>
-          <strong>Logan · Zetbros</strong>
-          <a href="mailto:logan@zetbros.com">logan@zetbros.com</a>
+          <strong>Zetbros support</strong>
+          <a href="#conversation">Use the contact form</a>
         </div>
       </section>
 
