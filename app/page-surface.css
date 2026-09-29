@@ -40,10 +40,7 @@ body > main {
 .capabilityPanel,
 .capabilityPoint,
 .architecture,
-.flowCard,
-.revealBox-hero,
-.revealBox-section,
-.revealBox-label {
+.flowCard {
   background: #ffffff !important;
   background-image: none !important;
 }
@@ -55,25 +52,13 @@ body > main {
 .serviceCard,
 .productCard,
 .capabilityPoint,
-.flowCard,
-.revealBox-hero,
-.revealBox-section {
+.flowCard {
   border-color: #e6ebf3;
 }
 
 /* The sticky header may keep its glass surface; it is navigation, not a content box. */
 .siteHeader {
   box-shadow: none;
-}
-
-/* Headings are typography, not cards. Keep their word reveal without a frame. */
-#top .revealBox-hero,
-#top .revealBox-section {
-  padding: 0 !important;
-  border: 0 !important;
-  border-radius: 0;
-  background: transparent !important;
-  box-shadow: none !important;
 }
 
 #top .heroLogoStage::before,
