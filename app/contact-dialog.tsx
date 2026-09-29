@@ -5,11 +5,11 @@ import ContactForm from "./contact-form";
 import styles from "./contact-dialog.module.css";
 
 type ContactVariant = "general" | "research";
-type OpenContact = (variant: ContactVariant, trigger: HTMLElement) => void;
+type OpenContact = (variant: ContactVariant, trigger: HTMLElement, subject?: string) => void;
 const ContactContext = createContext<OpenContact | null>(null);
 
 export function ContactProvider({ children }: { children: ReactNode }) {
-  const [active, setActive] = useState<{ variant: ContactVariant; key: number } | null>(null);
+  const [active, setActive] = useState<{ variant: ContactVariant; subject?: string; key: number } | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const returnFocus = useRef<HTMLElement | null>(null);
   const nextKey = useRef(0);
@@ -28,9 +28,9 @@ export function ContactProvider({ children }: { children: ReactNode }) {
   function close() { dialogRef.current?.close(); }
 
   return (
-    <ContactContext.Provider value={(variant, trigger) => {
+    <ContactContext.Provider value={(variant, trigger, subject) => {
       returnFocus.current = trigger;
-      setActive({ variant, key: ++nextKey.current });
+      setActive({ variant, subject, key: ++nextKey.current });
     }}>
       {children}
       <dialog
@@ -45,14 +45,14 @@ export function ContactProvider({ children }: { children: ReactNode }) {
         }}
       >
         <button type="button" className={styles.close} onClick={close} aria-label="Close contact form">×</button>
-        {active && <ContactForm key={active.key} variant={active.variant} />}
+        {active && <ContactForm key={active.key} variant={active.variant} defaultSubject={active.subject} />}
       </dialog>
     </ContactContext.Provider>
   );
 }
 
-export function ContactTrigger({ children, variant = "general", className }: { children: ReactNode; variant?: ContactVariant; className?: string }) {
+export function ContactTrigger({ children, variant = "general", subject, className }: { children: ReactNode; variant?: ContactVariant; subject?: string; className?: string }) {
   const open = useContext(ContactContext);
   if (!open) throw new Error("ContactTrigger must be inside ContactProvider");
-  return <button type="button" className={className ? `${styles.styledTrigger} ${className}` : styles.textTrigger} aria-haspopup="dialog" onClick={(event) => open(variant, event.currentTarget)}>{children}</button>;
+  return <button type="button" className={className ? `${styles.styledTrigger} ${className}` : styles.textTrigger} aria-haspopup="dialog" onClick={(event) => open(variant, event.currentTarget, subject)}>{children}</button>;
 }

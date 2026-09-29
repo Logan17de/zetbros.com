@@ -1,6 +1,5 @@
 import Logo from "./logo";
 import { ContactTrigger } from "./contact-dialog";
-import ProjectDiscussionModal from "./project-discussion-modal";
 import styles from "./practice-page.module.css";
 
 export type PracticeSolution = {
@@ -77,7 +76,7 @@ export default function PracticePage({ category, title, lead, availability, solu
               </div>
               {solution.control && <div className={styles.control}><h3>Controls and boundaries</h3><p>{solution.control}</p></div>}
               <div className={styles.outcome}><h3>Intended outcome</h3><p>{solution.outcome}</p></div>
-              <ProjectDiscussionModal category={category} solution={solution.title} />
+              <ContactTrigger className={styles.solutionCta} subject={`${category} — ${solution.title}`}>Discuss this project <span aria-hidden="true">→</span></ContactTrigger>
             </article>
           ))}
         </div>
