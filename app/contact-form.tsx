@@ -27,14 +27,15 @@ export default function ContactForm() {
       <div className={styles.intro}>
         <h2>An idea? A problem?<br />We’re listening.</h2>
         <p>Tell us what you wish existed or what keeps getting in your way. Big ideas and small, everyday problems are equally welcome.</p>
-        <p>Prefer email? <a href="mailto:support@zetbros.com">support@zetbros.com</a></p>
+        <p>Business or research? <a href="mailto:logan@zetbros.com">logan@zetbros.com</a><br />General support? <a href="mailto:support@zetbros.com">support@zetbros.com</a></p>
       </div>
       <form className={styles.form} onSubmit={submit}>
         <div className={styles.twoColumns}>
           <label><span>Name</span><input name="name" autoComplete="name" maxLength={120} required placeholder="Your name" /></label>
           <label><span>Email</span><input name="email" type="email" autoComplete="email" maxLength={320} required placeholder="you@example.com" /></label>
         </div>
-        <label><span>What would you like to share?</span><select name="service" defaultValue="An idea"><option>An idea</option><option>A problem to solve</option><option>AIKO feedback</option><option>Harness</option><option>Something else</option></select></label>
+        <label><span>Company <em>optional</em></span><input name="company" autoComplete="organization" maxLength={160} placeholder="Company name" /></label>
+        <label><span>What would you like to share?</span><select name="service" defaultValue="An idea"><option>An idea</option><option>A problem to solve</option><option>Business project</option><option>Equipment warranty research</option><option>AIKO feedback</option><option>Harness</option><option>Something else</option></select></label>
         <label><span>Your idea or problem</span><textarea name="message" required minLength={10} maxLength={5000} rows={5} placeholder="What could be better, and who would it help?" /></label>
         <label className={styles.honeypot} aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
         <p className={styles.privacyNote}>We’ll use your details to read and respond to your message. <a href="/privacy">Privacy information</a></p>
