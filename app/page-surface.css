@@ -76,6 +76,11 @@ body > main {
   box-shadow: none !important;
 }
 
+#top .heroLogoStage::before,
+#top .heroLogoStage::after {
+  display: none !important;
+}
+
 @media (max-width: 900px) {
   #top .navWrap.navWithoutLogo {
     display: block;

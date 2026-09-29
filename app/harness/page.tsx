@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Logo from "../logo";
+import { ContactTrigger } from "../contact-dialog";
 import RevealBoxText from "../reveal-box-text";
 import ScrollRevealMotion from "../scroll-reveal-motion";
 import styles from "./harness.module.css";
@@ -111,7 +112,7 @@ export default function HarnessPage() {
       <div className={styles.accessCopy} data-harness-reveal="detail"><h2>Know what you enable.</h2><p>Review a plugin’s declared access before activation, including files, network, shell, models and workspace.</p><p className={styles.accessNote}><Icon name="shield"/><span>Plugins run trusted code. Access declarations help with review; they do not create a security sandbox.</span></p><details className={styles.futureDetails}><summary>What’s next for Harness?</summary><p>We’re exploring AI-assisted extension development: turning a missing integration into a plugin project. This is a direction for the product, not a currently available autonomous feature.</p></details></div>
     </section>
 
-    <section className={styles.availability} data-harness-reveal="availability" id="download"><div><h2>Harness is taking shape.</h2><p>A Windows x64 release is in development. The download will appear here when it’s ready.</p></div><div className={styles.availabilityActions}><span className={styles.status}><span aria-hidden="true"/>Production in progress</span><Link className={styles.primaryButton} href="/#contact">Share an idea for Harness <Arrow/></Link></div></section>
-    <footer className={styles.footer}><p>Harness by Zetbros</p><div><Link href="/">Zetbros</Link><Link href="/#contact">Contact</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div></footer>
+    <section className={styles.availability} data-harness-reveal="availability" id="download"><div><h2>Harness is taking shape.</h2><p>A Windows x64 release is in development. The download will appear here when it’s ready.</p></div><div className={styles.availabilityActions}><span className={styles.status}><span aria-hidden="true"/>Production in progress</span><ContactTrigger className={styles.primaryButton}>Share an idea for Harness <Arrow/></ContactTrigger></div></section>
+    <footer className={styles.footer}><p>Harness by Zetbros</p><div><Link href="/">Zetbros</Link><ContactTrigger>Contact</ContactTrigger><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div></footer>
   </main>;
 }

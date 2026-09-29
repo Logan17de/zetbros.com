@@ -1,4 +1,4 @@
-import ContactForm from "./contact-form";
+import { ContactTrigger } from "./contact-dialog";
 import Logo from "./logo";
 import RevealBoxText from "./reveal-box-text";
 import ScrollRevealMotion from "./scroll-reveal-motion";
@@ -76,8 +76,8 @@ export default function Home() {
   <main id="top">
    <ScrollRevealMotion />
    <header className="siteHeader"><div className="container navWrap navWithoutLogo">
-    <nav aria-label="Primary navigation"><a href="#software">Products</a><a href="#business">Business</a><a href="#research">Research</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
-    <a className="button buttonGhost navCta" href="#contact">Talk to us</a>
+    <nav aria-label="Primary navigation"><a href="#software">Products</a><a href="#business">Business</a><a href="#research">Research</a><a href="#about">About</a><ContactTrigger>Contact</ContactTrigger></nav>
+    <ContactTrigger className="button buttonGhost navCta">Talk to us</ContactTrigger>
    </div></header>
    <section className="hero section"><div className="container">
     <div className="heroLogoStage" aria-label="Zetbros"><Logo hero /></div>
@@ -131,13 +131,13 @@ export default function Home() {
     <div className="productGrid">
      <article className="productCard productGreen"><div className="productBadge">A</div><div><h3>AIKO</h3><p>Japanese learning with lessons, practice and progress in one place.</p><a href="https://aiko.zetbros.com">Visit AIKO <span aria-hidden="true">→</span></a></div></article>
      <article className="productCard productBlue"><div className="productBadge">H</div><div><h3>Harness</h3><p>An AI workspace built around tools, plugins and workflows. <strong>Production in progress.</strong></p><a href="/harness">Meet Harness <span aria-hidden="true">→</span></a></div></article>
-     <article className="productCard productOrange"><div className="productBadge codeBadge">&lt;/&gt;</div><div><h3>What should we build next?</h3><p>Your idea or everyday problem could inspire what comes next.</p><a href="#contact">Share with us <span aria-hidden="true">→</span></a></div></article>
+     <article className="productCard productOrange"><div className="productBadge codeBadge">&lt;/&gt;</div><div><h3>What should we build next?</h3><p>Your idea or everyday problem could inspire what comes next.</p><ContactTrigger>Share with us <span aria-hidden="true">→</span></ContactTrigger></div></article>
     </div>
    </div></section>
    <section className="section" id="research"><div className="container aiPanel"><div className="aiCopy">
     <p className="eyebrow">Current research</p><RevealBoxText as="h2" text="Equipment warranty recovery." />
     <p>We are validating whether agriculture and construction equipment dealers can reduce warranty-claim rework and recover value from returned or short-paid manufacturer claims through a dealer-controlled review process.</p>
-    <div className="actions"><a className="button buttonPrimary" href="/equipment-warranty-research">See the research pilot</a><a className="button buttonGhost" href="/equipment-warranty-research#conversation">Contact us about the pilot</a></div>
+    <div className="actions"><a className="button buttonPrimary" href="/equipment-warranty-research">See the research pilot</a><ContactTrigger className="button buttonGhost" variant="research">Contact us about the pilot</ContactTrigger></div>
    </div><div className="architecture" aria-label="Equipment warranty research validation flow">
     <FlowCard icon="company" label="Dealer workflow interview" tone="blue" /><span className="downArrow" aria-hidden="true">↓</span>
     <FlowCard icon="shield" label="Optional historical claim review" tone="green" /><span className="downArrow" aria-hidden="true">↓</span>
@@ -150,10 +150,9 @@ export default function Home() {
    <section className="section processSection" id="how-we-build"><div className="container"><p className="eyebrow">How we build</p><RevealBoxText as="h2" text="From an everyday idea to a useful product." /><div className="processGrid">{process.map(([n,title,text])=><article className="processStep" key={n}><div className="stepTop"><span>{n}</span></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
    <section className="section capabilitySection capabilitySectionAlt" id="about"><div className="container capabilityPanel">
     <div className="capabilityCopy"><p className="eyebrow">About Zetbros</p><RevealBoxText as="h2" text="A founder-led technology and product studio." /><p>Zetbros builds its own products and investigates practical operational problems that could benefit from better software, AI and automation. We prefer to validate a real need before turning it into a product.</p></div>
-    <div className="capabilityPoints"><div className="capabilityPoint"><b>Founder</b><p>Logan leads product and AI engineering at Zetbros.</p></div><div className="capabilityPoint"><b>Business & research</b><p><a href="#contact">Start a conversation</a></p></div><div className="capabilityPoint"><b>Contact</b><p><a href="mailto:support@zetbros.com">support@zetbros.com</a></p></div><div className="capabilityPoint"><b>Open work</b><p><a href="https://github.com/Logan17de">GitHub →</a></p></div></div>
+    <div className="capabilityPoints"><div className="capabilityPoint"><b>Founder</b><p>Logan leads product and AI engineering at Zetbros.</p></div><div className="capabilityPoint"><b>Business & research</b><p><ContactTrigger>Start a conversation</ContactTrigger></p></div><div className="capabilityPoint"><b>Contact</b><p><ContactTrigger>Send a message</ContactTrigger></p></div><div className="capabilityPoint"><b>Open work</b><p><a href="https://github.com/Logan17de">GitHub →</a></p></div></div>
    </div></section>
-   <section className="section contactSection" id="contact"><div className="container"><ContactForm /></div></section>
-   <footer className="footer"><div className="container footerTop"><Logo small /><div className="footerLinks"><a href="#software">Products</a><a href="#business">Business</a><a href="#research">Research</a><a href="#about">About</a><a href="#contact">Contact</a></div><div className="legalLinks"><a href="mailto:support@zetbros.com">support@zetbros.com</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div><div className="container copyright">© 2026 Zetbros · Building useful things, together.</div></footer>
+   <footer className="footer"><div className="container footerTop"><Logo small /><div className="footerLinks"><a href="#software">Products</a><a href="#business">Business</a><a href="#research">Research</a><a href="#about">About</a><ContactTrigger>Contact</ContactTrigger></div><div className="legalLinks"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div><div className="container copyright">© 2026 Zetbros · Building useful things, together.</div></footer>
   </main>
  );
 }

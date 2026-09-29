@@ -30,7 +30,6 @@ export default function ContactForm({ variant = "general" }: ContactFormProps) {
       <div className={styles.intro}>
         <h2>{research ? "Contact us about the research pilot." : "Contact Zetbros."}</h2>
         <p>{research ? "Tell us about your equipment warranty workflow. A short introduction is enough; no documents or preparation are needed." : "Share an idea, ask about a business project, or tell us what could work better. Your message goes to our support inbox."}</p>
-        <p>You can also email <a href="mailto:support@zetbros.com">support@zetbros.com</a>.</p>
       </div>
       <form className={styles.form} onSubmit={submit}>
         <label><span>Your email</span><input name="email" type="email" autoComplete="email" maxLength={320} required placeholder="you@example.com" /></label>

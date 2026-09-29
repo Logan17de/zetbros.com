@@ -1,4 +1,5 @@
 import Logo from "./logo";
+import { ContactTrigger } from "./contact-dialog";
 import ProjectDiscussionModal from "./project-discussion-modal";
 import styles from "./practice-page.module.css";
 
@@ -34,7 +35,7 @@ export default function PracticePage({ category, title, lead, availability, solu
         <div className={styles.headerInner}>
           <div className={styles.brand}><Logo small /></div>
           <nav className={styles.nav} aria-label="Practice page navigation">
-            <a href="/#software">Products</a><a href="/#business">Business solutions</a><a href="/#research">Research</a><a href="/#about">About</a><a href="/#contact">Contact</a>
+            <a href="/#software">Products</a><a href="/#business">Business solutions</a><a href="/#research">Research</a><a href="/#about">About</a><ContactTrigger>Contact</ContactTrigger>
           </nav>
           <a className={styles.backLink} href="/">← Home</a>
         </div>
@@ -92,13 +93,13 @@ export default function PracticePage({ category, title, lead, availability, solu
           <p className={styles.kicker}>Have a real problem to solve?</p>
           <h2>Tell us about the work. We’ll start with a conversation.</h2>
           <p>We scope projects around your systems, constraints, security requirements and operating process rather than forcing a generic package onto every company. Please do not include confidential records or credentials in an initial enquiry.</p>
-          <a className={styles.primary} href="/#contact">Talk to Zetbros</a>
+          <ContactTrigger className={styles.primary}>Talk to Zetbros</ContactTrigger>
         </div></div>
       </section>
       <footer className={styles.footer}>
         <div className={`${styles.container} ${styles.footerInner}`}>
           <span>© 2026 Zetbros</span>
-          <div className={styles.footerLinks}><a href="mailto:support@zetbros.com">support@zetbros.com</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/#contact">Contact</a></div>
+          <div className={styles.footerLinks}><a href="/privacy">Privacy</a><a href="/terms">Terms</a><ContactTrigger>Contact</ContactTrigger></div>
         </div>
       </footer>
     </main>

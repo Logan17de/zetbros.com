@@ -1,4 +1,4 @@
-import ContactForm from "../contact-form";
+import { ContactTrigger } from "../contact-dialog";
 import Logo from "../logo";
 import { pageMetadata } from "../site-metadata";
 import styles from "./research.module.css";
@@ -30,7 +30,7 @@ export default function EquipmentWarrantyResearchPage() {
     <main className={styles.page}>
       <header className={styles.header}>
         <Logo small />
-        <nav aria-label="Research navigation"><a href="/#business">Business</a><a href="/#about">About</a><a href="#conversation">Contact</a></nav>
+        <nav aria-label="Research navigation"><a href="/#business">Business</a><a href="/#about">About</a><ContactTrigger variant="research">Contact</ContactTrigger></nav>
       </header>
 
       <section className={styles.hero}>
@@ -40,7 +40,7 @@ export default function EquipmentWarrantyResearchPage() {
           <h1>Equipment warranty recovery — research pilot.</h1>
           <p className={styles.lead}>Zetbros is validating whether agriculture and construction equipment dealers can reduce warranty-claim rework and recover value from returned or short-paid manufacturer claims through a dealer-controlled review process.</p>
           <div className={styles.actions}>
-            <a className={styles.primary} href="#conversation">Request a 20-minute conversation</a>
+            <ContactTrigger className={styles.primary} variant="research">Request a 20-minute conversation</ContactTrigger>
             <a className={styles.secondary} href="/#about">About Zetbros</a>
           </div>
         </div>
@@ -73,25 +73,6 @@ export default function EquipmentWarrantyResearchPage() {
         <p>A document absent from our review packet is not automatically absent from the original claim. A payment received after a review is not automatically money recovered because of that review.</p>
       </section>
 
-      <section className={styles.section + " " + styles.dataSection} id="data-handling">
-        <div>
-          <p className={styles.eyebrow}>Data handling</p>
-          <h2>Do not send claim files or credentials during initial contact.</h2>
-          <p>This public website does not accept claim uploads. The first conversation requires no confidential material. Before any pilot transfer, we would agree which records the dealer is authorized to share, required redactions, the transfer method, who may access the material, processing tools including any AI providers, and the retention and deletion arrangements.</p>
-        </div>
-        <div className={styles.notice}>
-          <b>Please do not email:</b>
-          <ul>
-            <li>OEM portal passwords or authentication secrets</li>
-            <li>Customer payment or banking information</li>
-            <li>Employee private identifiers</li>
-            <li>Claim packets until a transfer method has been agreed</li>
-          </ul>
-          <p>This page does not promise a particular storage, certification, or retention system before one has been implemented and agreed for the pilot.</p>
-          <a href="/privacy">Website privacy information →</a>
-        </div>
-      </section>
-
       <section className={styles.section + " " + styles.current}>
         <div>
           <p className={styles.eyebrow}>Current status</p>
@@ -102,12 +83,8 @@ export default function EquipmentWarrantyResearchPage() {
         <div className={styles.contact}>
           <span>Research contact</span>
           <strong>Zetbros support</strong>
-          <a href="#conversation">Use the contact form</a>
+          <ContactTrigger variant="research">Open the contact form</ContactTrigger>
         </div>
-      </section>
-
-      <section className={styles.section} id="conversation" aria-label="Request a research conversation">
-        <ContactForm variant="research" />
       </section>
 
       <footer className={styles.footer}>
