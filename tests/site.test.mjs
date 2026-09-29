@@ -53,7 +53,7 @@ test("all internal page links and fragments resolve in exported HTML", () => {
   }
 });
 
-test("homepage exposes business, research and founder identity without dropping products", () => {
+test("homepage exposes business and research without personal identity", () => {
   const html = visibleHtml(page("/"));
   for (const id of ["business", "research", "about", "software", "how-we-build"]) assert.equal([...html.matchAll(new RegExp(`id="${id}"`, "g"))].length, 1, id);
   for (const route of ["/ai-in-practice", "/automation-in-practice", "/infrastructure-in-practice", "/equipment-warranty-research", "/harness"]) assert.ok(html.includes(`href="${route}"`));
@@ -62,8 +62,15 @@ test("homepage exposes business, research and founder identity without dropping 
   assert.doesNotMatch(html, /id="contact"/);
   assert.ok(html.includes("For people, society and business."));
   assert.ok(html.includes("We build from 0."));
-  assert.ok(html.includes("Founder"));
+  assert.doesNotMatch(html, /Logan|founder|GitHub|Talk to us/i);
+  const footer = html.match(/<footer\b[^>]*>[\s\S]*?<\/footer>/)?.[0];
+  assert.ok(footer);
+  assert.deepEqual([...footer.matchAll(/href="([^"]*)"/g)].map(match => match[1]), ["/#top", "/privacy", "/terms"]);
   assert.ok(html.includes("Production in progress"));
+});
+
+test("public pages do not expose the owner's name or GitHub", () => {
+  for (const route of routes) assert.doesNotMatch(visibleHtml(page(route)), /Logan|GitHub/i, route);
 });
 
 test("research is an enquiry, not a live claim portal", () => {

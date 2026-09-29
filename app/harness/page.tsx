@@ -41,7 +41,7 @@ const benefits: {icon:IconName; title:string; text:string; from:string; to:strin
   {icon:"layers",title:"Keep things focused",text:"A small core, with optional capabilities around it.",from:"Core",to:"Extensions"},
 ];
 const plugins: {icon:IconName; name:string; text:string}[] = [
-  {icon:"code",name:"GitHub",text:"Code and project context"},
+  {icon:"code",name:"Code repositories",text:"Code and project context"},
   {icon:"data",name:"Databases",text:"Approved business data"},
   {icon:"tool",name:"Tickets",text:"Issues and service requests"},
   {icon:"mail",name:"Email",text:"Messages and shared inboxes"},
@@ -113,6 +113,6 @@ export default function HarnessPage() {
     </section>
 
     <section className={styles.availability} data-harness-reveal="availability" id="download"><div><h2>Harness is taking shape.</h2><p>A Windows x64 release is in development. The download will appear here when it’s ready.</p></div><div className={styles.availabilityActions}><span className={styles.status}><span aria-hidden="true"/>Production in progress</span><ContactTrigger className={styles.primaryButton}>Share an idea for Harness <Arrow/></ContactTrigger></div></section>
-    <footer className={styles.footer}><p>Harness by Zetbros</p><div><Link href="/">Zetbros</Link><ContactTrigger>Contact</ContactTrigger><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div></footer>
+    <footer className={styles.footer}><div><Link href="/">Zetbros</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div></footer>
   </main>;
 }

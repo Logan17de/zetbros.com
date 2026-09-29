@@ -77,7 +77,6 @@ export default function Home() {
    <ScrollRevealMotion />
    <header className="siteHeader"><div className="container navWrap navWithoutLogo">
     <nav aria-label="Primary navigation"><a href="#software">Products</a><a href="#business">Business</a><a href="#research">Research</a><a href="#about">About</a><ContactTrigger>Contact</ContactTrigger></nav>
-    <ContactTrigger className="button buttonGhost navCta">Talk to us</ContactTrigger>
    </div></header>
    <section className="hero section"><div className="container">
     <div className="heroLogoStage" aria-label="Zetbros"><Logo hero /></div>
@@ -149,10 +148,10 @@ export default function Home() {
    </div></section>
    <section className="section processSection" id="how-we-build"><div className="container"><p className="eyebrow">How we build</p><RevealBoxText as="h2" text="From 0 to something useful." /><div className="processGrid">{process.map(([n,title,text])=><article className="processStep" key={n}><div className="stepTop"><span>{n}</span></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
    <section className="section capabilitySection capabilitySectionAlt" id="about"><div className="container capabilityPanel">
-    <div className="capabilityCopy"><p className="eyebrow">About Zetbros</p><RevealBoxText as="h2" text="We start with the first question." /><p>Zetbros is a founder-led technology and product studio. We build our own products and work through practical business problems from the beginning: listening, testing the need, then making something useful.</p></div>
-    <div className="capabilityPoints"><div className="capabilityPoint"><b>Founder</b><p>Logan leads product and AI engineering at Zetbros.</p></div><div className="capabilityPoint"><b>Business & research</b><p><ContactTrigger>Start a conversation</ContactTrigger></p></div><div className="capabilityPoint"><b>Contact</b><p><ContactTrigger>Send a message</ContactTrigger></p></div><div className="capabilityPoint"><b>Open work</b><p><a href="https://github.com/Logan17de">GitHub →</a></p></div></div>
+    <div className="capabilityCopy"><p className="eyebrow">About Zetbros</p><RevealBoxText as="h2" text="We start with the first question." /><p>Zetbros is a technology and product studio. We build our own products and work through practical business problems from the beginning: listening, testing the need, then making something useful.</p></div>
+    <div className="capabilityPoints"><div className="capabilityPoint"><b>Business & research</b><p><ContactTrigger>Start a conversation</ContactTrigger></p></div><div className="capabilityPoint"><b>Contact</b><p><ContactTrigger>Send a message</ContactTrigger></p></div></div>
    </div></section>
-   <footer className="footer"><div className="container footerTop"><Logo small /><div className="footerLinks"><a href="#software">Products</a><a href="#business">Business</a><a href="#research">Research</a><a href="#about">About</a><ContactTrigger>Contact</ContactTrigger></div><div className="legalLinks"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div><div className="container copyright">© 2026 Zetbros · Building useful things, together.</div></footer>
+   <footer className="footer"><div className="container footerTop"><Logo small /><div className="legalLinks"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div></footer>
   </main>
  );
 }
