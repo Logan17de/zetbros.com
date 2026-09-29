@@ -64,7 +64,7 @@ export default function PracticePage({
           <div className={styles.breadcrumb}>
             <a href="/">Zetbros</a><span>/</span><span>{category} in practice</span>
           </div>
-          <p className={styles.kicker}>{category} · Real-world problems and solutions</p>
+          <p className={styles.kicker}>{category} · Common business problems and project patterns</p>
           <h1>{title}</h1>
           <p className={styles.heroLead}>{lead}</p>
           {availability && <span className={styles.availability}>{availability}</span>}
