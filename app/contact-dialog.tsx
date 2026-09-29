@@ -20,7 +20,7 @@ export function ContactProvider({ children }: { children: ReactNode }) {
     if (!dialog) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    dialog.showModal();
+    if (!dialog.open) dialog.showModal();
     requestAnimationFrame(() => dialog.querySelector<HTMLInputElement>('input[name="email"]')?.focus());
     return () => { document.body.style.overflow = previousOverflow; };
   }, [active]);
