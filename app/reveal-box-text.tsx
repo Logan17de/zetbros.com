@@ -18,7 +18,7 @@ export default function RevealBoxText({
   className = "",
   variant = "section",
   delayMs = 0,
-  wordGapMs = 24,
+  wordGapMs = 44,
   once = true,
 }: RevealBoxTextProps) {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -69,7 +69,7 @@ export default function RevealBoxText({
             <span
               key={`${token}-${index}`}
               className="revealWord"
-              style={{ animationDelay: `${Math.min(delay, 120)}ms` }}
+              style={{ animationDelay: `${Math.min(delay, 220)}ms` }}
               aria-hidden="true"
             >
               {token}

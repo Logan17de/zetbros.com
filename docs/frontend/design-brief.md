@@ -19,7 +19,7 @@ The first screen explains the studio and makes products/business work discoverab
 - Palette: white `#ffffff`; graphite ink `#172f34`; muted text `#526568`; action/focus deep teal `#006875`; hover `#004d57`; structural rule `#d6e1e0`; input border `#829698`; success `#216847`; error `#a33232`. White text on action. Light theme only, honoring the user's white-page constraint.
 - Geometry: 1200px main width; 720px reading measure; 24–40px gutters; 8px spacing rhythm; 64–104px section rhythm. Open content with no decorative panels. 4px controls, 8px diagrams/dialog. Elevation only for the contact overlay. Preserve meaningful diagram connections and input boundaries.
 - Signature: a small open circular marker beside section labels, echoing the zero theme and the logo ring, plus a consistent thin-rule structure.
-- Motion: 140ms link/button feedback; 180ms dialog entry; restrained 280ms section/word settling, capped stagger, no initial content hiding. Reduced motion shows static final content immediately. No new motion library.
+- Motion: 140ms link/button feedback; 180ms dialog entry; user-requested 560ms word / 620ms section blur-and-fade entrances, capped 220ms/160ms stagger, no initial content hiding. Reduced motion shows static final content immediately. No new motion library.
 - Negative constraints: no gradient hero, ambient blobs, decorative glow, repeated card grid, boxed headings, pill panels, heavy shadows, fake metrics/testimonials, custom cursors, long stagger chains, hidden-first-render text, or overflow suppression. Preserve the original brand artwork and all honest product/research qualifications.
 
 ## Implementation and checks
@@ -31,4 +31,3 @@ Relevant states: idle/empty contact fields, native required/email validation, fo
 Widths: 320, 390, 768, 1440 CSS pixels, plus breakpoint boundaries. Capture screenshots, console/runtime errors, accessibility trees, image failures, overflow and focus evidence. Inspect desktop/mobile screenshots and at least one non-default state. Check keyboard, 200% text resizing, reduced motion, JavaScript-disabled reading, and opaque palette contrast. Physical devices, Safari and assistive-technology certification are outside available tooling and must be labeled unverified.
 
 Run `npm run lint`, `npm test`, `npm run build`, and `node --test tests/site.test.mjs`. Preserve all existing tests. Store evidence under `.frontend-qa/` (ignored) and the final factual report in this directory. Deployment remains authorized in the ongoing website workflow after validation, using the existing Worker only.
-

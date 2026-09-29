@@ -61,3 +61,11 @@ Local, ignored evidence is in `.frontend-qa/`: `baseline/` before, `slice/` repr
 No tooling blocker remains for the Chrome checks. Physical iOS/Android devices, Safari/Firefox, screen-reader testing, native browser zoom, and Lighthouse/field performance measurement were NOT RUN. No Figma was supplied. No claim of cross-browser certification or measured Core Web Vitals is made.
 
 No production form submission or inbox-delivery test was made during the redesign. Existing SpaceMail sending and D1 archival are unchanged; their unit tests passed. No email, DNS, D1 schema/data, Worker bindings, Cloudflare account settings, AIKO, Supabase, or Vercel configuration was changed. Production publication and live checks are reported separately after deployment.
+
+## Motion follow-up — 2026-09-29
+
+The user clarified that the requested “faded things” means blur-and-fade animation, not shadows. Restored that entrance on the existing homepage/Harness reveal targets: heading words settle from 4px blur over 560ms with 44ms stagger capped at 220ms; section groups settle over 620ms with a 160ms maximum delay. The layout, palette, backgrounds, shadows, content and APIs are unchanged. The logo and first-screen actions stay visible. Keyboard focus within a section cancels its decoration, reduced motion is static, and server-rendered text remains visible without JavaScript.
+
+Validation for this follow-up: `npm run build`, `npm run lint`, and all 15 `node --test tests/site.test.mjs` checks passed. `node .frontend-qa/fades.mjs` verified real Chrome animation frames at 70/240/1000ms on 390/1440px homepage and Harness; inspected the actual in-progress and settled screenshots. The final state is fully opaque with zero blur and no horizontal overflow. Also verified one-time entrance (no replay on scroll back), focus interruption, reduced motion, no-JavaScript visibility, and contact opening/Escape close. No captured page errors. Evidence is local under `.frontend-qa/fades/`.
+
+A local asset-watcher warning occurred when preview started during export; restarting preview after the completed build resolved it. Physical-device and Safari coverage remains unverified. No backend or production data was exercised by these motion checks.
