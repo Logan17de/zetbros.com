@@ -79,10 +79,9 @@ export default function Home() {
     <nav aria-label="Primary navigation"><a href="#software">Products</a><a href="#business">Business</a><a href="#research">Research</a><a href="#about">About</a><ContactTrigger>Contact</ContactTrigger></nav>
    </div></header>
    <section className="hero section"><div className="container">
-    <div className="heroLogoStage" aria-label="Zetbros"><Logo hero /></div>
+    <div className="heroLogoStage" aria-label="Zetbros"><Logo hero /><h1 className="brandTagline">From zero to something real</h1></div>
     <div className="heroGrid"><div className="heroCopy">
      <p className="eyebrow">For people, society and business.</p>
-     <RevealBoxText as="h1" text="We build from 0." variant="hero" delayMs={260} wordGapMs={130} />
      <p className="lede">Every useful thing starts somewhere. Zetbros takes an idea or a real problem from zero to something people can use—products for everyday life and practical systems for businesses.</p>
      <div className="actions"><a className="button buttonPrimary" href="#services">People &amp; society</a><a className="button buttonGhost" href="#business">Business solutions</a></div>
     </div><div className="heroDiagram productFlow" aria-label="From your ideas to products that help people">

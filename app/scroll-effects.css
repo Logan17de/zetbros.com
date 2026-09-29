@@ -75,7 +75,7 @@
   width: 168px;
 }
 
-/* Main centered brand moment: no black box, only a soft ocean-light animation. */
+/* Keep the logo and theme together as a centered brand signature. */
 .heroLogoStage {
   position: relative;
   z-index: 1;
@@ -83,6 +83,8 @@
   min-height: 150px;
   margin: 0 auto 34px;
   display: flex;
+  flex-direction: column;
+  gap: 16px;
   align-items: center;
   justify-content: center;
   isolation: isolate;
