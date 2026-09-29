@@ -121,13 +121,20 @@ nav :is(a,button):hover { color: var(--blue); text-decoration: underline; text-u
 #top .footer .brandImage { width: 130px; }
 .legalLinks { font-size: .875rem; gap: 28px; }
 .legalLinks a { padding: 12px 0; }
-/* Visible by default; motion is progressive enhancement, never a content gate. */
+/* Visible by default; restore the requested soft blur-and-fade as an enhancement. */
 .revealBox, .revealWord, .scrollRevealItem { opacity: 1; transform: none; filter: none; will-change: auto; transition: none; }
-.revealBox.isVisible .revealWord { animation: studio-word 280ms var(--ease) both; }
-.scrollRevealItem.isRevealed { animation: studio-settle 280ms var(--ease) both; animation-delay: min(var(--reveal-delay,0ms),120ms); }
+.revealBox.isVisible .revealWord { animation: studio-word 560ms var(--ease) both; }
+.scrollRevealItem.isRevealed { animation: studio-settle 620ms var(--ease) both; animation-delay: min(var(--reveal-delay,0ms),160ms); }
+.scrollRevealItem:focus-within, .scrollRevealItem:focus-within .revealWord { animation: none; }
 .heroLogoStage.scrollRevealItem, .heroDiagram.scrollRevealItem { animation: none; opacity: 1; transform: none; filter: none; }
-@keyframes studio-word { from { transform: translateY(.15em); } to { transform: none; } }
-@keyframes studio-settle { from { transform: translateY(6px); } to { transform: none; } }
+@keyframes studio-word {
+  from { opacity: .12; filter: blur(4px); transform: translateY(.25em); }
+  to { opacity: 1; filter: blur(0); transform: none; }
+}
+@keyframes studio-settle {
+  from { opacity: .18; filter: blur(4px); transform: translateY(14px); }
+  to { opacity: 1; filter: blur(0); transform: none; }
+}
 @media (max-width: 1000px) {
   .heroIntro { gap: 40px; }
   #top .heroDiagram.productFlow { grid-template-columns: 1.3fr 1fr; gap: 28px; }
