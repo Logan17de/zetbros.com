@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 const solutions: PracticeSolution[] = [
   {
     id: "workflow-automation",
-    icon: "⚙️",
     title: "Workflow Automation",
     summary: "Automate repeatable multi-step office work while keeping people involved where judgement, approval or exception handling is required.",
     problem: "Employees often spend time on work that is not difficult but is repeated constantly: read an email, download an attachment, rename a file, copy values into a spreadsheet, update another system and notify someone. The employee becomes the workflow engine between tools.",
@@ -23,7 +22,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "document-automation",
-    icon: "📄",
     title: "Intelligent Document Processing",
     summary: "Turn invoices, orders, quotations, forms and reports into validated structured data without assuming every document uses the same template.",
     problem: "Companies receive semi-structured documents from many suppliers, customers or internal teams. The same business fields may appear in different layouts, so fixed templates break and employees end up reading every document manually before entering the data somewhere else.",
@@ -37,7 +35,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "system-integration",
-    icon: "🔗",
     title: "System Integration Automation",
     summary: "Connect the tools the company already uses so employees no longer have to copy information from one system into another manually.",
     problem: "A company may already have a CRM, ERP, email platform, ticketing system, spreadsheets, databases and internal applications that work individually but do not exchange the information the business process needs.",
@@ -51,7 +48,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "legacy-automation",
-    icon: "🖥️",
     title: "Legacy Software Automation",
     summary: "Modernize a workflow around an older application without requiring the company to replace that application immediately.",
     problem: "A critical legacy application may have no modern API or webhook but still run an important business process. Replacing it may be expensive, risky or simply not a priority, so employees continue operating it manually as the bridge to newer systems.",
@@ -65,7 +61,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "reporting-automation",
-    icon: "📊",
     title: "Reporting Automation",
     summary: "Turn recurring data collection, calculation, visualization and distribution into a reproducible pipeline.",
     problem: "Weekly or monthly reports are often rebuilt manually from spreadsheets, databases, CRM data, ticket systems and other sources. The calculations may be identical every cycle, yet someone still spends time gathering and formatting them before the report can be reviewed.",
@@ -79,7 +74,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "controlled-ai-agents",
-    icon: "🤖",
     title: "Controlled AI Agents",
     summary: "Use AI for operational work that requires reading context and choosing among approved tools, without giving the model unrestricted company access.",
     problem: "Some business processes are too contextual for simple rules. An employee may need to read a ticket, understand the issue, search another system, compare earlier communications and decide which approved next step should be proposed.",
@@ -93,7 +87,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "intelligent-mailbox",
-    icon: "📧",
     title: "Intelligent Mailbox",
     summary: "Turn a shared mailbox from a human routing queue into a structured intake process with classification, extraction and controlled actions.",
     problem: "Shared mailboxes such as support, orders, procurement or operations often require someone to read each message, identify the request type, download attachments, find the customer or account, create a ticket and route the work to the right team.",
@@ -107,7 +100,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "approval-workflows",
-    icon: "✅",
     title: "Approval Workflow Automation",
     summary: "Replace email chains and status chasing with structured requests, permissions, approval history and visible state.",
     problem: "Many internal approvals happen through email or chat: someone requests something, a manager replies, finance asks for more data, the requester loses track of status and nobody has one complete audit trail of who approved what and when.",
@@ -121,7 +113,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "employee-lifecycle",
-    icon: "👤",
     title: "Employee Onboarding & Offboarding Automation",
     summary: "Coordinate identity, application, ticket and asset steps from an approved HR event so access changes are less dependent on manual handoffs.",
     problem: "When an employee joins or leaves, HR, IT, managers and application owners may each have separate manual steps. Missing one onboarding step creates delays; missing an offboarding step can leave access or sessions active longer than intended.",
@@ -135,7 +126,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "automation-assessment",
-    icon: "🔍",
     title: "Automation Opportunity Assessment",
     summary: "A low-risk entry project for companies that know work is repetitive but do not yet know which process is worth automating first.",
     problem: "Teams often feel overloaded by repetitive work but have no measured view of which workflows consume the most time, which ones are stable enough to automate and which automation would deliver useful value relative to implementation effort and operational risk.",

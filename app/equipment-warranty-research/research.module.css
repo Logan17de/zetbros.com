@@ -59,3 +59,15 @@
  .current .contact { max-width: 440px; }
 }
 @media (max-width: 440px) { .header { display: grid; grid-template-columns: 1fr; } .header nav { justify-content: flex-start; } .actions { flex-direction: column; } }
+
+/* Research is a qualified enquiry, with a single quiet pilot surface. */
+.page { background: var(--bg); }
+.summary { margin-top: 32px; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.soft { padding-inline: clamp(24px,4vw,48px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface-soft); }
+.soft .card { border-color: #bdcec5; }
+.current { padding: clamp(24px,4vw,48px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.contact { border-color: var(--blue); }
+@media (max-width: 760px) {
+ .summary { margin: 0; padding: 24px; }
+ .soft, .current { padding: 24px; }
+}

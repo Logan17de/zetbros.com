@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactTrigger } from "../contact-dialog";
+import Logo from "../logo";
 import styles from "../legal.module.css";
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export default function PrivacyPage() {
     <main className={styles.page}>
       <header className={styles.header}>
         <div className={styles.headerInner}>
-          <a className={styles.brand} href="/">Zetbros</a>
+          <Logo small />
           <a className={styles.back} href="/">Back to home</a>
         </div>
       </header>

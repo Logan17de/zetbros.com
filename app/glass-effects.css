@@ -1,0 +1,109 @@
+/* A quiet directional light field stays visible through the shared glass panes. */
+.glassReady main {
+  padding-bottom: 72px;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(116deg, transparent 18%, #ffffff8a 34%, transparent 48%),
+    linear-gradient(90deg, #d2e4dc 0%, #edf3eb 41%, #f6f7ef 58%, #dcece5 100%);
+}
+[data-glass] {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid #9db9ae !important;
+  background: #fafcf9 !important;
+  background: rgb(255 255 255 / 16%) !important;
+  box-shadow: inset 0 2px 0 #ffffffeb, inset 2px 0 0 #ffffffa6, inset 0 -2px 0 #678f818c, inset -2px 0 0 #83a89a70, 0 16px 38px #1d4c4829, 0 2px 5px #1d4c481d !important;
+  backdrop-filter: blur(4px) saturate(1.12);
+  -webkit-backdrop-filter: blur(4px) saturate(1.12);
+}
+@supports not (backdrop-filter: blur(1px)) {
+  [data-glass] { background: #f9fbf9 !important; }
+}
+[data-glass]::before {
+  content: '';
+  position: absolute;
+  top: -70%;
+  left: -45%;
+  width: 35%;
+  height: 240%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(90deg, transparent, #ffffff5c 36%, #ffffffe0 50%, #ffffff5c 64%, transparent);
+  transform: translate3d(-100%,50%,0) rotate(30deg);
+}
+[data-glass]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(145deg, transparent 0 12%, #ffffffb0 12.25%, #ffffff38 13%, transparent 15%),
+    linear-gradient(180deg, #ffffff8c 0%, transparent 8%);
+}
+#top .heroDiagram.productFlow[data-glass]::before,
+#top .heroDiagram.productFlow[data-glass]::after { display: block; }
+.glassReady:not(.glassPaused) [data-glass].glassVisible::before {
+  opacity: 1;
+  animation: glassShine 10s linear infinite;
+}
+[data-glass] > :not(.glassShatter) { position: relative; z-index: 2; }
+[data-glass] > svg.glassShatter {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+  animation: glassCrack 760ms ease-out both;
+}
+.glassShatter polygon {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: glassShard 760ms cubic-bezier(.18,.65,.25,1) both;
+}
+@keyframes glassShine {
+  0% { transform: translate3d(-100%,50%,0) rotate(30deg); }
+  16% { transform: translate3d(550%,-40%,0) rotate(30deg); }
+  100% { transform: translate3d(550%,-40%,0) rotate(30deg); }
+}
+@keyframes glassCrack {
+  0% { opacity: 0; }
+  8% { opacity: 1; }
+  58% { opacity: .9; }
+  100% { opacity: 0; }
+}
+@keyframes glassShard {
+  0% { transform: none; }
+  100% { transform: translate(var(--shard-x), var(--shard-y)) rotate(var(--shard-turn)); }
+}
+.glassMotionToggle {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 19;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--input-line);
+  border-radius: 50%;
+  background: #f9fbf9ed;
+  color: var(--text);
+  box-shadow: 0 5px 16px #162e3229;
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+.glassMotionToggle:hover { border-color: var(--blue); color: var(--blue); }
+.glassMotionToggle[data-paused='true'] { background: var(--surface-soft); }
+.glassMotionToggle span { font-size: 18px; line-height: 1; }
+.glassAtFooter .glassMotionToggle { top: var(--glass-header-clearance, 96px); bottom: auto; }
+@media (prefers-reduced-motion: reduce) {
+  [data-glass]::before, [data-glass] > svg.glassShatter { display: none !important; animation: none !important; }
+  .glassMotionToggle { display: none; }
+}

@@ -44,7 +44,7 @@ export default function EquipmentWarrantyResearchPage() {
             <a className={styles.secondary} href="/#about">About Zetbros</a>
           </div>
         </div>
-        <aside className={styles.summary}>
+        <aside className={styles.summary} data-glass>
           <span>Current test</span>
           <strong>Start with the workflow, then review up to five historical claims only if the dealer wants to continue.</strong>
           <p>The dealer keeps final authority over every finding and any action that follows.</p>
@@ -56,7 +56,7 @@ export default function EquipmentWarrantyResearchPage() {
         <div className={styles.grid}>{tests.map((item) => <div className={styles.card} key={item}><span>✓</span><p>{item}</p></div>)}</div>
       </section>
 
-      <section className={styles.section + " " + styles.soft}>
+      <section className={styles.section + " " + styles.soft} data-glass>
         <div className={styles.sectionHeading}><p>02 · Boundaries</p><h2>Dealer-controlled by design.</h2></div>
         <div className={styles.grid}>{boundaries.map((item) => <div className={styles.card} key={item}><span>—</span><p>{item}</p></div>)}</div>
       </section>
@@ -73,7 +73,7 @@ export default function EquipmentWarrantyResearchPage() {
         <p>A document absent from our review packet is not automatically absent from the original claim. A payment received after a review is not automatically money recovered because of that review.</p>
       </section>
 
-      <section className={styles.section + " " + styles.current}>
+      <section className={styles.section + " " + styles.current} data-glass>
         <div>
           <p className={styles.eyebrow}>Current status</p>
           <h2>Research first. Product second.</h2>

@@ -1,71 +1,51 @@
-# Frontend verification — 2026-09-29
+# Frontend verification — 2026-10-01
 
-## Result and scope
+## Scope and result
 
-Implemented the open editorial studio direction across all eight public routes. Shared white surfaces, graphite typography, teal actions, fine rules, modest control radii, and restrained motion replace the previous stacked panel treatments. The original logo, page content, routes, metadata, contact request payload, and Worker configuration remain intact. No dependencies were added. No authentication exists on this public site.
+The eight public routes now use the calm product-studio design in the accompanying brief and theme packet: licensed, locally served Inter; warm neutral and pale-mint surfaces; the original transparent Zetbros logo with the quiet tagline directly below it; readable prose and restrained group entrance motion. Bounded content panels use a shared translucent glass treatment over a pale mineral-to-teal light field. A bright/dark bevel and narrow static reflection add depth while text stays sharp. A diagonal bottom-left-to-top-right sheen repeats on a 10-second CSS cycle while the panel is in view; a click creates a short decorative SVG fracture behind its content. The pause control stops the sheen and removes any active fracture. Reduced motion disables both effects.
 
-The contact popup preserves its native dialog behavior and blurred backdrop. Error/success feedback now scrolls into view on small screens, errors have an alert role, and the form exposes its busy state. Logo dimensions reserve its original 3:1 aspect ratio. Headings remain readable before JavaScript and with reduced motion.
+AIKO and Harness appear as text-led cards under **Our products** only. Their duplicate hero list and app badges are removed, as are glyphs beside named Harness/DeepSeek entries in the Harness diagrams. Process, capability, and tool symbols remain. No new framework or Rive runtime was added. The existing contact dialog, request payload, Worker configuration, logo artwork, and product status qualifications were preserved.
 
-## Executed checks
+## Executed source and build checks
 
-| Command | Result |
+| Check | Result |
 | --- | --- |
-| `python C:/Users/Logan\ De/.agents/skills/frontend-studio/scripts/preflight.py --root .` (PowerShell path quoted) | Repository inventory passed; no Tailwind/shadcn installed |
 | `npm run lint` | TypeScript passed |
-| `npm test` | 6 Worker tests passed; expected simulated failure logs occurred |
-| `npm run build` | Production static export passed; all eight public routes generated |
-| `node --test tests/site.test.mjs` | 15 acceptance checks passed |
-| `npx wrangler dev --local --port 8787` | Production export served by local Worker; only local bindings |
-| `node .frontend-qa/baseline.mjs` | Live baseline desktop/mobile screenshots |
-| `node .frontend-qa/slice.mjs` | Representative homepage/contact review; local simulated error |
-| `node .frontend-qa/final.mjs` | 36 viewport/route diagnostics and screenshots; no overflow, broken images, duplicate IDs, unnamed-control candidates, runtime exceptions, failed requests, or HTTP errors |
-| `node .frontend-qa/interactions.mjs` | All checks below passed using real Chrome input and intercepted local form responses |
-| `node .frontend-qa/review.mjs` | Additional readable desktop/mobile screenshots and lower-page sections |
-| `npx wrangler deploy --dry-run --keep-vars` | Packaging passed; existing zetbros, DB, rate-limit and asset bindings |
-| `git diff --check` | Passed; informational Windows line-ending notices only |
+| `npm test` | 6/6 Worker tests passed; expected simulated delivery/archive failure logs are test cases |
+| `npm run build` | Next.js 15.5.24 static export passed; all eight public routes generated |
+| `node --test tests/site.test.mjs` | 15/15 export and content checks passed |
+| `npx wrangler deploy --dry-run --keep-vars` | Packaging passed; 80 static assets and the configured ASSETS, DB, and rate-limit bindings recognized; no deployment occurred |
+| `git diff --check` | Passed; Git emitted informational Windows line-ending conversion notices |
 
-The logo acceptance check now hashes the original PNG asset itself rather than freezing the wrapper component; the PNG, icon, and apple icon hashes are unchanged.
+The generated-only `.next/types/routes.d.ts` reference in `next-env.d.ts` was reverted after the build. The local static Worker preview runs at `http://127.0.0.1:8787` with local bindings only; it has not been deployed by this report.
 
-## Browser coverage and visual inspection
+## Browser checks completed before static-preview handoff
 
-Real installed Chrome, controlled through its DevTools protocol. Production build at http://127.0.0.1:8787. All of `/`, `/harness`, `/ai-in-practice`, `/automation-in-practice`, `/infrastructure-in-practice`, `/equipment-warranty-research`, `/privacy`, and `/terms` checked at 320, 390, 768, and 1440 CSS pixels. Homepage boundaries also checked at 759, 761, 999, and 1001 pixels. Zero document horizontal overflow in all 36 cases.
+The current run used the installed Edge browser through Codex browser controls against the local Next.js development preview. Edge was at 80% browser zoom; explicit browser viewport overrides of 256×384, 312×675, 614×819, and 1152×800 physical pixels yielded measured CSS viewports of 320×480, 390×843, 767×1023, and 1440×1000 respectively. The 767px result is the browser's rounding of the intended 768px breakpoint check. Temporary viewport overrides and the 200% root-font diagnostic were reset.
 
-Inspected actual desktop/mobile screenshots for the homepage, Harness, research, AI examples, automation, infrastructure, privacy, and terms; also lower homepage product rows, a complete project section, the Harness plugin list, expanded disclosure, mobile error/success, desktop popup/focus, and 200% text resizing. The desktop/mobile reflow, hierarchy, wrapping, white surfaces, and unboxed headings are coherent. Original text-heavy project pages remain long by design.
+All eight routes were inspected at those four CSS widths. The browser DOM check found the expected title and H1 on each route, no broken images, no nested glass panels, and no horizontal document overflow at normal text size. Glass-panel counts were 9 on home, 21 on Harness, 15/23/17 on the AI/automation/infrastructure practice routes, 3 on research, and 0 on the two legal routes. The counts reflect existing bounded panels, not artificial boxes around prose.
 
-During the representative review, removed inherited empty grid rows under the product pathway and made mobile form feedback visible. Consolidated the global cascade so obsolete visual overrides no longer load. No unresolved in-scope visual blocker was found in the inspected views.
+The current 390px homepage opening screenshot is `.frontend-qa/glass-final/home-final-390.jpg`. The latest static-preview captures are `.frontend-qa/glass-final/{real-glass-products-desktop,real-glass-products-mobile,real-glass-harness-desktop,real-glass-harness-mobile,real-glass-contact-mobile}.jpg`; pre-refinement static overview files are `.frontend-qa/glass-final/{static-home-desktop,static-products-desktop,static-harness-desktop}.jpg`. Other representative post-glass dev evidence is `.frontend-qa/glass-final/{harness-desktop,practice-desktop,research-desktop}.jpg` and `.frontend-qa/glass-slice/{product-desktop-view,product-mobile,product-shatter-frame,product-sheen-frame}.jpg`. The glass slice predates the final removal of the duplicated hero product list and app badges; the latest static product screenshots reflect that removal. Earlier pre-glass route and contact state evidence is under `.frontend-qa/implementation/`, including `contact-error-320x480-exact.jpg` and `contact-success-320x480.jpg`. These local, ignored files are review evidence and are not part of the published site.
 
-## Interactions and states
+Edge's earlier scrolled and 200%-text screenshot helper intermittently tiled or included area outside the emulated viewport. `.frontend-qa/glass-final/home-390-text200.jpg` is **not** reliable visual evidence. The opening `home-final-390.jpg` capture is a reliable full CSS viewport, though it includes the Next.js development indicator. The root reviewer later obtained reliable screenshots from the static preview in a fresh browser tab. For those static screenshots, Edge's local-site native zoom was 2/3; CDP viewport compensation produced exact CSS sizes, with image raster sizes of 960×640 or 260×560 pixels. Temporary CDP viewport, text-size, script, and media overrides were reset afterward.
 
-- Homepage Products, Business, Research, and About anchors; research page navigation; Harness return to products; privacy/terms footer navigation.
-- Contact opening and initial email focus; forward/reverse Tab exclude background controls. Native browser chrome can remain reachable, as expected for the platform dialog. Escape restores focus to the trigger; close button and outside-backdrop click close it.
-- Empty required fields and malformed email block submission.
-- Sending state disables the submit button and sets aria-busy. Request remains POST /api/contact with the original fields.
-- Browser-intercepted 500 response preserves entered fields for retry; 429 shows the rate-limit message; intercepted 200 resets fields and announces success. These are simulated frontend responses, not claims of delivered mail.
-- Research contact prepopulates the equipment-warranty subject; project contact prepopulates its project-specific subject.
-- Harness details opens by click and closes with Enter; product availability remains honestly marked in progress.
-- Reduced motion disables heading animations. JavaScript-disabled homepage headings stay visible. Root font size 200% at 390px reflows without document overflow; this is a text-resizing diagnostic, not a native-browser zoom certification.
-- Captured browser accessibility trees for the page and dialog, plus real CDP runtime/network logs. No formal screen-reader conformance claim.
+In the final static preview, all eight public routes were checked at CSS 390 and 1440: titles and H1s matched, `documentElement.clientWidth === scrollWidth`, all images loaded, and no glass panels nested. The browser's captured developer logs contained no warnings or errors. The CDP event tail was truncated, so this is **not** a claim of complete historical network/event-log coverage. The root reviewer also inspected final desktop/mobile product and Harness glass, research, practice, and contact captures.
 
-## Typography and contrast
+## Behavior observed
 
-CDP reports actual rendered Segoe UI Variable Display for the heading and Segoe UI Variable Text for reading text, both local system fonts. No font download was added.
+- Shared panel click fracture covered the Harness map at its actual panel size and faded out. Existing Harness disclosure, availability contact trigger, homepage product navigation, and practice links remained usable; keyboard Enter on a real link activated the link and the decorative fracture.
+- Pausing removed an in-flight fracture, stopped the sheen, and prevented new click fractures. Resuming restored them. The button exposes Pause/Resume glass effects labels. A live `prefers-reduced-motion: reduce` emulation hid the control and sheen and prevented the click fracture; restoring normal preference re-enabled them.
+- Computed sheen animation duration was exactly `10s`. On a 335px-wide final static pane, sampled translation was x144/y118 at 302ms, x427/y-91 at 903ms, and x151/y112 at 10,304ms, confirming a rising full-pane traverse and repeat (within one sampled frame). This confirms direction and timing, not frame-rate smoothness on every device.
+- At the footer, the pause button moved above the legal links. Measured CSS viewport positions: at 320×480, header ended at y105, button y122–166, Terms y333–380; at 390×843, header y61, button y78–122, Terms y697–744; at 767×1023, header y71, button y78–122, Terms y877–924. At 390px with 200% root text, the header ended at y110, the resize-aware button moved to y126–170, and Terms sat at y674–744. At 767px with 200% text, button y88–132 cleared the y71 header and y854–924 Terms link.
+- The homepage contact dialog was checked at 320×480 with the full blurred backdrop, reachable Send action, readable error and success messages. Local browser-intercepted 500, 429, and 200 responses exercised retry, rate-limit, and success feedback; these are simulated frontend states, not delivered mail. The form's native keyboard focus/Escape behavior, required-field validation, loading/busy state, project/research subject prefills, and original `/api/contact` payload were checked earlier in this redesign pass. No production form POST was made.
+- The final static glass effect was checked with JavaScript disabled: homepage headings had 0 hidden instances, 9 panels remained present, the motion button was absent, and client/scroll width was 367/367. Scripts were restored after this check.
+- Final static fracture created 10 decorative shards while content opacity stayed at 1; the shards were gone after 850ms. Pause removed an active fracture and suppressed another; keyboard Enter resumed. A live reduced-motion change hid the control and sheen and suppressed fracture.
+- Final static contact at CSS 390×840 focused the email field, retained an 8px backdrop blur, and Escape returned focus to the trigger. No contact request was submitted to production.
 
-Opaque sRGB checks using the skill contrast helper: graphite/white 14.069:1; muted/white 6.140:1; white/teal 6.487:1; white/hover 9.549:1; success/white 6.696:1; error/white 6.863:1; caution/white 6.405:1; input boundary/white 3.104:1. Text exceeds 4.5:1 and input boundary exceeds 3:1. Decorative rules are not control boundaries. Breadcrumb inline links appear as 23px-high diagnostic candidates; they have surrounding spacing and are not adjacent crowded controls.
-
-## Evidence
-
-Local, ignored evidence is in `.frontend-qa/`: `baseline/` before, `slice/` representative iteration, `final/` full route matrix plus audit/fonts/accessibility/log JSON, `review/` readable viewport and section screenshots, and `states/` contact/keyboard/disclosure/reduced-motion/text-size evidence and interaction results. These files are deliberately not published with the website. Browser automation initially needed fixes for native browser-chrome focus and waiting for stable navigation targets; the final complete interaction run passed.
+After changing the two-column product-flow hero to one full-width conceptual flow, a 767px/200%-text Edge dev check found 15px of reported `documentElement.scrollWidth` overflow. The diagram split grid was made shrinkable and the homepage composition reflow breakpoint was widened to 899px so capability rows and process steps stack before their text clips. The root reviewer then checked the final static preview at 200% root text: CSS 768, 898, 900, and 1440 all had `documentElement.clientWidth === scrollWidth` (745/745, 876/876, 877/877, and 1417/1417 respectively). CSS 390 at normal text was 367/367. No document horizontal overflow remained at these checks.
 
 ## Limits and protected services
 
-No tooling blocker remains for the Chrome checks. Physical iOS/Android devices, Safari/Firefox, screen-reader testing, native browser zoom, and Lighthouse/field performance measurement were NOT RUN. No Figma was supplied. No claim of cross-browser certification or measured Core Web Vitals is made.
+Physical iOS/Android devices, Safari/Firefox, a formal screen-reader run, Lighthouse/field performance, and measured animation frame-rate were not run. Do not treat screenshot stills as proof of smooth motion. The production site is not yet verified by this report.
 
-No production form submission or inbox-delivery test was made during the redesign. Existing SpaceMail sending and D1 archival are unchanged; their unit tests passed. No email, DNS, D1 schema/data, Worker bindings, Cloudflare account settings, AIKO, Supabase, or Vercel configuration was changed. Production publication and live checks are reported separately after deployment.
-
-## Motion follow-up — 2026-09-29
-
-The user clarified that the requested “faded things” means blur-and-fade animation, not shadows. Restored that entrance on the existing homepage/Harness reveal targets: heading words settle from 4px blur over 560ms with 44ms stagger capped at 220ms; section groups settle over 620ms with a 160ms maximum delay. The layout, palette, backgrounds, shadows, content and APIs are unchanged. The logo and first-screen actions stay visible. Keyboard focus within a section cancels its decoration, reduced motion is static, and server-rendered text remains visible without JavaScript.
-
-Validation for this follow-up: `npm run build`, `npm run lint`, and all 15 `node --test tests/site.test.mjs` checks passed. `node .frontend-qa/fades.mjs` verified real Chrome animation frames at 70/240/1000ms on 390/1440px homepage and Harness; inspected the actual in-progress and settled screenshots. The final state is fully opaque with zero blur and no horizontal overflow. Also verified one-time entrance (no replay on scroll back), focus interruption, reduced motion, no-JavaScript visibility, and contact opening/Escape close. No captured page errors. Evidence is local under `.frontend-qa/fades/`.
-
-A local asset-watcher warning occurred when preview started during export; restarting preview after the completed build resolved it. Physical-device and Safari coverage remains unverified. No backend or production data was exercised by these motion checks.
+No production contact request, mail-delivery test, or D1 production write was made. Email/SpaceMail, aliases, SMTP/IMAP, DNS records, D1 schema/data, AIKO and other apps/Workers, Supabase/Vercel, and account-wide settings were outside this frontend change. Existing Worker bindings and custom domains will be verified after an authorized deployment.
