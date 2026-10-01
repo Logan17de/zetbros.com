@@ -12,3 +12,8 @@
 .article p, .article li { color: var(--muted); font-size: 1.0625rem; line-height: 1.8; }
 .article a, .article button { color: var(--blue); text-decoration: underline; text-underline-offset: 4px; }
 .article ul { padding-left: 20px; }
+
+/* Legal content uses the same type and canvas without card framing. */
+.page { background: var(--bg); }
+.article { max-width: 760px; }
+.article p, .article li { line-height: 1.7; }

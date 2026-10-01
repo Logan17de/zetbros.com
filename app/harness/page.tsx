@@ -77,19 +77,19 @@ export default function HarnessPage() {
         <div className={styles.heroActions}><a className={styles.primaryButton} href="#plugins">Explore the idea <Arrow /></a><span className={styles.status}><span aria-hidden="true" />Production in progress</span></div>
         <p className={styles.heroNote}>Built by Zetbros on the DeepSeek Harness foundation.</p>
       </div>
-      <figure className={styles.workspaceMap} data-harness-reveal="map" aria-label="Tools, knowledge and models connect through plugins to your Harness workspace">
+      <figure className={styles.workspaceMap} data-harness-reveal="map" data-glass aria-label="Tools, knowledge and models connect through plugins to your Harness workspace">
         <div className={styles.mapInputs}><span><Icon name="tool" />Tools</span><span><Icon name="book" />Knowledge</span><span><Icon name="model" />Models</span></div>
         <div className={styles.mapConnector} aria-hidden="true" />
         <div className={styles.mapBridge}><Icon name="plugin" /><span>Plugins & connections</span></div>
         <div className={styles.mapStem} aria-hidden="true" />
-        <div className={styles.mapCore}><Icon name="window" /><div><strong>Harness</strong><span>Your workspace. Your way.</span></div></div>
+        <div className={styles.mapCore}><div><strong>Harness</strong><span>Your workspace. Your way.</span></div></div>
         <figcaption>Useful capabilities, brought together.</figcaption>
       </figure>
     </section>
 
     <section className={styles.section} id="benefits">
       <div className={styles.sectionIntro}><RevealBoxText as="h2" text="A workspace that grows with you." className={styles.sectionTitle} /><p>Six simple ideas behind Harness.</p></div>
-      <div className={styles.benefitGrid}>{benefits.map(item=><article className={styles.benefit} data-harness-reveal="benefit" key={item.title}>
+      <div className={styles.benefitGrid}>{benefits.map(item=><article className={styles.benefit} data-harness-reveal="benefit" data-glass key={item.title}>
         <div className={styles.benefitHeading}><Icon name={item.icon}/><h3>{item.title}</h3></div>
         <p>{item.text}</p><div className={styles.miniFlow}><span>{item.from}</span><Arrow/><span>{item.to}</span></div>
       </article>)}</div>
@@ -97,22 +97,22 @@ export default function HarnessPage() {
 
     <section className={`${styles.section} ${styles.pluginSection}`} id="plugins">
       <div className={styles.sectionIntro}><RevealBoxText as="h2" text="Bring your tools together." className={styles.sectionTitle}/><p>Examples of what plugins could connect. Included connectors will be confirmed at release.</p></div>
-      <div className={styles.pluginGrid}>{plugins.map(item=><div className={styles.plugin} data-harness-reveal="plugin" key={item.name}><Icon name={item.icon}/><div><h3>{item.name}</h3><p>{item.text}</p></div></div>)}</div>
-      <div className={styles.useCases} data-harness-reveal="use-cases" aria-label="Example workspaces"><div><b>Development</b><span>Code, issues, builds</span></div><div><b>Operations</b><span>Email, reporting, tasks</span></div><div><b>Support</b><span>Tickets, knowledge, context</span></div><div><b>Infrastructure</b><span>Monitoring, logs, runbooks</span></div></div>
+      <div className={styles.pluginGrid}>{plugins.map(item=><div className={styles.plugin} data-harness-reveal="plugin" data-glass key={item.name}><Icon name={item.icon}/><div><h3>{item.name}</h3><p>{item.text}</p></div></div>)}</div>
+      <div className={styles.useCases} data-harness-reveal="use-cases" data-glass aria-label="Example workspaces"><div><b>Development</b><span>Code, issues, builds</span></div><div><b>Operations</b><span>Email, reporting, tasks</span></div><div><b>Support</b><span>Tickets, knowledge, context</span></div><div><b>Infrastructure</b><span>Monitoring, logs, runbooks</span></div></div>
     </section>
 
     <section className={`${styles.section} ${styles.lifecycleSection}`} id="how-it-works">
       <div className={styles.sectionIntro}><RevealBoxText as="h2" text="A considered path for every plugin." className={styles.sectionTitle}/><p>Prepare changes before they reach your working environment.</p></div>
       <ol className={styles.lifecycle}>{stages.map(([title,text],i)=><li data-harness-reveal="stage" key={title}><span className={styles.stageNumber}>{i+1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol>
-      <div className={styles.recovery} data-harness-reveal="recovery"><Icon name="refresh"/><p>If a change fails verification, restore the previous working state.</p></div>
+      <div className={styles.recovery} data-harness-reveal="recovery" data-glass><Icon name="refresh"/><p>If a change fails verification, restore the previous working state.</p></div>
     </section>
 
-    <section className={`${styles.section} ${styles.detailsSection}`}>
-      <div data-harness-reveal="detail"><h2>Small core. Room to grow.</h2><div className={styles.layers} aria-label="Harness architecture"><div><Icon name="people"/><span>Workflows</span><small>The work you want to do</small></div><div><Icon name="plugin"/><span>Plugins</span><small>Tools, data and connections</small></div><div><Icon name="window"/><span>Harness Desktop</span><small>Workspace and recovery</small></div><div><Icon name="layers"/><span>DeepSeek Harness</span><small>The engine foundation</small></div></div></div>
+    <section className={`${styles.section} ${styles.detailsSection}`} data-glass>
+      <div data-harness-reveal="detail"><h2>Small core. Room to grow.</h2><div className={styles.layers} aria-label="Harness architecture"><div><Icon name="people"/><span>Workflows</span><small>The work you want to do</small></div><div><Icon name="plugin"/><span>Plugins</span><small>Tools, data and connections</small></div><div className={styles.namedLayer}><span>Harness Desktop</span><small>Workspace and recovery</small></div><div className={styles.namedLayer}><span>DeepSeek Harness</span><small>The engine foundation</small></div></div></div>
       <div className={styles.accessCopy} data-harness-reveal="detail"><h2>Know what you enable.</h2><p>Review a plugin’s declared access before activation, including files, network, shell, models and workspace.</p><p className={styles.accessNote}><Icon name="shield"/><span>Plugins run trusted code. Access declarations help with review; they do not create a security sandbox.</span></p><details className={styles.futureDetails}><summary>What’s next for Harness?</summary><p>We’re exploring AI-assisted extension development: turning a missing integration into a plugin project. This is a direction for the product, not a currently available autonomous feature.</p></details></div>
     </section>
 
-    <section className={styles.availability} data-harness-reveal="availability" id="download"><div><h2>Harness is taking shape.</h2><p>A Windows x64 release is in development. The download will appear here when it’s ready.</p></div><div className={styles.availabilityActions}><span className={styles.status}><span aria-hidden="true"/>Production in progress</span><ContactTrigger className={styles.primaryButton}>Share an idea for Harness <Arrow/></ContactTrigger></div></section>
+    <section className={styles.availability} data-harness-reveal="availability" data-glass id="download"><div><h2>Harness is taking shape.</h2><p>A Windows x64 release is in development. The download will appear here when it’s ready.</p></div><div className={styles.availabilityActions}><span className={styles.status}><span aria-hidden="true"/>Production in progress</span><ContactTrigger className={styles.primaryButton}>Share an idea for Harness <Arrow/></ContactTrigger></div></section>
     <footer className={styles.footer}><div><Link href="/">Zetbros</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div></footer>
   </main>;
 }

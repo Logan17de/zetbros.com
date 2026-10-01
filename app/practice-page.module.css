@@ -75,7 +75,7 @@
 }
 @media (max-width: 760px) {
  .header { position: relative; }
- .nav { gap: 4px 20px; }
+ .nav { gap: 0 10px; justify-content: center; }
  .nav a, .nav button { font-size: .8125rem; }
  .hero { padding-bottom: 24px; }
  .heroLead { font-size: 1.125rem; }
@@ -88,4 +88,20 @@
  .flow { flex-direction: column; align-items: flex-start; gap: 4px; }
  .flowArrow { transform: rotate(90deg); padding-inline: 0; margin-left: 16px; }
  .flowStep { padding: 4px 0; }
+}
+
+/* Project examples remain open for reading; contextual groups carry the surface. */
+.page { background: var(--bg); }
+.header { background: var(--bg); }
+.index { padding: 24px; border: 0; border-radius: 16px; background: var(--surface-soft); }
+.solution { border-color: var(--line); }
+.problem { padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.flowBlock { padding: 24px; border: 0; border-radius: 16px; background: var(--surface-soft); }
+.solutionCta { background: transparent; }
+.relatedCards { padding: 8px 24px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.relatedCards a:last-child { border-bottom: 1px solid var(--line); }
+.ctaBox { padding: clamp(24px,4vw,48px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+@media (max-width: 760px) {
+ .index, .problem, .flowBlock, .ctaBox { padding: 20px; }
+ .relatedCards { padding: 8px 20px; }
 }

@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 const solutions: PracticeSolution[] = [
   {
     id: "local-technical-hands",
-    icon: "🌏",
     title: "Local Technical Hands",
     summary: "Your remote engineering team stays in control while Zetbros handles the physical work that cannot be done remotely.",
     problem: "A company may have servers, network equipment or office IT in Japan while the engineers who manage it are based elsewhere. When the next troubleshooting step requires a console cable, a power cycle, a component check or a physical cable trace, remote access is no longer enough.",
@@ -23,7 +22,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "rack-stack",
-    icon: "🗄️",
     title: "Rack & Stack Deployment",
     summary: "Turn delivered hardware into a mounted, cabled, labelled and verified environment ready for remote configuration.",
     problem: "Servers, switches, firewalls, storage or GPU equipment may arrive at a Japan site with no local infrastructure team available to install it. The hardware exists, but rails, rack placement, power, network cabling, labels and console access still need to be completed correctly.",
@@ -37,7 +35,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "ai-gpu-infrastructure",
-    icon: "🧠",
     title: "AI / GPU Infrastructure Deployment",
     summary: "Connect the rack, operating system, accelerator runtime and inference layer as one deployment instead of separate vendor tasks.",
     problem: "A company may know it wants private or local AI but still has to make GPU, server, CPU, RAM, storage, networking, operating-system, driver, container and model-serving decisions fit together. A physically installed GPU server is not yet a usable AI platform.",
@@ -51,7 +48,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "office-branch",
-    icon: "🏢",
     title: "Office & Branch IT Deployment",
     summary: "Reproduce the customer’s central IT standards in a new Japan office or branch with local implementation and verification.",
     problem: "A headquarters IT team may have a clear standard for firewalls, switches, Wi-Fi, endpoints, meeting rooms and device onboarding but no local implementation team when a new Japan office opens.",
@@ -65,7 +61,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "refresh-migration",
-    icon: "🔄",
     title: "Infrastructure Refresh & Migration",
     summary: "Discover the existing environment first, then replace or move it through a controlled and documented cutover plan.",
     problem: "Older racks and networks often accumulate undocumented dependencies, abandoned hardware and cables nobody wants to touch. Replacing equipment becomes risky because the team cannot confidently explain what each connection supports.",
@@ -79,7 +74,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "audit-documentation",
-    icon: "📋",
     title: "Infrastructure Audit & Documentation",
     summary: "Create a reliable physical baseline of what is installed, where it is located and how the visible connections are arranged.",
     problem: "The organization may no longer have an accurate asset list, rack diagram, cable map or photo record. Equipment may have been installed by several vendors over many years, while the person who understood the environment has moved on.",
@@ -93,7 +87,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "incident-support",
-    icon: "🚨",
     title: "On-site Incident Support",
     summary: "Provide physical diagnosis and intervention when the remote team has reached the limit of remote management.",
     problem: "A server may stop booting, a network device may lose remote management, a cable may be disconnected or a component may fail. The central team can diagnose remotely only until the next step requires someone physically in front of the equipment.",

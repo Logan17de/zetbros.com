@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 const solutions: PracticeSolution[] = [
   {
     id: "private-company-ai",
-    icon: "🔒",
     title: "Private Company AI",
     summary: "A governed AI workspace for company work, with clear control over where requests go and what data each model can access.",
     problem: "Employees want the speed of modern AI, but company documents, source code, contracts, customer information or other sensitive material should not simply be copied into unmanaged consumer tools. At the same time, banning AI completely often pushes usage outside the company’s visibility.",
@@ -23,7 +22,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "knowledge-assistant",
-    icon: "📚",
     title: "AI Knowledge Assistant",
     summary: "Turn approved internal knowledge into an assistant that answers questions and shows the material used to produce the answer.",
     problem: "Useful information is often spread across manuals, SOPs, PDFs, internal wikis, shared folders and knowledge systems. Employees may know the answer exists somewhere, but finding the right version or section can take longer than solving the problem itself.",
@@ -37,7 +35,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "performance-optimization",
-    icon: "⚡",
     title: "AI Performance Optimization",
     summary: "Benchmark the workload first, then tune the model, runtime and hardware configuration around measured bottlenecks.",
     problem: "A company may already own an AI workstation or GPU server but still see poor throughput, excessive memory use, unstable long-context behavior or low hardware utilization. Buying a larger GPU is not always the first or best answer.",
@@ -51,7 +48,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "ai-gateway-routing",
-    icon: "🔀",
     title: "AI Gateway & Routing",
     summary: "Give company applications one internal AI interface while the model providers behind it can change according to policy.",
     problem: "When every application integrates directly with a different AI provider, model changes, outages, privacy restrictions, rate limits and cost controls become application-development problems. Switching providers can require touching many systems at once.",
@@ -65,7 +61,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "ai-agents-integrations",
-    icon: "🤖",
     title: "AI Agents & Integrations",
     summary: "Move from a chatbot that only talks to an assistant that can use a tightly controlled set of company tools.",
     problem: "Many useful business tasks involve more than generating text. Someone may need to read a ticket, look up account information, compare previous communications, prepare an update and ask a manager for approval before anything changes in the source system.",
@@ -79,7 +74,6 @@ const solutions: PracticeSolution[] = [
   },
   {
     id: "hybrid-ai",
-    icon: "☁️",
     title: "Hybrid Local + Cloud AI",
     summary: "Use local and approved cloud AI together so each workload can run where its privacy, capability and operating requirements fit best.",
     problem: "Local AI can offer strong data control and predictable ownership, but some tasks may require capabilities or scale that are not practical to host internally. Sending every request to the cloud creates the opposite problem for sensitive workloads.",

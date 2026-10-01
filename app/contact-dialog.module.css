@@ -1,12 +1,12 @@
-.dialog { width: min(960px,calc(100% - 48px)); max-height: calc(100dvh - 64px); margin: auto; padding: 64px 48px 48px; overflow-y: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--text); box-shadow: 0 24px 80px #172f3429; }
-.dialog[open] { animation: contact-enter 180ms var(--ease); }
-.dialog::backdrop { background: #172f3455; backdrop-filter: blur(8px); }
-.close { position: absolute; top: 12px; right: 12px; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 4px; background: #fff; color: var(--text); font: inherit; font-size: 28px; line-height: 1; cursor: pointer; }
+.dialog { width: min(900px,calc(100% - 48px)); max-height: calc(100dvh - 48px); margin: auto; padding: 64px 48px 48px; overflow-y: auto; border: 1px solid var(--line); border-radius: 24px; background: var(--surface); color: var(--text); box-shadow: 0 28px 80px #162e3233; }
+.dialog[open] { animation: contact-enter 220ms var(--ease); }
+.dialog::backdrop { background: #162e3270; backdrop-filter: blur(8px); }
+.close { position: absolute; top: 16px; right: 16px; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-soft); color: var(--text); font: inherit; font-size: 28px; line-height: 1; cursor: pointer; }
 .close:hover { color: var(--blue); }
 .close:focus-visible, .textTrigger:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 .styledTrigger { font-family: inherit; cursor: pointer; }
 .textTrigger { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: inherit; cursor: pointer; }
 .textTrigger:hover { color: var(--blue); }
-@keyframes contact-enter { from { transform: translateY(8px); opacity: .7; } to { transform: none; opacity: 1; } }
-@media (max-width: 760px) { .dialog { width: calc(100% - 24px); max-height: calc(100dvh - 24px); padding: 60px 24px 28px; } }
+@keyframes contact-enter { from { transform: translateY(6px); opacity: .7; } to { transform: none; opacity: 1; } }
+@media (max-width: 760px) { .dialog { width: calc(100% - 24px); max-height: calc(100dvh - 24px); padding: 60px 24px 28px; border-radius: 16px; } }
 @media (prefers-reduced-motion: reduce) { .dialog[open] { animation: none; } }
