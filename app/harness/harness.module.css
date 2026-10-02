@@ -1,11 +1,11 @@
-.page { --harness-ink: var(--text); --harness-muted: var(--muted); --harness-line: var(--line); background: #fff; color: var(--text); font-family: var(--font-body); font-size: 1rem; line-height: 1.65; }
+.page { --harness-ink: var(--text); --harness-muted: var(--muted); --harness-line: var(--line); color: var(--text); font-family: var(--font-body); font-size: 1rem; line-height: 1.65; }
 .page p { color: var(--muted); }
 .page h1, .page h2, .page h3 { font-family: var(--font-display); color: var(--text); font-weight: 600; letter-spacing: -.025em; }
 .page h2 { font-size: var(--type-section); line-height: 1.18; margin: 0 0 20px; }
 .page h3 { font-size: 1.125rem; line-height: 1.4; margin: 0; }
 .page svg { display: block; width: 22px; height: 22px; flex: 0 0 auto; }
 .page a:focus-visible, .page summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
-.header { position: sticky; top: 0; z-index: 30; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 32px; width: min(calc(100% - 2 * var(--gutter)),var(--container)); min-height: 80px; margin: auto; border-bottom: 1px solid var(--line); background: #fff; }
+.header { position: sticky; top: 0; z-index: 30; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 32px; width: min(calc(100% - 2 * var(--gutter)),var(--container)); min-height: 80px; margin: auto; border-bottom: 1px solid var(--line); }
 .header > a:first-child { width: 150px; padding: 0; }
 .nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 28px; color: var(--text); font-size: .875rem; }
 .nav a, .backLink { min-height: 44px; display: inline-flex; align-items: center; }
@@ -116,8 +116,6 @@
 }
 
 /* Shared studio surfaces for the product guide. */
-.page { background: var(--bg); }
-.header { background: var(--bg); }
 .workspaceMap { background: var(--surface-soft); border-radius: var(--radius); }
 .mapInputs > span { color: var(--text); }
 .section { border-top-color: var(--line); }

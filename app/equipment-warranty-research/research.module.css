@@ -1,4 +1,4 @@
-.page { background: #fff; color: var(--text); min-height: 100vh; }
+.page { color: var(--text); min-height: 100vh; }
 .header { display: flex; justify-content: space-between; gap: 24px; align-items: center; width: min(calc(100% - 2 * var(--gutter)),var(--container)); min-height: 80px; margin: auto; border-bottom: 1px solid var(--line); }
 .header > a { width: 150px; }
 .header nav { flex-wrap: wrap; gap: 8px 28px; color: var(--text); font-size: .875rem; }
@@ -61,7 +61,6 @@
 @media (max-width: 440px) { .header { display: grid; grid-template-columns: 1fr; } .header nav { justify-content: flex-start; } .actions { flex-direction: column; } }
 
 /* Research is a qualified enquiry, with a single quiet pilot surface. */
-.page { background: var(--bg); }
 .summary { margin-top: 32px; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .soft { padding-inline: clamp(24px,4vw,48px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface-soft); }
 .soft .card { border-color: #bdcec5; }

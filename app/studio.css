@@ -8,6 +8,7 @@
 }
 :root {
   --bg: #f5f6f2;
+  --canvas-light: linear-gradient(90deg, #d2e4dc 0%, #edf3eb 41%, #f6f7ef 58%, #dcece5 100%);
   --surface: #fff;
   --surface-soft: #e7efeb;
   --text: #162e32;
@@ -35,11 +36,12 @@
 }
 html { background: var(--bg); }
 body { background: var(--bg); color: var(--text); font-size: 1rem; line-height: 1.65; font-optical-sizing: auto; }
+main, main > header { background-color: var(--bg); background-image: var(--canvas-light); background-size: 100vw 100%; background-position: center top; }
 button, input, textarea, select { font-family: inherit; }
 button, a { touch-action: manipulation; }
 :where(a, button, input, textarea, select, summary):focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
 ::selection { background: #c9e8e5; color: var(--text); }
-main [id] { scroll-margin-top: 104px; }
+main [id] { scroll-margin-top: var(--glass-header-clearance, 104px); }
 h1, h2, h3 { color: var(--text); font-family: var(--font-display); font-weight: 600; }
 h2 { line-height: 1.18; letter-spacing: -.035em; }
 h3 { letter-spacing: -.02em; }
@@ -50,7 +52,7 @@ p { text-wrap: pretty; }
 .brandImageSmall { width: 150px; }
 .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 16px; color: var(--blue); font-size: .875rem; font-weight: 600; letter-spacing: 0; text-transform: none; }
 .eyebrow::before { content: ''; flex: 0 0 8px; width: 8px; height: 8px; border: 1.5px solid currentColor; border-radius: 50%; }
-#top .siteHeader { position: sticky; top: 0; z-index: 20; background: #f5f6f2f2; border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
+#top .siteHeader { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
 #top .navWrap.navWithoutLogo { min-height: 70px; display: flex; justify-content: flex-end; align-items: center; }
 #top .navWithoutLogo nav { display: flex; gap: clamp(16px, 2.8vw, 36px); align-items: center; font-size: .9375rem; }
 #top nav :is(a,button) { min-height: 44px; display: inline-flex; align-items: center; font-weight: 550; }
@@ -119,7 +121,7 @@ nav :is(a,button):hover { color: var(--blue); text-decoration: underline; text-u
 #top .flowCard { justify-content: flex-start; padding: 10px 14px; min-height: 52px; border: 1px solid #bfd1c8; border-radius: 10px; background: #fff9; color: var(--text); font-size: .9375rem; }
 #top .archSplit { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
 #top .downArrow { color: var(--blue); margin: 3px 0 3px 24px; align-self: flex-start; }
-#top .capabilitySectionAlt { background: var(--surface-soft); }
+#top .capabilitySectionAlt { background: transparent; }
 #top .capabilityPoints { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px 24px; }
 #top .capabilityPoint { padding: 18px 0; border-top: 1px solid #bdcec5; background: transparent; }
 #top .capabilityPoint b { display: block; margin: 0 0 8px; font-size: 1rem; color: var(--text); }
@@ -166,7 +168,7 @@ nav :is(a,button):hover { color: var(--blue); text-decoration: underline; text-u
   #top .processStep h3 { margin: 0 0 4px; }
 }
 @media (max-width: 599px) {
-  #top .navWithoutLogo nav { width: 100%; display: flex; flex-wrap: wrap; justify-content: center; gap: 0 12px; }
+  #top .navWithoutLogo nav { width: 100%; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 8px; }
   #top .navWithoutLogo nav :is(a,button) { justify-content: center; min-height: 44px; }
   #top .hero { padding-top: 40px; }
   #top .heroDiagram.productFlow { padding: 24px; }
