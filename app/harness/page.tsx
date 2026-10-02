@@ -74,7 +74,7 @@ export default function HarnessPage() {
         <RevealBoxText as="h1" text="Harness" variant="hero" className={styles.heroTitle} />
         <p className={styles.heroStatement}>Your AI workspace, connected.</p>
         <p className={styles.heroLead}>Bring your tools, knowledge and workflows together. Shape the workspace around what you need to do.</p>
-        <div className={styles.heroActions}><a className={`${styles.primaryButton} solidAction`} href="#plugins">Explore the idea <Arrow /></a><span className={styles.status}><span aria-hidden="true" />Production in progress</span></div>
+        <div className={styles.heroActions}><a className={styles.primaryButton} href="#plugins">Explore the idea <Arrow /></a><span className={styles.status}><span aria-hidden="true" />Production in progress</span></div>
         <p className={styles.heroNote}>Built by Zetbros on the DeepSeek Harness foundation.</p>
       </div>
       <figure className={styles.workspaceMap} data-harness-reveal="map" data-glass aria-label="Tools, knowledge and models connect through plugins to your Harness workspace">
@@ -107,12 +107,12 @@ export default function HarnessPage() {
       <div className={styles.recovery} data-harness-reveal="recovery" data-glass><Icon name="refresh"/><p>If a change fails verification, restore the previous working state.</p></div>
     </section>
 
-    <section className={`${styles.section} ${styles.detailsSection}`} data-glass>
+    <section className={`${styles.section} ${styles.detailsSection}`}>
       <div data-harness-reveal="detail"><h2>Small core. Room to grow.</h2><div className={styles.layers} aria-label="Harness architecture"><div><Icon name="people"/><span>Workflows</span><small>The work you want to do</small></div><div><Icon name="plugin"/><span>Plugins</span><small>Tools, data and connections</small></div><div className={styles.namedLayer}><span>Harness Desktop</span><small>Workspace and recovery</small></div><div className={styles.namedLayer}><span>DeepSeek Harness</span><small>The engine foundation</small></div></div></div>
       <div className={styles.accessCopy} data-harness-reveal="detail"><h2>Know what you enable.</h2><p>Review a plugin’s declared access before activation, including files, network, shell, models and workspace.</p><p className={styles.accessNote}><Icon name="shield"/><span>Plugins run trusted code. Access declarations help with review; they do not create a security sandbox.</span></p><details className={styles.futureDetails}><summary>What’s next for Harness?</summary><p>We’re exploring AI-assisted extension development: turning a missing integration into a plugin project. This is a direction for the product, not a currently available autonomous feature.</p></details></div>
     </section>
 
-    <section className={styles.availability} data-harness-reveal="availability" data-glass id="download"><div><h2>Harness is taking shape.</h2><p>A Windows x64 release is in development. The download will appear here when it’s ready.</p></div><div className={styles.availabilityActions}><span className={styles.status}><span aria-hidden="true"/>Production in progress</span><ContactTrigger className={`${styles.primaryButton} solidAction`}>Share an idea for Harness <Arrow/></ContactTrigger></div></section>
+    <section className={styles.availability} data-harness-reveal="availability" data-glass id="download"><div><h2>Harness is taking shape.</h2><p>A Windows x64 release is in development. The download will appear here when it’s ready.</p></div><div className={styles.availabilityActions}><span className={styles.status}><span aria-hidden="true"/>Production in progress</span><ContactTrigger className={styles.primaryButton}>Share an idea for Harness <Arrow/></ContactTrigger></div></section>
     <footer className={styles.footer}><div><Link href="/">Zetbros</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div></footer>
   </main>;
 }

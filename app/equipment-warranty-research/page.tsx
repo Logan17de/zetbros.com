@@ -40,7 +40,7 @@ export default function EquipmentWarrantyResearchPage() {
           <h1>Equipment warranty recovery — research pilot.</h1>
           <p className={styles.lead}>Zetbros is validating whether agriculture and construction equipment dealers can reduce warranty-claim rework and recover value from returned or short-paid manufacturer claims through a dealer-controlled review process.</p>
           <div className={styles.actions}>
-            <ContactTrigger className={`${styles.primary} solidAction`} variant="research">Request a 20-minute conversation</ContactTrigger>
+            <ContactTrigger className={styles.primary} variant="research">Request a 20-minute conversation</ContactTrigger>
             <a className={styles.secondary} href="/#about">About Zetbros</a>
           </div>
         </div>

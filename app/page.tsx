@@ -94,7 +94,7 @@ export default function Home() {
      <article data-reveal data-glass className="productCard productGreen"><div><h3>AIKO</h3><p>Japanese learning with lessons, practice and progress in one place.</p><a href="https://aiko.zetbros.com">Visit AIKO <span aria-hidden="true">→</span></a></div></article>
      <article data-reveal data-glass className="productCard productBlue"><div><h3>Harness</h3><p>An AI workspace built around tools, plugins and workflows. <strong>Production in progress.</strong></p><a href="/harness">Meet Harness <span aria-hidden="true">→</span></a></div></article>
     </div>
-    <div data-reveal data-glass className="productInvitation"><span className="miniIcon"><Icon name="code" /></span><p><strong>What should we build next?</strong> Your idea or everyday problem could inspire what comes next.</p><ContactTrigger>Share with us <span aria-hidden="true">→</span></ContactTrigger></div>
+    <div data-reveal className="productInvitation"><span className="miniIcon"><Icon name="code" /></span><p><strong>What should we build next?</strong> Your idea or everyday problem could inspire what comes next.</p><ContactTrigger>Share with us <span aria-hidden="true">→</span></ContactTrigger></div>
    </div></section>
    <section className="section servicesSection" id="services"><div className="container">
     <div className="sectionIntro" data-reveal><p className="eyebrow">What we do</p><RevealBoxText as="h2" text="Build useful things. Make a difference." /></div>

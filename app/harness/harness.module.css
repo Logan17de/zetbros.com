@@ -125,10 +125,10 @@
 .plugin { padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
 .useCases { padding: 28px; border: 0; border-radius: 16px; background: var(--surface-soft); }
 .recovery { padding: 20px 24px; border: 0; border-radius: 12px; background: var(--surface-soft); }
-.detailsSection { padding-inline: clamp(24px,4vw,48px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.detailsSection { border: 0; background: transparent; }
 .availability { padding: 40px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface-soft); }
 @media (max-width: 760px) {
  .benefitGrid { gap: 12px; }
- .detailsSection, .availability { padding: 24px; }
+ .availability { padding: 24px; }
  .useCases { padding: 20px; }
 }
