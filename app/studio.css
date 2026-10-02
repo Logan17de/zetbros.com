@@ -97,7 +97,8 @@ nav :is(a,button):hover { color: var(--blue); text-decoration: underline; text-u
 #top #software .productCard { min-height: 260px; }
 #top .productCard:hover { border-color: #a8c3b7; }
 #top .productBadge { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-soft); font-size: 1.25rem; font-weight: 600; }
-#top .productCard > div:last-child { display: flex; flex-direction: column; align-items: flex-start; flex: 1; gap: 14px; }
+/* The fracture SVG is appended after the content; it must not change its layout. */
+#top .productCard > div:last-of-type { display: flex; flex-direction: column; align-items: flex-start; flex: 1; gap: 14px; }
 #top .productCard h3 { font-size: clamp(1.375rem, 1.15rem + .45vw, 1.75rem); line-height: 1.25; margin: 0; }
 #top .productCard p { max-width: 50ch; font-size: 1rem; line-height: 1.65; color: var(--muted); margin: 0; }
 #top .productCard p strong { color: var(--text); font-weight: 600; }

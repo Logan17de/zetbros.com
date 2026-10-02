@@ -120,5 +120,5 @@ Verify normal/rapid scrolling, anchor jumps, scroll-back, route entry, first pai
 2. No boxes around every sentence, nested cards or the same three-card grid throughout.
 3. No washed-out text, fixed text clipping, forced breaks or hidden overflow masking defects.
 4. No nested blur, word cascade, long delay, replay or JS-gated primary content.
-5. No drifting font/color/radius systems across Harness, practice, research and legal routes; no app icons or letter badges.
+5. No drifting font/color/radius systems across Harness, practice, research and legal routes; no app logos or letter badges. The user's October 2 clarification adds matching generic desktop and engine symbols to the two Harness architecture rows.
 6. No altered routes/API/contact payloads, owner exposure, fake downloads or production data writes for testing.
