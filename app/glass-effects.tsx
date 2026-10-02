@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 const NS = 'http://www.w3.org/2000/svg';
@@ -52,19 +52,18 @@ function fracture(panel: HTMLElement, clickX: number, clickY: number) {
 
 export default function GlassEffects() {
   const pathname = usePathname();
-  const [visible, setVisible] = useState(false);
-  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-glass]'));
     const present = panels.length > 0;
-    setVisible(present);
     document.documentElement.classList.toggle('glassReady', present);
     const observer = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
       for (const entry of entries) entry.target.classList.toggle('glassVisible', entry.isIntersecting);
     }, { rootMargin: '120px 0px' }) : null;
-    for (const panel of panels) observer?.observe(panel);
-    const footer = document.querySelector('main footer');
+    for (const panel of panels) {
+      if (observer) observer.observe(panel);
+      else panel.classList.add('glassVisible');
+    }
     const header = document.querySelector<HTMLElement>('main > header');
     const updateHeaderClearance = () => {
       const bottom = header?.getBoundingClientRect().bottom ?? 0;
@@ -74,30 +73,19 @@ export default function GlassEffects() {
     const headerObserver = header && 'ResizeObserver' in window ? new ResizeObserver(updateHeaderClearance) : null;
     if (header) headerObserver?.observe(header);
     window.addEventListener('resize', updateHeaderClearance);
-    const footerObserver = footer && 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
-      document.documentElement.classList.toggle('glassAtFooter', entries[0].isIntersecting);
-      if (entries[0].isIntersecting) updateHeaderClearance();
-    }) : null;
-    if (footer) footerObserver?.observe(footer);
     return () => {
       observer?.disconnect();
-      footerObserver?.disconnect();
       headerObserver?.disconnect();
       window.removeEventListener('resize', updateHeaderClearance);
       document.documentElement.style.removeProperty('--glass-header-clearance');
       for (const panel of panels) panel.classList.remove('glassVisible');
-      document.documentElement.classList.remove('glassReady', 'glassAtFooter');
+      document.documentElement.classList.remove('glassReady');
     };
   }, [pathname]);
 
   useEffect(() => {
-    document.documentElement.classList.toggle('glassPaused', paused);
-    return () => document.documentElement.classList.remove('glassPaused');
-  }, [paused]);
-
-  useEffect(() => {
     function onClick(event: MouseEvent) {
-      if (paused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       const target = event.target;
       if (!(target instanceof Element)) return;
       const panel = target.closest<HTMLElement>('[data-glass]');
@@ -109,13 +97,7 @@ export default function GlassEffects() {
     }
     document.addEventListener('click', onClick, { capture: true });
     return () => document.removeEventListener('click', onClick, { capture: true });
-  }, [paused]);
+  }, []);
 
-  if (!visible) return null;
-  return <button className="glassMotionToggle" type="button" data-paused={paused} aria-label={paused ? 'Resume glass effects' : 'Pause glass effects'} title={paused ? 'Resume glass effects' : 'Pause glass effects'} onClick={() => {
-    if (!paused) document.querySelectorAll('.glassShatter').forEach((node) => node.remove());
-    setPaused((value) => !value);
-  }}>
-    <span aria-hidden="true">{paused ? '▶' : 'Ⅱ'}</span>
-  </button>;
+  return null;
 }

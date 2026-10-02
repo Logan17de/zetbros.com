@@ -91,7 +91,7 @@ export default function PracticePage({ category, title, lead, availability, solu
           <p className={styles.kicker}>Have a real problem to solve?</p>
           <h2>Tell us about the work. We’ll start with a conversation.</h2>
           <p>We scope projects around your systems, constraints, security requirements and operating process rather than forcing a generic package onto every company. Please do not include confidential records or credentials in an initial enquiry.</p>
-          <ContactTrigger className={styles.primary}>Talk to Zetbros</ContactTrigger>
+          <ContactTrigger className={`${styles.primary} solidAction`}>Talk to Zetbros</ContactTrigger>
         </div></div>
       </section>
       <footer className={styles.footer}>

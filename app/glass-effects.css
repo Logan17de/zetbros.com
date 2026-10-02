@@ -1,11 +1,4 @@
-/* A quiet directional light field stays visible through the shared glass panes. */
-.glassReady main {
-  padding-bottom: 72px;
-  background-color: var(--bg);
-  background-image:
-    linear-gradient(116deg, transparent 18%, #ffffff8a 34%, transparent 48%),
-    linear-gradient(90deg, #d2e4dc 0%, #edf3eb 41%, #f6f7ef 58%, #dcece5 100%);
-}
+/* The shared canvas is rendered by studio.css, including without JavaScript. */
 [data-glass] {
   position: relative;
   isolation: isolate;
@@ -46,7 +39,7 @@
 }
 #top .heroDiagram.productFlow[data-glass]::before,
 #top .heroDiagram.productFlow[data-glass]::after { display: block; }
-.glassReady:not(.glassPaused) [data-glass].glassVisible::before {
+.glassReady [data-glass].glassVisible::before {
   opacity: 1;
   animation: glassShine 10s linear infinite;
 }
@@ -82,28 +75,28 @@
   0% { transform: none; }
   100% { transform: translate(var(--shard-x), var(--shard-y)) rotate(var(--shard-turn)); }
 }
-.glassMotionToggle {
-  position: fixed;
-  right: max(16px, env(safe-area-inset-right));
-  bottom: max(16px, env(safe-area-inset-bottom));
-  z-index: 19;
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--input-line);
-  border-radius: 50%;
-  background: #f9fbf9ed;
-  color: var(--text);
-  box-shadow: 0 5px 16px #162e3229;
-  backdrop-filter: blur(8px);
-  cursor: pointer;
+/* Text links are raised glass controls. Logo and solid actions retain their
+   existing treatment; no second backdrop filter is stacked inside a pane. */
+:where(a:not(:has(img)):not(.button):not(.solidAction), button[aria-haspopup='dialog']:not(.button):not(.solidAction)) {
+  position: relative;
+  z-index: 3;
+  display: inline-block;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 8px 12px !important;
+  border: 1px solid #9db9ae !important;
+  border-radius: var(--control-radius) !important;
+  background: linear-gradient(145deg, transparent 12%, #ffffff8a 13%, transparent 18%), rgb(255 255 255 / 32%) !important;
+  box-shadow: inset 0 1px 0 #fffffff2, inset 0 -1px 0 #83a89a70, 0 3px 8px #1d4c4824 !important;
+  vertical-align: middle;
+  text-decoration: none !important;
+  transition: border-color 170ms, box-shadow 170ms;
 }
-.glassMotionToggle:hover { border-color: var(--blue); color: var(--blue); }
-.glassMotionToggle[data-paused='true'] { background: var(--surface-soft); }
-.glassMotionToggle span { font-size: 18px; line-height: 1; }
-.glassAtFooter .glassMotionToggle { top: var(--glass-header-clearance, 96px); bottom: auto; }
+:where(a, button[aria-haspopup='dialog']):hover { text-decoration: none !important; }
+:where(a:not(:has(img)):not(.button):not(.solidAction), button[aria-haspopup='dialog']:not(.button):not(.solidAction)):hover {
+  border-color: var(--blue) !important;
+  box-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 #83a89a70, 0 4px 12px #1d4c4830 !important;
+}
 @media (prefers-reduced-motion: reduce) {
   [data-glass]::before, [data-glass] > svg.glassShatter { display: none !important; animation: none !important; }
-  .glassMotionToggle { display: none; }
 }

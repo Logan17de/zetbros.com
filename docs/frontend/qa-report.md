@@ -49,3 +49,19 @@ After changing the two-column product-flow hero to one full-width conceptual flo
 Physical iOS/Android devices, Safari/Firefox, a formal screen-reader run, Lighthouse/field performance, and measured animation frame-rate were not run. Do not treat screenshot stills as proof of smooth motion. The production site is not yet verified by this report.
 
 No production contact request, mail-delivery test, or D1 production write was made. Email/SpaceMail, aliases, SMTP/IMAP, DNS records, D1 schema/data, AIKO and other apps/Workers, Supabase/Vercel, and account-wide settings were outside this frontend change. Existing Worker bindings and custom domains will be verified after an authorized deployment.
+
+## Follow-up verification — 2026-10-02
+
+The user requested one continuous page background, glass containers around text links (including links within existing glass panes), and removal of the Pause/Resume glass control. This revision supersedes the earlier pause-button behavior documented above. A shared, vertically consistent mineral-to-teal canvas now covers every route and its header; the homepage's alternate opaque section bands are transparent. Raised glass link controls have no underline and do not stack another backdrop filter. Logo image links and solid primary actions retain their existing treatments. Visible glass panes run the existing 10-second sheen automatically. The device's reduced-motion preference is still respected.
+
+`npm run build`, `npm run lint`, and all 15 static-site acceptance checks passed. The Worker, deployment configuration, contact payload, content, routes, and approved logo were not changed.
+
+The root reviewer checked the local static Worker preview in Edge at exact measured CSS widths of 320, 390, 768, and 1440 pixels, with a viewport height of 840 pixels. Across all eight public routes, document scroll width equaled client width; images loaded; main and header used the same computed background; no anchors had underlines; no pause/resume controls remained; and no link controls clipped their text. The captured developer warning/error log was empty. The 32 measurements are saved in `.frontend-qa/background-links/route-matrix.json`.
+
+Actual desktop and mobile screenshots were inspected for the homepage society section, product panes, and contact dialog, plus the mobile Harness page. Evidence is saved as `.frontend-qa/background-links/{after-society-desktop,after-products-desktop,after-products-mobile,after-contact-mobile,after-harness-mobile}.jpg`. The homepage header wraps to two navigation rows on narrow screens and its measured height updates anchor clearance.
+
+The mobile contact trigger opened the existing dialog, focused the email field, and retained the email, subject, message, privacy link, and 8px backdrop blur. Escape closed it and returned focus to Contact. Keyboard Enter on Meet Harness navigated to `/harness`. Clicking a product pane created ten decorative fracture shards while its content opacity remained 1. The sheen's computed duration was 10 seconds with infinite iteration and a running play state. The unchanged motion direction and repeat had been sampled in the October 1 verification; this follow-up does not claim new frame-rate measurements.
+
+At 200% root text size on the homepage, measured CSS widths of 390, 768, and 1440 still had no horizontal document overflow or clipped link controls. With JavaScript disabled at 390 pixels, the shared background remained visible, all headings were visible, no motion button appeared, and client/scroll widths remained equal. Text-size and script overrides were restored.
+
+No contact POST or production data write was made. Physical devices, Safari/Firefox, formal assistive-technology testing, and frame-rate measurements remain outside this verification. Production checks for this follow-up are recorded separately after deployment.

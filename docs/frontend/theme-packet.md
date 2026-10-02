@@ -91,6 +91,8 @@ The user explicitly requested glass panels, a sheen from bottom-left to top-righ
 
 ## Responsive rules
 
+The 2026-10-02 surface refinement uses one vertically consistent mineral/teal canvas on every route and its header. Open sections remain transparent; no alternating mint bands or per-route canvas fills. The shared canvas also renders without JavaScript. Text links and text contact triggers use small raised glass controls without underlines, including above an existing glass panel. These controls add no nested backdrop filter. Logo links and solid primary actions retain their existing treatment. The user requested removal of the glass pause/resume control: the 10-second sheen runs automatically while visible, with the existing device reduced-motion preference respected.
+
 - 320–599px: one column, stacked products/offers, readable source order, full-width paired actions when needed; logo preserves aspect ratio and fits gutters.
 - 600–899px: selected two-column groups when copy fits; intro may remain stacked. Avoid a cramped or awkward third business card.
 - 900px+: balanced asymmetry, two product columns, three business columns only when legible, capped content width.

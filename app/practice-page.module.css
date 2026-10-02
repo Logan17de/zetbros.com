@@ -1,5 +1,5 @@
-.page { min-height: 100vh; background: #fff; color: var(--text); }
-.header { position: sticky; top: 0; z-index: 40; background: #fff; border-bottom: 1px solid var(--line); }
+.page { min-height: 100vh; color: var(--text); }
+.header { position: sticky; top: 0; z-index: 40; border-bottom: 1px solid var(--line); }
 .headerInner { width: min(calc(100% - 2 * var(--gutter)),var(--container)); min-height: 80px; margin: auto; display: grid; grid-template-columns: auto 1fr auto; gap: 32px; align-items: center; }
 .brand { display: inline-flex; }
 .brand img { width: 150px; }
@@ -91,8 +91,6 @@
 }
 
 /* Project examples remain open for reading; contextual groups carry the surface. */
-.page { background: var(--bg); }
-.header { background: var(--bg); }
 .index { padding: 24px; border: 0; border-radius: 16px; background: var(--surface-soft); }
 .solution { border-color: var(--line); }
 .problem { padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }

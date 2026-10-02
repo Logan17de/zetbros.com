@@ -1,4 +1,4 @@
-.page { min-height: 100vh; background: #fff; color: var(--text); font-family: var(--font-body); }
+.page { min-height: 100vh; color: var(--text); font-family: var(--font-body); }
 .header { border-bottom: 1px solid var(--line); }
 .headerInner, .article { width: min(760px,calc(100% - 2 * var(--gutter))); margin: auto; }
 .headerInner { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 80px; }
@@ -14,6 +14,5 @@
 .article ul { padding-left: 20px; }
 
 /* Legal content uses the same type and canvas without card framing. */
-.page { background: var(--bg); }
 .article { max-width: 760px; }
 .article p, .article li { line-height: 1.7; }
