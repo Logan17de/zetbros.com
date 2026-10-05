@@ -2,9 +2,10 @@
 
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import ContactForm from "./contact-form";
+import CompanyRegistrationForm from "./company-registration-form";
 import styles from "./contact-dialog.module.css";
 
-type ContactVariant = "general" | "research";
+type ContactVariant = "general" | "research" | "company";
 type OpenContact = (variant: ContactVariant, trigger: HTMLElement, subject?: string) => void;
 const ContactContext = createContext<OpenContact | null>(null);
 
@@ -21,7 +22,8 @@ export function ContactProvider({ children }: { children: ReactNode }) {
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     if (!dialog.open) dialog.showModal();
-    requestAnimationFrame(() => dialog.querySelector<HTMLInputElement>('input[name="email"]')?.focus());
+    const firstField = active.variant === "company" ? 'input[name="company"]' : 'input[name="email"]';
+    requestAnimationFrame(() => dialog.querySelector<HTMLInputElement>(firstField)?.focus());
     return () => { document.body.style.overflow = previousOverflow; };
   }, [active]);
 
@@ -36,7 +38,7 @@ export function ContactProvider({ children }: { children: ReactNode }) {
       <dialog
         ref={dialogRef}
         className={styles.dialog}
-        aria-label={active?.variant === "research" ? "Contact Zetbros about the research pilot" : "Contact Zetbros"}
+        aria-label={active?.variant === "company" ? "Register your company" : active?.variant === "research" ? "Contact Zetbros about the research pilot" : "Contact Zetbros"}
         onClose={() => { setActive(null); returnFocus.current?.focus(); }}
         onClick={(event) => {
           if (event.target !== event.currentTarget) return;
@@ -44,8 +46,8 @@ export function ContactProvider({ children }: { children: ReactNode }) {
           if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) close();
         }}
       >
-        <button type="button" className={styles.close} onClick={close} aria-label="Close contact form">×</button>
-        {active && <ContactForm key={active.key} variant={active.variant} defaultSubject={active.subject} />}
+        <button type="button" className={styles.close} onClick={close} aria-label={active?.variant === "company" ? "Close company registration" : "Close contact form"}>×</button>
+        {active && (active.variant === "company" ? <CompanyRegistrationForm key={active.key} /> : <ContactForm key={active.key} variant={active.variant} defaultSubject={active.subject} />)}
       </dialog>
     </ContactContext.Provider>
   );

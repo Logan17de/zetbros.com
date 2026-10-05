@@ -1,4 +1,5 @@
 import { ContactTrigger } from "./contact-dialog";
+import ExternalLink from "./external-link";
 import Logo from "./logo";
 import RevealBoxText from "./reveal-box-text";
 import ScrollRevealMotion from "./scroll-reveal-motion";
@@ -91,7 +92,7 @@ export default function Home() {
    <section className="section productsSection" id="software"><div className="container">
     <div className="sectionIntro" data-reveal><p className="eyebrow">Our products</p><RevealBoxText as="h2" text="Two products. One useful purpose." /><p className="lede">Meet AIKO and Harness, the products we’re building at Zetbros.</p></div>
     <div className="productGrid">
-     <article data-reveal data-glass className="productCard productGreen"><div><h3>AIKO</h3><p>Japanese learning with lessons, practice and progress in one place.</p><a href="https://aiko.zetbros.com">Visit AIKO <span aria-hidden="true">→</span></a></div></article>
+     <article data-reveal data-glass className="productCard productGreen"><div><h3>AIKO</h3><p>Japanese learning with lessons, practice and progress in one place.</p><ExternalLink href="https://aiko.zetbros.com">Visit AIKO <span aria-hidden="true">→</span></ExternalLink></div></article>
      <article data-reveal data-glass className="productCard productBlue"><div><h3>Harness</h3><p>An AI workspace built around tools, plugins and workflows. <strong>Production in progress.</strong></p><a href="/harness">Meet Harness <span aria-hidden="true">→</span></a></div></article>
     </div>
     <div data-reveal className="productInvitation"><span className="miniIcon"><Icon name="code" /></span><p><strong>What should we build next?</strong> Your idea or everyday problem could inspire what comes next.</p><ContactTrigger>Share with us <span aria-hidden="true">→</span></ContactTrigger></div>
@@ -114,6 +115,14 @@ export default function Home() {
      <article data-reveal data-glass className="productCard productBlue"><div><h3>AI systems</h3><p>Private AI, knowledge assistants, model gateways and controlled agent workflows designed around company data and policy.</p><a href="/ai-in-practice">AI project patterns <span aria-hidden="true">→</span></a></div></article>
      <article data-reveal data-glass className="productCard productGreen"><div><h3>Automation</h3><p>Connect the tools a company already uses and automate repeatable work without hiding exceptions or approval points.</p><a href="/automation-in-practice">Automation project patterns <span aria-hidden="true">→</span></a></div></article>
      <article data-reveal data-glass className="productCard productOrange"><div><h3>Infrastructure</h3><p>On-site implementation, audit, migration and incident support for teams that need a local technical extension in Japan.</p><a href="/infrastructure-in-practice">Infrastructure project patterns <span aria-hidden="true">→</span></a></div></article>
+    </div>
+    <p className="partnerNotice">Looking for local delivery? <a href="#partners">Meet our partners in Japan <span aria-hidden="true">→</span></a></p>
+   </div></section>
+   <section className="section partnersSection" id="partners"><div className="container">
+    <div className="sectionIntro" data-reveal><p className="eyebrow">Partners in Japan</p><RevealBoxText as="h2" text="Good work starts with the right people." /><p className="lede">We bring client needs and company capabilities together, with the right team for each project.</p></div>
+    <div className="partnerGrid">
+     <article data-reveal data-glass className="productCard"><div><p className="partnerLocation">Japan · Tokyo</p><h3>Wintech Solutions</h3><p>IT support and maintenance, networking, hardware and data centre services in Japan.</p><ExternalLink href="https://wintechsolutions.info/">Visit Wintech Solutions <span aria-hidden="true">→</span></ExternalLink></div></article>
+     <article data-reveal data-glass className="productCard"><div><h3>Bring your company into the network.</h3><p>Register your services and the areas you cover. Our team reviews each company and gets in touch before considering it for suitable client projects.</p><p className="partnerReview">Registration is reviewed first. Projects depend on client needs, fit and availability.</p><ContactTrigger variant="company">Register your company <span aria-hidden="true">→</span></ContactTrigger></div></article>
     </div>
    </div></section>
    <section className="section capabilitySection capabilitySectionAlt" id="infrastructure"><div className="container capabilityPanel">

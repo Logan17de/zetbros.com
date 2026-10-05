@@ -108,6 +108,12 @@ nav :is(a,button):hover { color: var(--blue); text-decoration: underline; text-u
 #top .productInvitation .miniIcon { width: 28px; height: 28px; }
 #top .productInvitation p { margin: 0; flex: 1; }
 #top .productInvitation button { color: var(--blue); font-weight: 600; text-decoration: underline; text-underline-offset: 5px; min-height: 44px; }
+#top .partnerNotice { margin: 28px 0 0; color: var(--muted); font-size: .9375rem; }
+#top .partnerNotice a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--blue); font-weight: 600; }
+#top .partnerGrid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+#top .partnerGrid .productCard { min-height: 340px; }
+#top .partnerGrid .partnerLocation { color: var(--blue); font-size: .875rem; font-weight: 600; }
+#top .partnerGrid .partnerReview { font-size: .875rem; }
 #top .serviceGrid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px 32px; }
 #top .serviceCard { display: flex; gap: 16px; min-width: 0; padding: 18px 0; background: transparent; }
 #top .serviceIcon { width: 28px; height: 28px; margin: 2px 0 0; }
@@ -159,6 +165,7 @@ nav :is(a,button):hover { color: var(--blue); text-decoration: underline; text-u
   .heroIntro { grid-template-columns: 1fr; gap: 36px; padding-bottom: 40px; }
   #top .brandImageHero { width: min(360px, 100%); }
   #top #software .productGrid, #top #business .productGrid { grid-template-columns: 1fr; }
+  #top .partnerGrid { grid-template-columns: 1fr; }
   #top #business .productCard:last-child { grid-column: auto; min-height: 300px; }
   #top .serviceGrid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px 24px; }
   #top .aiPanel, #top .capabilityPanel { grid-template-columns: minmax(0,1fr); gap: 32px; }

@@ -69,8 +69,35 @@ test("homepage exposes business and research without personal identity", () => {
   assert.ok(html.includes("Production in progress"));
 });
 
+test("external website links open safely in a new tab", () => {
+  let count = 0;
+  for (const route of routes) {
+    for (const [tag, href] of visibleHtml(page(route)).matchAll(/<a\b[^>]*href="(https?:\/\/[^\"]*)"[^>]*>/g)) {
+      if (new URL(href).origin === origin) continue;
+      count++;
+      assert.equal(attribute(tag, "target"), "_blank", `${route}: ${href}`);
+      const rel = attribute(tag, "rel").split(/\s+/);
+      assert.ok(rel.includes("noopener") && rel.includes("noreferrer"), `${route}: ${href}`);
+    }
+  }
+  assert.ok(count >= 2, "The AIKO and Wintech links must be checked");
+});
+
 test("public pages do not expose the owner's name or GitHub", () => {
   for (const route of routes) assert.doesNotMatch(visibleHtml(page(route)), /Logan|GitHub/i, route);
+});
+
+test("Japan partner section offers company registration for review", () => {
+  const html = visibleHtml(page("/"));
+  const partners = html.match(/<section\b[^>]*id="partners"[^>]*>[\s\S]*?<\/section>/)?.[0];
+  assert.ok(partners, "The partner section must be reachable from the homepage");
+  assert.ok(html.includes('href="#partners"'));
+  assert.ok(partners.includes("Partners in Japan"));
+  assert.ok(partners.includes("Wintech Solutions"));
+  assert.ok(partners.includes('href="https://wintechsolutions.info/"'));
+  assert.match(partners, /<button\b[^>]*aria-haspopup="dialog"[^>]*>Register your company/);
+  assert.ok(partners.includes("Registration is reviewed first"));
+  assert.ok(partners.includes("Projects depend on client needs, fit and availability"));
 });
 
 test("research is an enquiry, not a live claim portal", () => {

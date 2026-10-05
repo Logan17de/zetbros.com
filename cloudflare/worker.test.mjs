@@ -55,6 +55,27 @@ test("legacy project enquiries keep their name and topic", async () => {
   assert.equal(state.writes[0][1], "Visitor");
 });
 
+test("company registrations reach the review inbox with their company and website", async () => {
+  const registration = {
+    name: "Company contact",
+    email: "partner@example.invalid",
+    company: "Example Japan Services",
+    subject: "Company registration — Example Japan Services",
+    message: "Company registration for review\nCompany website: https://example.invalid\nLocation and service coverage: Tokyo and Kanto\nServices offered: IT support and networking\nCompany introduction: An experienced local delivery team.\nPermission to contact this company about registration review and suitable projects: confirmed.",
+    website: "",
+  };
+  const { state, worker, env } = environment();
+  const response = await worker.fetch(request(registration), env);
+  assert.equal(response.status, 201);
+  assert.equal(state.emails.length, 1, "A real company website must not trigger the hidden spam field");
+  assert.equal(state.emails[0].company, registration.company);
+  assert.equal(state.emails[0].message, registration.message);
+  assert.match(contactMessage(state.emails[0]), /To: support@zetbros\.com/);
+  assert.equal(state.writes.length, 1);
+  assert.equal(state.writes[0][3], registration.company);
+  assert.equal(state.writes[0][4], registration.subject);
+});
+
 test("invalid and cross-origin requests never send or archive", async () => {
   for (const input of [
     request(payload, "https://other.example"),
