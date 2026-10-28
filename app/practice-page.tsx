@@ -33,7 +33,7 @@ export default function PracticePage({ category, title, lead, availability, solu
         <div className={styles.headerInner}>
           <div className={styles.brand}><Logo small /></div>
           <nav className={styles.nav} aria-label="Practice page navigation">
-            <a href="/#software">Products</a><a href="/#business">Business</a><a href="/#research">Research</a><a href="/#about">About</a><ContactTrigger>Contact</ContactTrigger>
+            <a href="/#software">Products</a><a href="/#business">Business</a><a href="/#planet">Quako</a><a href="/#about">About</a><ContactTrigger>Contact</ContactTrigger>
           </nav>
           <a className={styles.backLink} href="/">← Home</a>
         </div>

@@ -5,7 +5,7 @@ import ContactForm from "./contact-form";
 import CompanyRegistrationForm from "./company-registration-form";
 import styles from "./contact-dialog.module.css";
 
-type ContactVariant = "general" | "research" | "company";
+type ContactVariant = "general" | "company";
 type OpenContact = (variant: ContactVariant, trigger: HTMLElement, subject?: string) => void;
 const ContactContext = createContext<OpenContact | null>(null);
 
@@ -38,7 +38,7 @@ export function ContactProvider({ children }: { children: ReactNode }) {
       <dialog
         ref={dialogRef}
         className={styles.dialog}
-        aria-label={active?.variant === "company" ? "Register your company" : active?.variant === "research" ? "Contact Zetbros about the research pilot" : "Contact Zetbros"}
+        aria-label={active?.variant === "company" ? "Register your company" : "Contact Zetbros"}
         onClose={() => { setActive(null); returnFocus.current?.focus(); }}
         onClick={(event) => {
           if (event.target !== event.currentTarget) return;
@@ -47,7 +47,7 @@ export function ContactProvider({ children }: { children: ReactNode }) {
         }}
       >
         <button type="button" className={styles.close} onClick={close} aria-label={active?.variant === "company" ? "Close company registration" : "Close contact form"}>×</button>
-        {active && (active.variant === "company" ? <CompanyRegistrationForm key={active.key} /> : <ContactForm key={active.key} variant={active.variant} defaultSubject={active.subject} />)}
+        {active && (active.variant === "company" ? <CompanyRegistrationForm key={active.key} /> : <ContactForm key={active.key} defaultSubject={active.subject} />)}
       </dialog>
     </ContactContext.Provider>
   );

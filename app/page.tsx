@@ -3,6 +3,7 @@ import ExternalLink from "./external-link";
 import Logo from "./logo";
 import RevealBoxText from "./reveal-box-text";
 import ScrollRevealMotion from "./scroll-reveal-motion";
+import QuakePulse from "./quake-pulse";
 
 const services = [
  {id:"purpose-learning",icon:"ai",tone:"blue",title:"Help people learn",text:"Build tools that make learning part of everyday life."},
@@ -73,7 +74,7 @@ export default function Home() {
   <main id="top">
    <ScrollRevealMotion />
    <header className="siteHeader"><div className="container navWrap navWithoutLogo">
-    <nav aria-label="Primary navigation"><a href="#software">Products</a><a href="#business">Business</a><a href="#research">Research</a><a href="#about">About</a><ContactTrigger>Contact</ContactTrigger></nav>
+    <nav aria-label="Primary navigation"><a href="#software">Products</a><a href="#business">Business</a><a href="#planet">Quako</a><a href="#about">About</a><ContactTrigger>Contact</ContactTrigger></nav>
    </div></header>
    <section className="hero section"><div className="container">
     <div className="heroIntro"><div className="heroLogoStage" aria-label="Zetbros"><Logo hero /><h1 className="brandTagline">From zero to something real</h1></div>
@@ -90,12 +91,23 @@ export default function Home() {
     </div>
    </div></section>
    <section className="section productsSection" id="software"><div className="container">
-    <div className="sectionIntro" data-reveal><p className="eyebrow">Our products</p><RevealBoxText as="h2" text="Two products. One useful purpose." /><p className="lede">Meet AIKO and Harness, the products we’re building at Zetbros.</p></div>
+    <div className="sectionIntro" data-reveal><p className="eyebrow">Made at Zetbros</p><RevealBoxText as="h2" text="Real products. Real curiosity." /><p className="lede">From mastering Japanese to exploring the living planet, our tools make discovery more accessible.</p></div>
     <div className="productGrid">
-     <article data-reveal data-glass className="productCard productGreen"><div><h3>AIKO</h3><p>Japanese learning with lessons, practice and progress in one place.</p><ExternalLink href="https://aiko.zetbros.com">Visit AIKO <span aria-hidden="true">→</span></ExternalLink></div></article>
-     <article data-reveal data-glass className="productCard productBlue"><div><h3>Harness</h3><p>An AI workspace built around tools, plugins and workflows. <strong>Production in progress.</strong></p><a href="/harness">Meet Harness <span aria-hidden="true">→</span></a></div></article>
+     <article data-reveal data-glass className="productCard productGreen"><div className="productMonogram" aria-hidden="true"><span>あ</span><span>学</span><span>語</span></div><div><p className="productCategory">LEARN / JAPANESE</p><h3>AIKO</h3><p>Japanese learning with lessons, practice and progress in one place.</p><ExternalLink href="https://aiko.zetbros.com">Explore AIKO <span aria-hidden="true">↗</span></ExternalLink></div></article>
+     <article data-reveal data-glass className="productCard productBlue quakoProduct"><div className="quakoProductImage"><img src="/quako-preview.jpg" alt="Quako Earth visual showing earthquake activity" loading="lazy" /></div><div><p className="productCategory">EXPLORE / EARTH</p><h3>Quako</h3><p>A real-time earthquake observatory with a 3D globe, tectonic boundaries, event details and worldwide statistics.</p><a href="/quako/">Launch Quako <span aria-hidden="true">↗</span></a></div></article>
     </div>
-    <div data-reveal className="productInvitation"><span className="miniIcon"><Icon name="code" /></span><p><strong>What should we build next?</strong> Your idea or everyday problem could inspire what comes next.</p><ContactTrigger>Share with us <span aria-hidden="true">→</span></ContactTrigger></div>
+    <div data-reveal className="productInvitation"><span className="miniIcon"><Icon name="code" /></span><p><strong>What should we build next?</strong> Your idea or everyday problem could inspire what comes next.</p><ContactTrigger>Share with us <span aria-hidden="true">↗</span></ContactTrigger></div>
+   </div></section>
+   <section className="section quakoSpotlight" id="planet"><div className="container quakoSpotlightInner">
+    <div className="quakoSpotlightCopy" data-reveal>
+     <p className="quakoOverline"><span className="signalDot" /> A WINDOW INTO OUR PLANET</p>
+     <RevealBoxText as="h2" text="The Earth never stands still." />
+     <p>Explore recent earthquakes around the world, investigate tectonic boundaries and inspect official event records on an interactive globe. Quako uses the public USGS earthquake feed.</p>
+     <QuakePulse />
+     <div className="actions"><a className="button quakoLaunch" href="/quako/">Explore Quako ↗</a><a className="quakoSource" href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php" target="_blank" rel="noopener noreferrer">USGS data source ↗</a></div>
+     <p className="quakoDisclaimer">Visual wave effects are illustrative, not earthquake early warnings or predictions. For safety information, follow official authorities.</p>
+    </div>
+    <a className="quakoSpotlightVisual" href="/quako/" aria-label="Open Quako earthquake observatory"><img src="/quako-preview.jpg" alt="Dark Earth globe visualization from Quako" loading="lazy" /><span>LIVE EXPLORATION <b>↗</b></span></a>
    </div></section>
    <section className="section servicesSection" id="services"><div className="container">
     <div className="sectionIntro" data-reveal><p className="eyebrow">What we do</p><RevealBoxText as="h2" text="Build useful things. Make a difference." /></div>
@@ -133,23 +145,14 @@ export default function Home() {
     <div data-reveal className="capabilityCopy"><p className="eyebrow">Ideas welcome</p><RevealBoxText as="h2" text="You bring the problem. We listen." /><p>You don’t need a finished pitch or a technical background. Tell us what could be better, who it would help, or what you wish someone would build.</p></div>
     <div data-reveal className="capabilityPoints"><div className="capabilityPoint"><b>An idea</b><p>Something new that you think could help people.</p></div><div className="capabilityPoint"><b>A problem</b><p>A frustration you keep running into in everyday life.</p></div><div className="capabilityPoint"><b>A different perspective</b><p>A need that current tools don’t seem to understand.</p></div><div className="capabilityPoint"><b>A conversation</b><p>Share what you’re thinking, even if it isn’t fully formed yet.</p></div></div>
    </div></section>
-   <section className="section" id="research"><div className="container aiPanel"><div data-reveal className="aiCopy">
-    <p className="eyebrow">Current research</p><RevealBoxText as="h2" text="Equipment warranty recovery." />
-    <p>We are validating whether agriculture and construction equipment dealers can reduce warranty-claim rework and recover value from returned or short-paid manufacturer claims through a dealer-controlled review process.</p>
-    <div className="actions"><a className="button buttonPrimary" href="/equipment-warranty-research">See the research pilot</a><ContactTrigger className="button buttonGhost" variant="research">Contact us about the pilot</ContactTrigger></div>
-   </div><div data-reveal data-glass className="architecture" aria-label="Equipment warranty research validation flow">
-    <FlowCard icon="company" label="Dealer workflow interview" tone="blue" /><span className="downArrow" aria-hidden="true">↓</span>
-    <FlowCard icon="shield" label="Optional historical claim review" tone="green" /><span className="downArrow" aria-hidden="true">↓</span>
-    <FlowCard icon="tool" label="Build only if the evidence supports it" tone="orange" />
-   </div></div></section>
    <section className="section capabilitySection capabilitySectionAlt" id="support"><div className="container capabilityPanel">
     <div data-reveal className="capabilityCopy"><p className="eyebrow">Your voice matters</p><RevealBoxText as="h2" text="Better products begin with listening." /><p>Our products should grow around the people who use them. Tell us what works, what feels difficult and what would make them more useful to you.</p></div>
-    <div data-reveal className="capabilityPoints"><div className="capabilityPoint"><b>AIKO feedback</b><p>Tell us about your experience learning with AIKO.</p></div><div className="capabilityPoint"><b>Harness ideas</b><p>Share the tools or workflows you would like an AI workspace to help with.</p></div><div className="capabilityPoint"><b>Something that isn’t working</b><p>Help us understand where a product gets in your way.</p></div><div className="capabilityPoint"><b>A useful improvement</b><p>Small changes can make a meaningful difference.</p></div></div>
+    <div data-reveal className="capabilityPoints"><div className="capabilityPoint"><b>AIKO feedback</b><p>Tell us about your experience learning with AIKO.</p></div><div className="capabilityPoint"><b>Quako feedback</b><p>Tell us how to make earthquake exploration more useful.</p></div><div className="capabilityPoint"><b>Something that isn’t working</b><p>Help us understand where a product gets in your way.</p></div><div className="capabilityPoint"><b>A useful improvement</b><p>Small changes can make a meaningful difference.</p></div></div>
    </div></section>
    <section className="section processSection" id="how-we-build"><div className="container"><div className="sectionIntro" data-reveal><p className="eyebrow">How we build</p><RevealBoxText as="h2" text="From 0 to something useful." /></div><div className="processGrid">{process.map(([n,title,text])=><article data-reveal className="processStep" key={n}><div className="stepTop"><span>{n}</span></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
    <section className="section capabilitySection capabilitySectionAlt" id="about"><div className="container capabilityPanel">
     <div data-reveal className="capabilityCopy"><p className="eyebrow">About Zetbros</p><RevealBoxText as="h2" text="We start with the first question." /><p>Zetbros is a technology and product studio. We build our own products and work through practical business problems from the beginning: listening, testing the need, then making something useful.</p></div>
-    <div data-reveal className="capabilityPoints"><div className="capabilityPoint"><b>Business & research</b><p><ContactTrigger>Start a conversation</ContactTrigger></p></div><div className="capabilityPoint"><b>Contact</b><p><ContactTrigger>Send a message</ContactTrigger></p></div></div>
+    <div data-reveal className="capabilityPoints"><div className="capabilityPoint"><b>Business & products</b><p><ContactTrigger>Start a conversation</ContactTrigger></p></div><div className="capabilityPoint"><b>Contact</b><p><ContactTrigger>Send a message</ContactTrigger></p></div></div>
    </div></section>
    <footer className="footer"><div className="container footerTop"><Logo small /><div className="legalLinks"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div></footer>
   </main>

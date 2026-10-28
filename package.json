@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && npm --prefix quako run build -- --base=/quako/ --outDir ../out/quako",
     "start": "next start",
     "lint": "tsc --noEmit",
     "test": "node --test cloudflare/worker.test.mjs",
     "deploy": "npm run build && wrangler deploy",
-    "preview": "wrangler dev"
+    "preview": "wrangler dev",
+    "prebuild": "npm --prefix quako ci --no-audit --no-fund"
   },
   "dependencies": {
     "next": "15.5.24",

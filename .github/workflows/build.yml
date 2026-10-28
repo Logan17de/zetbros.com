@@ -28,6 +28,8 @@ jobs:
         run: npm run lint
       - name: Worker tests
         run: npm test
+      - name: Quako data and visualization tests
+        run: npm --prefix quako test
       - name: Static site acceptance checks
         run: node --test tests/site.test.mjs
       - name: Save static preview

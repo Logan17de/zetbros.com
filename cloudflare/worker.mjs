@@ -28,6 +28,9 @@ export function createWorker(sendEmail = sendContactEmail) {
       url.hostname = "zetbros.com";
       return Response.redirect(url.toString(), 308);
     }
+    if (["/harness","/harness/","/equipment-warranty-research","/equipment-warranty-research/"].includes(url.pathname))
+      return new Response("This page is no longer available.", { status: 410, headers: { "Cache-Control":"no-store", "X-Robots-Tag":"noindex" } });
+    if (url.pathname === "/quako") return Response.redirect(url.origin + "/quako/", 308);
     if (url.pathname !== "/api/contact") return env.ASSETS.fetch(request);
     if (request.method !== "POST") return json({ error: "Method not allowed" }, 405, { Allow: "POST" });
     if (request.headers.get("Origin") !== url.origin) return json({ error: "Invalid origin" }, 403);
