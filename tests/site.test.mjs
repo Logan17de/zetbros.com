@@ -4,7 +4,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 
 const origin = "https://zetbros.com";
-const routes = ["/", "/harness", "/ai-in-practice", "/automation-in-practice", "/infrastructure-in-practice", "/equipment-warranty-research", "/privacy", "/terms"];
+const routes = ["/", "/ai-in-practice", "/automation-in-practice", "/infrastructure-in-practice", "/privacy", "/terms"];
 function page(path) {
   const stem = path === "/" ? "out/index" : `out${path}`;
   const file = [`${stem}.html`, `${stem}/index.html`].find(existsSync);
@@ -46,6 +46,7 @@ test("all internal page links and fragments resolve in exported HTML", () => {
       if (!href.startsWith("/") && !href.startsWith("#")) continue;
       const target = new URL(href, `${origin}${route}`);
       assert.equal(target.origin, origin);
+      if (target.pathname === "/quako/") { assert.ok(existsSync("out/quako/index.html"), "Quako must be bundled"); continue; }
       assert.ok(routes.includes(target.pathname), `${route}: unlisted internal route ${href}`);
       const html = visibleHtml(page(target.pathname));
       if (target.hash) assert.ok(html.includes(`id="${decodeURIComponent(target.hash.slice(1))}"`), `${route}: missing fragment ${href}`);
@@ -53,10 +54,10 @@ test("all internal page links and fragments resolve in exported HTML", () => {
   }
 });
 
-test("homepage exposes business and research without personal identity", () => {
+test("homepage exposes our products and business without internal projects", () => {
   const html = visibleHtml(page("/"));
-  for (const id of ["business", "research", "about", "software", "how-we-build"]) assert.equal([...html.matchAll(new RegExp(`id="${id}"`, "g"))].length, 1, id);
-  for (const route of ["/ai-in-practice", "/automation-in-practice", "/infrastructure-in-practice", "/equipment-warranty-research", "/harness"]) assert.ok(html.includes(`href="${route}"`));
+  for (const id of ["business", "planet", "about", "software", "how-we-build"]) assert.equal([...html.matchAll(new RegExp(`id="${id}"`, "g"))].length, 1, id);
+  for (const route of ["/ai-in-practice", "/automation-in-practice", "/infrastructure-in-practice", "/quako/"]) assert.ok(html.includes(`href="${route}"`));
   assert.ok(html.includes('href="https://aiko.zetbros.com"'));
   assert.ok(html.includes('aria-haspopup="dialog"'));
   assert.doesNotMatch(html, /id="contact"/);
@@ -66,7 +67,8 @@ test("homepage exposes business and research without personal identity", () => {
   const footer = html.match(/<footer\b[^>]*>[\s\S]*?<\/footer>/)?.[0];
   assert.ok(footer);
   assert.deepEqual([...footer.matchAll(/href="([^"]*)"/g)].map(match => match[1]), ["/#top", "/privacy", "/terms"]);
-  assert.ok(html.includes("Production in progress"));
+  assert.ok(html.includes("Quako"));
+  assert.doesNotMatch(html, /Harness|equipment warranty|research pilot/i);
 });
 
 test("external website links open safely in a new tab", () => {
@@ -100,18 +102,18 @@ test("Japan partner section offers company registration for review", () => {
   assert.ok(partners.includes("Projects depend on client needs, fit and availability"));
 });
 
-test("research is an enquiry, not a live claim portal", () => {
-  const html = visibleHtml(page("/equipment-warranty-research"));
-  assert.ok(html.includes("Research validation"));
-  assert.ok(html.includes("not a released product"));
-  assert.ok(html.includes("No OEM portal passwords"));
-  assert.ok(html.includes("No autonomous claim submission"));
-  assert.ok(html.includes("No recovery guarantee"));
-  assert.doesNotMatch(html, /id="data-handling"/);
-  assert.doesNotMatch(html, /id="conversation"/);
-  assert.ok(html.includes('aria-haspopup="dialog"'));
-  assert.doesNotMatch(html, /<form\b/i);
-  assert.doesNotMatch(html, /<input\b[^>]*type="file"/i);
+test("Quako is bundled as a real standalone application with scoped assets", () => {
+  const html = readFileSync("out/quako/index.html", "utf8");
+  assert.ok(html.includes("Quako"));
+  assert.match(html, /\/quako\/assets\/index-[^"]+\.js/);
+  assert.match(html, /\/quako\/assets\/index-[^"]+\.css/);
+  for (const file of ["earth-cinematic-night.jpg", "tectonic-boundaries.json", "favicon.svg"])
+    assert.ok(existsSync("out/quako/" + file), file);
+  const source = readFileSync("quako/src/data.js", "utf8");
+  assert.ok(source.includes("4.5_month.geojson"), "30-day significant events should be available");
+  const home = visibleHtml(page("/"));
+  assert.ok(home.includes('href="/quako/"'));
+  assert.doesNotMatch(home, /href="\/(harness|equipment-warranty-research)"/);
 });
 
 test("project patterns are not presented as customer case studies", () => {
@@ -126,7 +128,7 @@ test("project patterns are not presented as customer case studies", () => {
 test("robots and sitemap cover exactly the public routes", () => {
   const sitemap = readFileSync("out/sitemap.xml", "utf8");
   const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(match => new URL(match[1]).href).sort();
-  assert.deepEqual(urls, routes.map(route => new URL(route, origin).href).sort());
+  assert.deepEqual(urls, [...routes, "/quako/"].map(route => new URL(route, origin).href).sort());
   const robots = readFileSync("out/robots.txt", "utf8");
   assert.ok(robots.includes(`Sitemap: ${origin}/sitemap.xml`));
   assert.ok(robots.includes("Disallow: /api/"));

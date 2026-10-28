@@ -2,7 +2,7 @@
 
 The website runs on the `zetbros` Cloudflare Worker with static assets built by Next.js. Contact submissions are emailed to `support@zetbros.com` through the existing SpaceMail SMTP account and archived in Cloudflare D1 (`zetbros-contact`). This website no longer requires Vercel or Supabase at runtime.
 
-The homepage retains the original logo, SVG icon artwork, page layout, and `RevealBoxText` / `ScrollRevealMotion` animations. Its content describes products for people and society, links to AIKO, and marks Harness as production in progress. All page and section backgrounds are white. Contact controls open one shared dialog over a blurred page, and the equipment warranty research page has no dark data-handling block.
+The homepage keeps Zetbros branding, links to AIKO and highlights Quako with a live USGS showcase. Quako is served at /quako/ in the same Worker. The retired Harness and equipment-warranty research pages return HTTP 410. Existing email and D1 contact infrastructure is preserved.
 
 ## Develop and verify
 
@@ -14,7 +14,7 @@ npx wrangler d1 migrations apply zetbros-contact --local
 npm run preview
 ```
 
-`next dev` previews the frontend only. Use Wrangler for the contact API and local D1 together. For local email delivery, put `SMTP_USERNAME` and `SMTP_PASSWORD` in an ignored `.dev.vars` file. Production uses Worker secrets of the same names. Production database IDs in `wrangler.jsonc` are resource identifiers, not credentials. Never commit mail credentials, Cloudflare API tokens or exported enquiry data.
+Next dev previews the Zetbros homepage. The production build also installs and bundles Quako into out/quako with a /quako/ URL base.
 
 ## Deploy
 
@@ -39,4 +39,4 @@ AIKO is a separate application at `aiko.zetbros.com`. Its hosting, database, aut
 
 ## Validation
 
-The production build, Worker API tests, public route checks, canonical-domain redirect, write-only contact endpoint, and original logo hash comparison are part of the deployment verification. Check the shared contact dialog on desktop and mobile, including the blurred backdrop, form fields, and research subject. The Next.js dependency tree may report build-time PostCSS advisories; this deployment serves static output and does not run the Next.js server or accept user CSS.
+The production build, Worker API tests, public route checks, canonical-domain redirect, write-only contact endpoint, and original logo hash comparison are part of the deployment verification. Check the shared contact dialog on desktop and mobile, including the blurred backdrop and form fields. Verify the Quako globe, USGS feed, mobile layout and return navigation. The Next.js dependency tree may report build-time PostCSS advisories; this deployment serves static output and does not run the Next.js server or accept user CSS.

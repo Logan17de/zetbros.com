@@ -115,5 +115,21 @@ test("rate limit, oversize body, and honeypot do not send mail", async () => {
 test("API is write-only and website pages use assets", async () => {
   const { worker, env } = environment();
   assert.equal((await worker.fetch(new Request("https://zetbros.com/api/contact"), env)).status, 405);
-  assert.equal(await (await worker.fetch(new Request("https://zetbros.com/harness"), env)).text(), "asset");
+  assert.equal(await (await worker.fetch(new Request("https://zetbros.com/ai-in-practice"), env)).text(), "asset");
+});
+
+
+test("retired internal pages return 410 and Quako has a canonical trailing slash", async () => {
+  const {worker,env}=environment();
+  for(const url of ["https://zetbros.com/harness","https://zetbros.com/equipment-warranty-research"]){
+    const res=await worker.fetch(new Request(url),env);
+    assert.equal(res.status,410);
+    assert.equal(res.headers.get("X-Robots-Tag"),"noindex");
+  }
+  const redirect=await worker.fetch(new Request("https://zetbros.com/quako"),env);
+  assert.equal(redirect.status,308);
+  assert.equal(redirect.headers.get("Location"),"https://zetbros.com/quako/");
+  const app=await worker.fetch(new Request("https://zetbros.com/quako/"),env);
+  assert.equal(app.status,200);
+  assert.equal(await app.text(),"asset");
 });
